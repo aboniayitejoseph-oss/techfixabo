@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+<<<<<<< HEAD
 
 <head>
     <meta charset="UTF-8">
@@ -141,3 +142,330 @@
 </body>
 
 </html>
+=======
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TechFix — Réparation Informatique</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo">Tech<span>Fix</span> <span class="logo-dot"></span></a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#tarifs">Tarifs</a></li>
+      <li><a href="#gallery">Galerie</a></li>
+      <li><a href="#contact" class="btn-urgence">Urgence</a></li>
+    </ul>
+    <button class="hamburger" id="ham" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#services" class="mob-link">Services</a>
+    <a href="#tarifs"   class="mob-link">Tarifs</a>
+    <a href="#gallery"  class="mob-link">Galerie</a>
+    <a href="#contact"  class="btn-urgence mob-link">Urgence</a>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<header class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="hero-badge-dot"></span>
+      Intervention rapide disponible
+    </div>
+    <h2>
+      Réparation &amp; Maintenance<br><em>Informatique Pro</em>
+    </h2>
+    <p>Nous redonnons vie à vos ordinateurs, sécurisons vos réseaux et protégeons vos données. Intervention sur site ou en atelier.</p>
+    <div class="hero-cta-group" style="display:flex;flex-wrap:wrap;justify-content:center;gap:.8rem;">
+      <a href="#contact" class="hero-cta">
+        <i class="fas fa-file-alt"></i> Devis gratuit
+      </a>
+      <a href="#services" class="hero-cta-secondary">
+        <i class="fas fa-arrow-down"></i> Voir les services
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-value">500<span>+</span></div>
+        <div class="stat-label">Clients satisfaits</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">48<span>h</span></div>
+        <div class="stat-label">Délai moyen</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">98<span>%</span></div>
+        <div class="stat-label">Taux de réussite</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="divider"></div>
+
+<!-- ── SERVICES ── -->
+<section id="services" class="section">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">Nos Expertises</div>
+      <h3 class="section-title">Ce que nous faisons</h3>
+      <p class="section-sub">Des solutions adaptées pour particuliers et professionnels, avec garantie sur chaque intervention.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-icon-wrap"><i class="fas fa-laptop-medical"></i></div>
+        <h4>Depannage PC / Mac</h4>
+        <p>Ecran casse, lenteurs, virus, problemes de demarrage. Diagnostic complet offert.</p>
+        <div class="service-arrow"><i class="fas fa-arrow-right"></i></div>
+      </div>
+      <div class="service-card reveal" style="transition-delay:.1s">
+        <div class="service-icon-wrap"><i class="fas fa-network-wired"></i></div>
+        <h4>Installation Reseau</h4>
+        <p>Configuration Wi-Fi, serveurs, NAS et maintenance de parcs informatiques.</p>
+        <div class="service-arrow"><i class="fas fa-arrow-right"></i></div>
+      </div>
+      <div class="service-card reveal" style="transition-delay:.2s">
+        <div class="service-icon-wrap"><i class="fas fa-shield-alt"></i></div>
+        <h4>Securite &amp; Sauvegarde</h4>
+        <p>Protection contre les cyberattaques, cryptage et recuperation de donnees.</p>
+        <div class="service-arrow"><i class="fas fa-arrow-right"></i></div>
+      </div>
+      <div class="service-card reveal" style="transition-delay:.3s">
+        <div class="service-icon-wrap"><i class="fas fa-hdd"></i></div>
+        <h4>Recuperation de Donnees</h4>
+        <p>Disques durs corrompus, fichiers supprimes ou partitions perdues.</p>
+        <div class="service-arrow"><i class="fas fa-arrow-right"></i></div>
+      </div>
+      <div class="service-card reveal" style="transition-delay:.4s">
+        <div class="service-icon-wrap"><i class="fas fa-tools"></i></div>
+        <h4>Mise a Niveau Hardware</h4>
+        <p>Remplacement de composants, upgrade RAM, SSD et refroidissement.</p>
+        <div class="service-arrow"><i class="fas fa-arrow-right"></i></div>
+      </div>
+      <div class="service-card reveal" style="transition-delay:.5s">
+        <div class="service-icon-wrap"><i class="fas fa-headset"></i></div>
+        <h4>Assistance a Distance</h4>
+        <p>Telemaintenance rapide via prise en main a distance securisee.</p>
+        <div class="service-arrow"><i class="fas fa-arrow-right"></i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── GALLERY ── -->
+<section id="gallery" class="section">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">Notre Atelier</div>
+      <h3 class="section-title">En images</h3>
+      <p class="section-sub">Un apercu de notre equipement et de nos interventions.</p>
+    </div>
+    <div class="gallery-grid reveal">
+      <div class="gallery-item"><img src="./images (1).jpg" alt="Carte mere"/></div>
+      <div class="gallery-item"><img src="./images (2).jpg" alt="Unite centrale"/></div>
+      <div class="gallery-item"><img src="./images (4).jpg" alt="Piece logique"/></div>
+      <div class="gallery-item"><img src="./images (3).jpg" alt="Ouverture logique"/></div>
+      <div class="gallery-item"><img src="./images (5).jpg" alt="Carte graphique"/></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── TARIFS ── -->
+<section id="tarifs" class="section" style="background:var(--navy2)">
+  <div class="section-inner">
+    <div class="reveal" style="text-align:center">
+      <div class="section-label" style="justify-content:center">Transparence</div>
+      <h3 class="section-title">Nos Tarifs</h3>
+      <p class="section-sub" style="margin:0 auto 3.5rem">Sans surprise, sans frais caches. Devis gratuit avant toute intervention.</p>
+    </div>
+    <div class="tarifs-grid">
+      <div class="tarif-card reveal">
+        <div class="tarif-icon"><i class="fas fa-wrench"></i></div>
+        <h4>Depannage Basique</h4>
+        <div class="tarif-price"><span class="from">A partir de</span><sup>EUR</sup>50</div>
+        <ul class="tarif-list">
+          <li><i class="fas fa-check-circle"></i> Diagnostic complet</li>
+          <li><i class="fas fa-check-circle"></i> Suppression virus</li>
+          <li><i class="fas fa-check-circle"></i> Optimisation systeme</li>
+          <li><i class="fas fa-check-circle"></i> Garantie 30 jours</li>
+        </ul>
+        <a href="#contact" class="btn-tarif btn-tarif-outline">Prendre RDV</a>
+      </div>
+      <div class="tarif-card featured reveal" style="transition-delay:.1s">
+        <div class="tarif-icon"><i class="fas fa-network-wired"></i></div>
+        <h4>Installation Reseau</h4>
+        <div class="tarif-price"><span class="from">A partir de</span><sup>EUR</sup>100</div>
+        <ul class="tarif-list">
+          <li><i class="fas fa-check-circle"></i> Etude du site</li>
+          <li><i class="fas fa-check-circle"></i> Configuration complete</li>
+          <li><i class="fas fa-check-circle"></i> Securisation acces</li>
+          <li><i class="fas fa-check-circle"></i> Support 3 mois</li>
+        </ul>
+        <a href="#contact" class="btn-tarif btn-tarif-solid">Prendre RDV</a>
+      </div>
+      <div class="tarif-card reveal" style="transition-delay:.2s">
+        <div class="tarif-icon"><i class="fas fa-shield-alt"></i></div>
+        <h4>Securite Complete</h4>
+        <div class="tarif-price"><span class="from">A partir de</span><sup>EUR</sup>150</div>
+        <ul class="tarif-list">
+          <li><i class="fas fa-check-circle"></i> Audit de securite</li>
+          <li><i class="fas fa-check-circle"></i> Antivirus professionnel</li>
+          <li><i class="fas fa-check-circle"></i> Sauvegarde cloud</li>
+          <li><i class="fas fa-check-circle"></i> Suivi mensuel</li>
+        </ul>
+        <a href="#contact" class="btn-tarif btn-tarif-outline">Prendre RDV</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── CONTACT ── -->
+<section id="contact" class="section">
+  <div class="section-inner">
+    <div class="contact-wrapper">
+      <div class="reveal">
+        <div class="section-label">Contact</div>
+        <h3 class="section-title">Parlons de votre probleme</h3>
+        <p style="color:var(--muted);font-size:.95rem;line-height:1.7;margin-bottom:2.5rem">
+          Remplissez le formulaire ou utilisez nos coordonnees directes. Reponse garantie sous 2h en jours ouvres.
+        </p>
+
+        <div class="contact-info-item">
+          <div class="contact-info-icon"><i class="fas fa-clock"></i></div>
+          <div class="contact-info-text">
+            <strong>Horaires</strong>
+            <span>Lundi - Samedi, 8h - 18h</span>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon"><i class="fas fa-phone"></i></div>
+          <div class="contact-info-text">
+            <strong>Telephone</strong>
+            <span>+22891893078</span>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon"><i class="fas fa-envelope"></i></div>
+          <div class="contact-info-text">
+            <strong>Email</strong>
+            <span>aboniayijoseph@gmail.com</span>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div class="contact-info-text">
+            <strong>Zone d'intervention</strong>
+            <span>LOME &amp; TOGO</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-box reveal">
+        <h4 style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.2rem;color:#fff;margin-bottom:1.8rem">Contactez un Technicien</h4>
+        <form id="contactForm">
+          <div class="form-group">
+            <label for="nom">Nom complet</label>
+            <input type="text" id="nom" placeholder="Ex: Jean Dupont" required/>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="jean@exemple.fr" required/>
+          </div>
+          <div class="form-group">
+            <label for="type">Type de panne</label>
+            <select id="type" required>
+              <option value="">Selectionnez</option>
+              <option>Logiciel / Virus</option>
+              <option>Materiel / Casse</option>
+              <option>Reseau / Internet</option>
+              <option>Securite / Sauvegarde</option>
+              <option>Autre</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Description</label>
+            <textarea id="message" placeholder="Decrivez votre probleme en detail..." required></textarea>
+          </div>
+          <button type="submit" class="btn-submit">
+            <i class="fas fa-paper-plane"></i> Envoyer le message
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-logo">Tech<span style="color:var(--blue-lt)">Fix</span></div>
+  <p>&copy; 2026 TechFix Maintenance. Tous droits reserves.</p>
+  <p class="footer-avail">Disponible du Lundi au Samedi, 8h - 18h &mdash; Intervention rapide sur devis</p>
+</footer>
+
+<!-- ── TOAST ── -->
+<div class="toast" id="toast">
+  <i class="fas fa-check-circle"></i>
+  Message envoye ! Nous vous repondrons sous 2h.
+</div>
+
+<script>
+  // Hamburger
+  const ham = document.getElementById('ham');
+  const menu = document.getElementById('mobileMenu');
+  ham.addEventListener('click', () => {
+    ham.classList.toggle('open');
+    menu.classList.toggle('open');
+  });
+
+  // Close mobile menu on link click
+  document.querySelectorAll('.mob-link').forEach(link => {
+    link.addEventListener('click', () => {
+      ham.classList.remove('open');
+      menu.classList.remove('open');
+    });
+  });
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => observer.observe(el));
+
+  // Form submit
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const toast = document.getElementById('toast');
+    toast.classList.add('show');
+    this.reset();
+    setTimeout(() => toast.classList.remove('show'), 4000);
+  });
+</script>
+</body>
+</html>
+>>>>>>> e0e0dff (update)
