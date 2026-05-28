@@ -1,0 +1,1758 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechNetwork Academy — Apprends, Code, Excelle</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = { theme: { extend: { fontFamily: { heading: ['Space Grotesk', 'sans-serif'], body: ['DM Sans', 'sans-serif'] } } } }
+    </script>
+    <style>
+        :root {
+            --bg: #070b14;
+            --bg2: #0d1424;
+            --card: rgba(13, 20, 36, 0.75);
+            --glass: rgba(13, 20, 36, 0.55);
+            --tx: #f1f5f9;
+            --tx2: #94a3b8;
+            --txm: #64748b;
+            --cyan: #06b6d4;
+            --violet: #8b5cf6;
+            --border: rgba(148, 163, 184, 0.08)
+        }
+
+        [data-theme="light"] {
+            --bg: #f0f4f8;
+            --bg2: #fff;
+            --card: rgba(255, 255, 255, 0.85);
+            --glass: rgba(255, 255, 255, 0.6);
+            --tx: #0f172a;
+            --tx2: #475569;
+            --txm: #94a3b8;
+            --border: rgba(15, 23, 42, 0.08)
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg);
+            color: var(--tx);
+            overflow-x: hidden;
+            min-height: 100vh
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Space Grotesk', sans-serif
+        }
+
+        ::-webkit-scrollbar {
+            width: 5px
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg)
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--cyan);
+            border-radius: 3px
+        }
+
+        .glass {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border)
+        }
+
+        .glass2 {
+            background: var(--card);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid var(--border)
+        }
+
+        .gt {
+            background: linear-gradient(135deg, #06b6d4, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text
+        }
+
+        .gb {
+            background: linear-gradient(135deg, #06b6d4, #8b5cf6)
+        }
+
+        @keyframes fl {
+
+            0%,
+            100% {
+                transform: translateY(0)
+            }
+
+            50% {
+                transform: translateY(-18px)
+            }
+        }
+
+        @keyframes su {
+            from {
+                opacity: 0;
+                transform: translateY(35px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        @keyframes si {
+            from {
+                opacity: 0;
+                transform: translateX(-25px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0)
+            }
+        }
+
+        @keyframes fi {
+            from {
+                opacity: 0
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        @keyframes rot {
+            from {
+                transform: rotate(0)
+            }
+
+            to {
+                transform: rotate(360deg)
+            }
+        }
+
+        @keyframes pg {
+
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(6, 182, 212, .3), 0 0 40px rgba(139, 92, 246, .2)
+            }
+
+            50% {
+                box-shadow: 0 0 35px rgba(6, 182, 212, .5), 0 0 60px rgba(139, 92, 246, .35)
+            }
+        }
+
+        @keyframes pf {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 0
+            }
+
+            10% {
+                opacity: .7
+            }
+
+            90% {
+                opacity: .7
+            }
+
+            100% {
+                transform: translateY(-100vh) translateX(40px);
+                opacity: 0
+            }
+        }
+
+        @keyframes gm {
+            0% {
+                transform: translateY(0)
+            }
+
+            100% {
+                transform: translateY(50px)
+            }
+        }
+
+        .af {
+            animation: fl 6s ease-in-out infinite
+        }
+
+        .asu {
+            animation: su .7s ease-out forwards
+        }
+
+        .asi {
+            animation: si .5s ease-out forwards
+        }
+
+        .afi {
+            animation: fi .4s ease-out
+        }
+
+        .apg {
+            animation: pg 3s ease-in-out infinite
+        }
+
+        .bg-grid {
+            background-image: linear-gradient(rgba(6, 182, 212, .025)1px, transparent 1px), linear-gradient(90deg, rgba(6, 182, 212, .025)1px, transparent 1px);
+            background-size: 60px 60px;
+            animation: gm 20s linear infinite
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            animation: pf linear infinite;
+            opacity: 0;
+            pointer-events: none
+        }
+
+        .nav-link {
+            position: relative;
+            padding: .5rem 0;
+            color: var(--tx2);
+            transition: color .3s;
+            font-weight: 500;
+            font-size: .875rem
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #06b6d4, #8b5cf6);
+            transition: width .3s
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--tx)
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%
+        }
+
+        .course-card {
+            background: var(--card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all .4s cubic-bezier(.4, 0, .2, 1);
+            position: relative
+        }
+
+        .course-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(6, 182, 212, .12), 0 8px 20px rgba(139, 92, 246, .08);
+            border-color: rgba(6, 182, 212, .25)
+        }
+
+        .btn-p {
+            background: linear-gradient(135deg, #06b6d4, #8b5cf6);
+            color: #fff;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all .3s;
+            position: relative;
+            overflow: hidden;
+            font-family: 'DM Sans', sans-serif;
+            font-size: .875rem
+        }
+
+        .btn-p::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .18), transparent);
+            transition: left .5s
+        }
+
+        .btn-p:hover::before {
+            left: 100%
+        }
+
+        .btn-p:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(6, 182, 212, .35)
+        }
+
+        .btn-s {
+            background: transparent;
+            color: var(--tx);
+            border: 1px solid var(--border);
+            padding: 12px 28px;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all .3s;
+            font-family: 'DM Sans', sans-serif;
+            font-size: .875rem
+        }
+
+        .btn-s:hover {
+            border-color: #06b6d4;
+            box-shadow: 0 0 20px rgba(6, 182, 212, .15)
+        }
+
+        .inp {
+            background: rgba(13, 20, 36, .5);
+            border: 1px solid var(--border);
+            color: var(--tx);
+            padding: 12px 16px;
+            border-radius: 12px;
+            width: 100%;
+            transition: all .3s;
+            font-family: 'DM Sans', sans-serif;
+            font-size: .875rem
+        }
+
+        [data-theme="light"] .inp {
+            background: rgba(241, 245, 249, .8)
+        }
+
+        .inp:focus {
+            outline: none;
+            border-color: #06b6d4;
+            box-shadow: 0 0 0 3px rgba(6, 182, 212, .12)
+        }
+
+        .inp::placeholder {
+            color: var(--txm)
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600
+        }
+
+        .b-cyan {
+            background: rgba(6, 182, 212, .12);
+            color: #22d3ee
+        }
+
+        .b-viol {
+            background: rgba(139, 92, 246, .12);
+            color: #a78bfa
+        }
+
+        .b-green {
+            background: rgba(34, 197, 94, .12);
+            color: #4ade80
+        }
+
+        .b-ora {
+            background: rgba(249, 115, 22, .12);
+            color: #fb923c
+        }
+
+        .b-red {
+            background: rgba(239, 68, 68, .12);
+            color: #f87171
+        }
+
+        .pbar {
+            background: rgba(148, 163, 184, .08);
+            border-radius: 10px;
+            overflow: hidden;
+            height: 8px
+        }
+
+        .pfill {
+            height: 100%;
+            background: linear-gradient(90deg, #06b6d4, #8b5cf6);
+            border-radius: 10px;
+            transition: width 1s ease-out
+        }
+
+        .toast-c {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            z-index: 10000;
+            display: flex;
+            flex-direction: column;
+            gap: 10px
+        }
+
+        .toast {
+            padding: 14px 20px;
+            border-radius: 12px;
+            color: #fff;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            animation: si .4s ease-out;
+            min-width: 280px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, .3);
+            font-size: .875rem
+        }
+
+        .t-ok {
+            background: linear-gradient(135deg, #059669, #10b981)
+        }
+
+        .t-err {
+            background: linear-gradient(135deg, #dc2626, #ef4444)
+        }
+
+        .t-info {
+            background: linear-gradient(135deg, #0891b2, #06b6d4)
+        }
+
+        .stitle {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.25rem;
+            font-weight: 700;
+            line-height: 1.1
+        }
+
+        @media(max-width:768px) {
+            .stitle {
+                font-size: 1.6rem
+            }
+        }
+
+        .psec {
+            display: none;
+            min-height: calc(100vh - 72px);
+            position: relative;
+            z-index: 1
+        }
+
+        .psec.active {
+            display: block
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(90px);
+            pointer-events: none;
+            z-index: 0
+        }
+
+        .tab-b {
+            padding: 8px 18px;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all .3s;
+            color: var(--tx2);
+            background: transparent;
+            border: 1px solid transparent;
+            font-family: 'DM Sans', sans-serif;
+            font-size: .8rem
+        }
+
+        .tab-b.active,
+        .tab-b:hover {
+            color: #fff;
+            background: linear-gradient(135deg, rgba(6, 182, 212, .15), rgba(139, 92, 246, .15));
+            border-color: rgba(6, 182, 212, .25)
+        }
+
+        .qopt {
+            padding: 14px 20px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            cursor: pointer;
+            transition: all .3s;
+            background: var(--card)
+        }
+
+        .qopt:hover {
+            border-color: #06b6d4;
+            background: rgba(6, 182, 212, .04)
+        }
+
+        .qopt.sel {
+            border-color: #06b6d4;
+            background: rgba(6, 182, 212, .08)
+        }
+
+        .qopt.ok {
+            border-color: #22c55e;
+            background: rgba(34, 197, 94, .08)
+        }
+
+        .qopt.no {
+            border-color: #ef4444;
+            background: rgba(239, 68, 68, .08)
+        }
+
+        .cbub {
+            max-width: 75%;
+            padding: 10px 16px;
+            border-radius: 16px;
+            font-size: .8rem;
+            line-height: 1.5
+        }
+
+        .cbub.sent {
+            background: linear-gradient(135deg, #06b6d4, #8b5cf6);
+            color: #fff;
+            border-bottom-right-radius: 4px;
+            margin-left: auto
+        }
+
+        .cbub.recv {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-bottom-left-radius: 4px
+        }
+
+        .scard {
+            background: var(--card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            transition: all .3s
+        }
+
+        .scard:hover {
+            transform: translateY(-4px);
+            border-color: rgba(6, 182, 212, .2)
+        }
+
+        .cicon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            transition: all .3s
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all .8s cubic-bezier(.4, 0, .2, 1)
+        }
+
+        .reveal.vis {
+            opacity: 1;
+            transform: translateY(0)
+        }
+
+        .sr {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            max-height: 300px;
+            overflow-y: auto;
+            border-radius: 12px;
+            z-index: 100;
+            display: none
+        }
+
+        .sr.show {
+            display: block
+        }
+
+        .citem {
+            padding: 16px;
+            border-radius: 12px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            transition: all .3s
+        }
+
+        .citem:hover {
+            border-color: rgba(6, 182, 212, .15)
+        }
+
+        .modal-o {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, .6);
+            backdrop-filter: blur(8px);
+            z-index: 9998;
+            display: none;
+            align-items: center;
+            justify-content: center
+        }
+
+        .modal-o.show {
+            display: flex
+        }
+
+        .mmenu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(7, 11, 20, .96);
+            backdrop-filter: blur(20px);
+            z-index: 9999;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 24px
+        }
+
+        .mmenu.show {
+            display: flex
+        }
+
+        .ndd {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            width: 340px;
+            max-height: 380px;
+            overflow-y: auto;
+            border-radius: 16px;
+            z-index: 1000;
+            display: none
+        }
+
+        .ndd.show {
+            display: block
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: .01ms !important;
+                transition-duration: .01ms !important
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-grid">
+
+    <!-- Particules -->
+    <div id="particles"
+        style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;overflow:hidden"></div>
+    <!-- Toasts -->
+    <div class="toast-c" id="toastC"></div>
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="glass fixed top-0 left-0 w-full z-50 transition-all" id="mainNav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="#" onclick="nav('home')" class="flex items-center gap-3 group">
+                    <div
+                        class="w-9 h-9 rounded-xl gb flex items-center justify-center transition-transform group-hover:scale-110">
+                        <i class="fas fa-network-wired text-white"></i></div>
+                    <span class="font-heading font-bold text-lg gt hidden sm:inline">TechNetwork</span>
+                </a>
+                <div class="hidden lg:flex items-center gap-7">
+                    <a href="#" onclick="nav('home')" class="nav-link active" data-n="home">Accueil</a>
+                    <a href="#" onclick="nav('courses')" class="nav-link" data-n="courses">Cours</a>
+                    <a href="#" onclick="nav('quiz')" class="nav-link" data-n="quiz">Quiz</a>
+                    <a href="#" onclick="nav('community')" class="nav-link" data-n="community">Communaute</a>
+                    <a href="#" onclick="nav('dashboard')" class="nav-link" data-n="dashboard">Tableau de bord</a>
+                </div>
+                <div class="flex items-center gap-2">
+                    <div class="relative hidden md:block">
+                        <input type="text" id="sI" placeholder="Rechercher un cours..."
+                            class="inp pl-9 pr-4 py-2 text-sm w-56 rounded-xl" oninput="doSearch(this.value)">
+                        <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-xs"
+                            style="color:var(--txm)"></i>
+                        <div class="sr glass2" id="sR"></div>
+                    </div>
+                    <button onclick="togTheme()"
+                        class="w-9 h-9 rounded-xl flex items-center justify-center transition-all hover:scale-110"
+                        style="background:var(--card);border:1px solid var(--border)" aria-label="Theme"><i
+                            class="fas fa-moon" id="tI" style="color:var(--tx2)"></i></button>
+                    <div class="relative" id="nW">
+                        <button onclick="togNotif()"
+                            class="w-9 h-9 rounded-xl flex items-center justify-center transition-all hover:scale-110 relative"
+                            style="background:var(--card);border:1px solid var(--border)" aria-label="Notifs"><i
+                                class="fas fa-bell" style="color:var(--tx2)"></i><span
+                                class="absolute -top-1 -right-1 w-4 h-4 rounded-full gb text-white text-[9px] flex items-center justify-center font-bold"
+                                id="nB">3</span></button>
+                        <div class="ndd glass2" id="nD">
+                            <div class="p-4 border-b" style="border-color:var(--border)">
+                                <h4 class="font-heading font-bold text-sm">Notifications</h4>
+                            </div>
+                            <div id="nL" class="p-2"></div>
+                        </div>
+                    </div>
+                    <div id="aBtn" class="flex items-center gap-2"><button onclick="nav('login')"
+                            class="btn-s text-xs py-2 px-3">Connexion</button><button onclick="nav('register')"
+                            class="btn-p text-xs py-2 px-3">S'inscrire</button></div>
+                    <div id="uProf" class="hidden items-center gap-3 cursor-pointer" onclick="nav('dashboard')"><img
+                            id="nA" src="https://i.pravatar.cc/40?img=11"
+                            class="w-8 h-8 rounded-full border-2 border-cyan-500 object-cover" alt=""><span id="nU"
+                            class="font-medium text-sm hidden md:inline"></span></div>
+                    <button onclick="togMM()" class="lg:hidden w-9 h-9 rounded-xl flex items-center justify-center"
+                        style="background:var(--card);border:1px solid var(--border)" aria-label="Menu"><i
+                            class="fas fa-bars" style="color:var(--tx2)"></i></button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Menu mobile -->
+    <div class="mmenu" id="mM">
+        <button onclick="togMM()" class="absolute top-5 right-5 w-9 h-9 rounded-xl flex items-center justify-center"
+            style="background:var(--card)" aria-label="Fermer"><i class="fas fa-times text-lg"></i></button>
+        <a href="#" onclick="nav('home');togMM()" class="text-xl font-heading font-bold">Accueil</a>
+        <a href="#" onclick="nav('courses');togMM()" class="text-xl font-heading font-bold">Cours</a>
+        <a href="#" onclick="nav('quiz');togMM()" class="text-xl font-heading font-bold">Quiz</a>
+        <a href="#" onclick="nav('community');togMM()" class="text-xl font-heading font-bold">Communaute</a>
+        <a href="#" onclick="nav('dashboard');togMM()" class="text-xl font-heading font-bold">Tableau de bord</a>
+    </div>
+
+    <!-- ===== PAGE ACCUEIL ===== -->
+    <section class="psec active" id="p-home">
+        <div class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+            <div class="orb"
+                style="width:380px;height:380px;top:-60px;left:-80px;background:rgba(6,182,212,.12);animation:fl 8s ease-in-out infinite">
+            </div>
+            <div class="orb"
+                style="width:300px;height:300px;top:30%;right:-60px;background:rgba(139,92,246,.1);animation:fl 10s ease-in-out infinite 2s">
+            </div>
+            <div class="orb"
+                style="width:250px;height:250px;bottom:5%;left:30%;background:rgba(6,182,212,.08);animation:fl 12s ease-in-out infinite 4s">
+            </div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="asu">
+                        <div class="inline-flex items-center gap-2 b-cyan badge mb-5"><i
+                                class="fas fa-rocket"></i><span>Plateforme #1 en informatique</span></div>
+                        <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">Apprends
+                            la Tech.<br><span class="gt">Construis l'Avenir.</span></h1>
+                        <p class="text-base mb-8 max-w-lg" style="color:var(--tx2)">Des cours en reseau, programmation,
+                            cybersecuritye et intelligence artificielle. Rejoins une communaute de passionnes et
+                            transforme ta carriere.</p>
+                        <div class="flex flex-wrap gap-4 mb-10">
+                            <button onclick="nav('courses')" class="btn-p text-base py-3 px-8"><i
+                                    class="fas fa-play mr-2"></i>Commencer</button>
+                            <button onclick="nav('register')" class="btn-s text-base py-3 px-8">S'inscrire
+                                gratuitement</button>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="flex -space-x-2">
+                                <img src="https://i.pravatar.cc/40?img=11"
+                                    class="w-9 h-9 rounded-full border-2 object-cover" style="border-color:var(--bg)"
+                                    alt="">
+                                <img src="https://i.pravatar.cc/40?img=32"
+                                    class="w-9 h-9 rounded-full border-2 object-cover" style="border-color:var(--bg)"
+                                    alt="">
+                                <img src="https://i.pravatar.cc/40?img=47"
+                                    class="w-9 h-9 rounded-full border-2 object-cover" style="border-color:var(--bg)"
+                                    alt="">
+                                <img src="https://i.pravatar.cc/40?img=5"
+                                    class="w-9 h-9 rounded-full border-2 object-cover" style="border-color:var(--bg)"
+                                    alt="">
+                            </div>
+                            <div>
+                                <p class="font-bold text-sm">12 500+ etudiants</p>
+                                <p class="text-xs" style="color:var(--txm)">nous font confiance</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Illustration -->
+                    <div class="relative af hidden lg:block">
+                        <div class="relative w-full aspect-square max-w-lg mx-auto">
+                            <div class="absolute inset-0 rounded-full border-2 border-dashed opacity-15"
+                                style="border-color:var(--cyan);animation:rot 30s linear infinite"></div>
+                            <div class="absolute inset-8 rounded-full border-2 border-dashed opacity-10"
+                                style="border-color:var(--violet);animation:rot 25s linear infinite reverse"></div>
+                            <div class="absolute top-6 left-1/2 -translate-x-1/2 glass2 rounded-2xl p-4 af"><img
+                                    src="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=80&h=80&fit=crop"
+                                    class="w-10 h-10 rounded-lg object-cover mb-1" alt="Python">
+                                <p class="text-[10px] font-bold">Python</p>
+                            </div>
+                            <div class="absolute top-1/3 right-2 glass2 rounded-2xl p-4 af" style="animation-delay:1s">
+                                <img src="https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=80&h=80&fit=crop"
+                                    class="w-10 h-10 rounded-lg object-cover mb-1" alt="JS">
+                                <p class="text-[10px] font-bold">JavaScript</p>
+                            </div>
+                            <div class="absolute bottom-1/3 right-6 glass2 rounded-2xl p-4 af"
+                                style="animation-delay:2s"><img
+                                    src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=80&h=80&fit=crop"
+                                    class="w-10 h-10 rounded-lg object-cover mb-1" alt="Sec">
+                                <p class="text-[10px] font-bold">Securite</p>
+                            </div>
+                            <div class="absolute bottom-1/3 left-6 glass2 rounded-2xl p-4 af"
+                                style="animation-delay:3s"><img
+                                    src="https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=80&h=80&fit=crop"
+                                    class="w-10 h-10 rounded-lg object-cover mb-1" alt="BDD">
+                                <p class="text-[10px] font-bold">BDD</p>
+                            </div>
+                            <div class="absolute top-1/3 left-2 glass2 rounded-2xl p-4 af" style="animation-delay:4s">
+                                <img src="https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=80&h=80&fit=crop"
+                                    class="w-10 h-10 rounded-lg object-cover mb-1" alt="Linux">
+                                <p class="text-[10px] font-bold">Linux</p>
+                            </div>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div class="w-28 h-28 rounded-full gb flex items-center justify-center apg"><i
+                                        class="fas fa-code text-4xl text-white"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Stats -->
+        <div class="py-16 relative z-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 reveal" id="statsRow"></div>
+            </div>
+        </div>
+        <!-- Catégories -->
+        <div class="py-16 relative z-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12 reveal">
+                    <h2 class="stitle mb-3">Explore nos <span class="gt">categories</span></h2>
+                    <p style="color:var(--tx2)" class="max-w-xl mx-auto">Des parcours complets pour chaque domaine de
+                        l'informatique.</p>
+                </div>
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 reveal" id="catGrid"></div>
+            </div>
+        </div>
+        <!-- Cours populaires -->
+        <div class="py-16 relative z-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between mb-12 reveal">
+                    <div>
+                        <h2 class="stitle mb-2">Cours <span class="gt">populaires</span></h2>
+                        <p style="color:var(--tx2)">Les formations les plus suivies</p>
+                    </div><button onclick="nav('courses')" class="btn-s text-sm py-2 px-5 hidden sm:block">Voir tout <i
+                            class="fas fa-arrow-right ml-1"></i></button>
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 reveal" id="popC"></div>
+            </div>
+        </div>
+        <!-- Pourquoi nous -->
+        <div class="py-16 relative z-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12 reveal">
+                    <h2 class="stitle mb-4">Pourquoi <span class="gt">TechNetwork</span> ?</h2>
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 reveal">
+                    <div class="glass2 rounded-2xl p-8 text-center transition-all hover:-translate-y-2">
+                        <div class="cicon gb text-white mx-auto mb-4"><i class="fas fa-graduation-cap"></i></div>
+                        <h3 class="font-heading font-bold text-lg mb-2">Certifications reconnues</h3>
+                        <p class="text-sm" style="color:var(--tx2)">Obtiens des certificats valides pour booster ta
+                            carriere.</p>
+                    </div>
+                    <div class="glass2 rounded-2xl p-8 text-center transition-all hover:-translate-y-2">
+                        <div class="cicon gb text-white mx-auto mb-4"><i class="fas fa-users"></i></div>
+                        <h3 class="font-heading font-bold text-lg mb-2">Communaute active</h3>
+                        <p class="text-sm" style="color:var(--tx2)">Echange avec des milliers de passionnes et des
+                            mentors experimentes.</p>
+                    </div>
+                    <div class="glass2 rounded-2xl p-8 text-center transition-all hover:-translate-y-2">
+                        <div class="cicon gb text-white mx-auto mb-4"><i class="fas fa-laptop-code"></i></div>
+                        <h3 class="font-heading font-bold text-lg mb-2">Exercices pratiques</h3>
+                        <p class="text-sm" style="color:var(--tx2)">Apprends en faisant avec des projets reels et des
+                            quiz interactifs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Témoignages -->
+        <div class="py-16 relative z-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12 reveal">
+                    <h2 class="stitle mb-4">Ce que disent nos <span class="gt">etudiants</span></h2>
+                </div>
+                <div class="grid md:grid-cols-3 gap-6 reveal" id="testimonials"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PAGE CONNEXION ===== -->
+    <section class="psec" id="p-login">
+        <div class="min-h-screen flex items-center justify-center pt-20 px-4 relative">
+            <div class="orb" style="width:280px;height:280px;top:15%;left:5%;background:rgba(6,182,212,.1)"></div>
+            <div class="orb" style="width:240px;height:240px;bottom:15%;right:5%;background:rgba(139,92,246,.1)"></div>
+            <div class="glass2 rounded-3xl p-8 sm:p-10 w-full max-w-md relative z-10 asu">
+                <div class="text-center mb-8">
+                    <div class="w-14 h-14 rounded-2xl gb flex items-center justify-center mx-auto mb-4"><i
+                            class="fas fa-sign-in-alt text-white text-xl"></i></div>
+                    <h2 class="font-heading font-bold text-2xl">Bon retour parmi nous</h2>
+                    <p class="text-sm mt-2" style="color:var(--tx2)">Connecte-toi pour acceder a tes cours</p>
+                </div>
+                <form onsubmit="doLogin(event)">
+                    <div class="mb-4"><label class="block text-sm font-medium mb-2" style="color:var(--tx2)">Adresse
+                            email</label>
+                        <div class="relative"><input type="email" id="lE" class="inp pl-10"
+                                placeholder="nom@exemple.com" required><i
+                                class="fas fa-envelope absolute left-3 top-1/2 -translate-y-1/2 text-xs"
+                                style="color:var(--txm)"></i></div>
+                    </div>
+                    <div class="mb-4"><label class="block text-sm font-medium mb-2" style="color:var(--tx2)">Mot de
+                            passe</label>
+                        <div class="relative"><input type="password" id="lP" class="inp pl-10 pr-10"
+                                placeholder="Ton mot de passe" required><i
+                                class="fas fa-lock absolute left-3 top-1/2 -translate-y-1/2 text-xs"
+                                style="color:var(--txm)"></i><button type="button" onclick="togPw('lP',this)"
+                                class="absolute right-3 top-1/2 -translate-y-1/2" style="color:var(--txm)"><i
+                                    class="fas fa-eye text-xs"></i></button></div>
+                    </div>
+                    <div class="flex items-center justify-between mb-6"><label
+                            class="flex items-center gap-2 cursor-pointer text-sm" style="color:var(--tx2)"><input
+                                type="checkbox" class="rounded accent-cyan-500"> Se souvenir</label><a href="#"
+                            class="text-sm font-medium" style="color:var(--cyan)">Mot de passe oublie ?</a></div>
+                    <button type="submit" class="btn-p w-full py-3"><i class="fas fa-arrow-right mr-2"></i>Se
+                        connecter</button>
+                </form>
+                <div class="mt-6 text-center">
+                    <p class="text-sm" style="color:var(--tx2)">Pas encore de compte ? <a href="#"
+                            onclick="nav('register')" class="font-bold" style="color:var(--cyan)">S'inscrire</a></p>
+                </div>
+                <div class="mt-4 p-3 rounded-xl text-center"
+                    style="background:rgba(6,182,212,.04);border:1px dashed rgba(6,182,212,.15)">
+                    <p class="text-xs" style="color:var(--txm)">Admin: admin@technetwork.ai / admin123</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PAGE INSCRIPTION ===== -->
+    <section class="psec" id="p-register">
+        <div class="min-h-screen flex items-center justify-center pt-20 px-4 relative">
+            <div class="orb" style="width:280px;height:280px;top:15%;right:5%;background:rgba(139,92,246,.1)"></div>
+            <div class="orb" style="width:240px;height:240px;bottom:15%;left:5%;background:rgba(6,182,212,.1)"></div>
+            <div class="glass2 rounded-3xl p-8 sm:p-10 w-full max-w-md relative z-10 asu">
+                <div class="text-center mb-8">
+                    <div class="w-14 h-14 rounded-2xl gb flex items-center justify-center mx-auto mb-4"><i
+                            class="fas fa-user-plus text-white text-xl"></i></div>
+                    <h2 class="font-heading font-bold text-2xl">Rejoins la communaute</h2>
+                    <p class="text-sm mt-2" style="color:var(--tx2)">Cree ton compte et commence a apprendre</p>
+                </div>
+                <form onsubmit="doRegister(event)">
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                        <div><label class="block text-sm font-medium mb-2" style="color:var(--tx2)">Prenom</label><input
+                                type="text" id="rFN" class="inp" placeholder="Prenom" required></div>
+                        <div><label class="block text-sm font-medium mb-2" style="color:var(--tx2)">Nom</label><input
+                                type="text" id="rLN" class="inp" placeholder="Nom" required></div>
+                    </div>
+                    <div class="mb-4"><label class="block text-sm font-medium mb-2" style="color:var(--tx2)">Adresse
+                            email</label>
+                        <div class="relative"><input type="email" id="rE" class="inp pl-10"
+                                placeholder="nom@exemple.com" required><i
+                                class="fas fa-envelope absolute left-3 top-1/2 -translate-y-1/2 text-xs"
+                                style="color:var(--txm)"></i></div>
+                    </div>
+                    <div class="mb-4"><label class="block text-sm font-medium mb-2" style="color:var(--tx2)">Mot de
+                            passe</label>
+                        <div class="relative"><input type="password" id="rP" class="inp pl-10 pr-10"
+                                placeholder="Min. 8 caracteres" required oninput="chkPw(this.value)"><i
+                                class="fas fa-lock absolute left-3 top-1/2 -translate-y-1/2 text-xs"
+                                style="color:var(--txm)"></i><button type="button" onclick="togPw('rP',this)"
+                                class="absolute right-3 top-1/2 -translate-y-1/2" style="color:var(--txm)"><i
+                                    class="fas fa-eye text-xs"></i></button></div>
+                        <div class="mt-2 flex gap-1" id="pwS">
+                            <div class="h-1 flex-1 rounded-full" style="background:var(--border)"></div>
+                            <div class="h-1 flex-1 rounded-full" style="background:var(--border)"></div>
+                            <div class="h-1 flex-1 rounded-full" style="background:var(--border)"></div>
+                            <div class="h-1 flex-1 rounded-full" style="background:var(--border)"></div>
+                        </div>
+                        <p class="text-xs mt-1" id="pwT" style="color:var(--txm)"></p>
+                    </div>
+                    <div class="mb-4"><label class="block text-sm font-medium mb-2"
+                            style="color:var(--tx2)">Confirmer</label>
+                        <div class="relative"><input type="password" id="rCP" class="inp pl-10"
+                                placeholder="Repete le mot de passe" required><i
+                                class="fas fa-lock absolute left-3 top-1/2 -translate-y-1/2 text-xs"
+                                style="color:var(--txm)"></i></div>
+                    </div>
+                    <div class="mb-6"><label class="flex items-center gap-2 cursor-pointer text-sm"
+                            style="color:var(--tx2)"><input type="checkbox" id="rT" class="rounded accent-cyan-500"
+                                required> J'accepte les <a href="#" style="color:var(--cyan)">conditions</a></label>
+                    </div>
+                    <button type="submit" class="btn-p w-full py-3"><i class="fas fa-user-plus mr-2"></i>Cree mon
+                        compte</button>
+                </form>
+                <div class="mt-6 text-center">
+                    <p class="text-sm" style="color:var(--tx2)">Deja un compte ? <a href="#" onclick="nav('login')"
+                            class="font-bold" style="color:var(--cyan)">Se connecter</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PAGE COURS ===== -->
+    <section class="psec" id="p-courses">
+        <div class="pt-24 pb-16 relative z-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="mb-10">
+                    <h1 class="stitle mb-2">Tous les <span class="gt">cours</span></h1>
+                    <p style="color:var(--tx2)">Explore notre catalogue complet</p>
+                </div>
+                <div class="flex flex-wrap gap-2 mb-8" id="cF"></div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="aCG"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PAGE DÉTAIL COURS ===== -->
+    <section class="psec" id="p-cdetail">
+        <div class="pt-24 pb-16 relative z-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" id="cdC"></div>
+        </div>
+    </section>
+
+    <!-- ===== PAGE VIDÉO ===== -->
+    <section class="psec" id="p-video">
+        <div class="pt-24 pb-16 relative z-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" id="vpC"></div>
+        </div>
+    </section>
+
+    <!-- ===== PAGE QUIZ ===== -->
+    <section class="psec" id="p-quiz">
+        <div class="pt-24 pb-16 relative z-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="mb-10">
+                    <h1 class="stitle mb-2">Quiz <span class="gt">interactifs</span></h1>
+                    <p style="color:var(--tx2)">Teste tes connaissances</p>
+                </div>
+                <div id="qSel" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+                <div id="qAct" class="hidden max-w-3xl mx-auto"></div>
+                <div id="qRes" class="hidden max-w-2xl mx-auto"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PAGE COMMUNAUTÉ ===== -->
+    <section class="psec" id="p-community">
+        <div class="pt-24 pb-16 relative z-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="mb-10">
+                    <h1 class="stitle mb-2">Communaute <span class="gt">TechNetwork</span></h1>
+                    <p style="color:var(--tx2)">Echange, partage et apprends</p>
+                </div>
+                <div class="grid lg:grid-cols-3 gap-6">
+                    <div class="lg:col-span-2">
+                        <div class="glass2 rounded-2xl p-6 mb-6">
+                            <div class="flex items-start gap-4">
+                                <img id="comA" src="https://i.pravatar.cc/40?img=11"
+                                    class="w-10 h-10 rounded-full object-cover" alt="">
+                                <div class="flex-1"><textarea id="postIn" class="inp resize-none" rows="3"
+                                        placeholder="Partage quelque chose..."></textarea>
+                                    <div class="flex items-center justify-between mt-3">
+                                        <div class="flex gap-3"><button
+                                                class="text-xs flex items-center gap-1 hover:text-cyan-400 transition-colors"
+                                                style="color:var(--txm)"><i class="fas fa-image"></i>
+                                                Image</button><button
+                                                class="text-xs flex items-center gap-1 hover:text-cyan-400 transition-colors"
+                                                style="color:var(--txm)"><i class="fas fa-code"></i> Code</button></div>
+                                        <button onclick="addPost()" class="btn-p text-xs py-2 px-5">Publier</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="pList" class="space-y-4"></div>
+                    </div>
+                    <div class="lg:col-span-1">
+                        <div class="glass2 rounded-2xl overflow-hidden sticky top-24">
+                            <div class="p-4 border-b" style="border-color:var(--border)">
+                                <h3 class="font-heading font-bold text-sm flex items-center gap-2"><i
+                                        class="fas fa-comments" style="color:var(--cyan)"></i> Chat en direct</h3>
+                                <p class="text-xs mt-1" style="color:var(--txm)"><span
+                                        class="inline-block w-2 h-2 rounded-full bg-green-500 mr-1"></span>247 en ligne
+                                </p>
+                            </div>
+                            <div id="chatM" class="p-4 space-y-3 max-h-80 overflow-y-auto"></div>
+                            <div class="p-4 border-t" style="border-color:var(--border)">
+                                <div class="flex gap-2"><input type="text" id="chatI" class="inp text-xs flex-1"
+                                        placeholder="Ecrire un message..."
+                                        onkeypress="if(event.key==='Enter')sendChat()"><button onclick="sendChat()"
+                                        class="btn-p py-2 px-3 text-xs"><i class="fas fa-paper-plane"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TABLEAU DE BORD ===== -->
+    <section class="psec" id="p-dashboard">
+        <div class="pt-24 pb-16 relative z-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="glass2 rounded-2xl p-6 sm:p-8 mb-8">
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+                        <div class="relative"><img id="dA" src="https://i.pravatar.cc/80?img=11"
+                                class="w-20 h-20 rounded-2xl object-cover border-2 border-cyan-500" alt="">
+                            <div
+                                class="absolute -bottom-2 -right-2 w-7 h-7 rounded-full gb flex items-center justify-center">
+                                <i class="fas fa-pen text-white text-[10px]"></i></div>
+                        </div>
+                        <div class="flex-1">
+                            <h2 class="font-heading font-bold text-2xl" id="dN">Utilisateur</h2>
+                            <p class="text-sm" style="color:var(--tx2)" id="dE">email@exemple.com</p>
+                            <div class="flex flex-wrap gap-2 mt-3"><span class="badge b-cyan"><i
+                                        class="fas fa-fire"></i> 7 jours</span><span class="badge b-viol"><i
+                                        class="fas fa-star"></i> Intermediaire</span></div>
+                        </div>
+                        <button onclick="doLogout()" class="btn-s text-xs py-2 px-4"><i
+                                class="fas fa-sign-out-alt mr-1"></i>Deconnexion</button>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8" id="dStats"></div>
+                <div class="grid lg:grid-cols-3 gap-6">
+                    <div class="lg:col-span-2">
+                        <div class="glass2 rounded-2xl p-6">
+                            <h3 class="font-heading font-bold text-lg mb-4">Mes cours en cours</h3>
+                            <div id="dProg" class="space-y-4"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="glass2 rounded-2xl p-6">
+                            <h3 class="font-heading font-bold text-lg mb-4">Mes badges</h3>
+                            <div id="dBadg" class="grid grid-cols-3 gap-3"></div>
+                        </div>
+                        <div class="glass2 rounded-2xl p-6 mt-6">
+                            <h3 class="font-heading font-bold text-lg mb-4">Certificats</h3>
+                            <div id="dCert" class="space-y-3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ADMIN ===== -->
+    <section class="psec" id="p-admin">
+        <div class="pt-24 pb-16 relative z-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between mb-8">
+                    <div>
+                        <h1 class="stitle mb-2">Administration <span class="gt">TechNetwork</span></h1>
+                        <p style="color:var(--tx2)">Gere la plateforme</p>
+                    </div><span class="badge b-red"><i class="fas fa-shield-halved"></i> Admin</span>
+                </div>
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8" id="aStats"></div>
+                <div class="flex gap-2 mb-6"><button class="tab-b active"
+                        onclick="aTab('crs',this)">Cours</button><button class="tab-b"
+                        onclick="aTab('usr',this)">Utilisateurs</button><button class="tab-b"
+                        onclick="aTab('add',this)">Ajouter un cours</button></div>
+                <div id="aCrs" class="glass2 rounded-2xl p-6">
+                    <div class="overflow-x-auto" id="aCT"></div>
+                </div>
+                <div id="aUsr" class="glass2 rounded-2xl p-6 hidden">
+                    <div class="overflow-x-auto" id="aUT"></div>
+                </div>
+                <div id="aAdd" class="glass2 rounded-2xl p-6 hidden">
+                    <h3 class="font-heading font-bold text-lg mb-4">Ajouter un cours</h3>
+                    <form onsubmit="aAddC(event)" class="space-y-4">
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div><label class="block text-sm font-medium mb-2"
+                                    style="color:var(--tx2)">Titre</label><input type="text" id="acT" class="inp"
+                                    required></div>
+                            <div><label class="block text-sm font-medium mb-2"
+                                    style="color:var(--tx2)">Categorie</label><select id="acCat" class="inp" required>
+                                    <option value="">Choisir</option>
+                                </select></div>
+                        </div>
+                        <div><label class="block text-sm font-medium mb-2"
+                                style="color:var(--tx2)">Description</label><textarea id="acD" class="inp resize-none"
+                                rows="3" required></textarea></div>
+                        <div class="grid sm:grid-cols-3 gap-4">
+                            <div><label class="block text-sm font-medium mb-2"
+                                    style="color:var(--tx2)">Niveau</label><select id="acL" class="inp">
+                                    <option value="debutant">Debutant</option>
+                                    <option value="intermediaire">Intermediaire</option>
+                                    <option value="avance">Avance</option>
+                                </select></div>
+                            <div><label class="block text-sm font-medium mb-2"
+                                    style="color:var(--tx2)">Duree</label><input type="text" id="acDu" class="inp"
+                                    placeholder="12h" required></div>
+                            <div><label class="block text-sm font-medium mb-2"
+                                    style="color:var(--tx2)">Instructeur</label><input type="text" id="acI" class="inp"
+                                    required></div>
+                        </div>
+                        <button type="submit" class="btn-p py-3 px-8"><i class="fas fa-plus mr-2"></i>Ajouter</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal certificat -->
+    <div class="modal-o" id="certM">
+        <div class="glass2 rounded-3xl p-8 max-w-lg w-full mx-4 relative asu">
+            <button onclick="clModal('certM')"
+                class="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-center"
+                style="background:var(--card)"><i class="fas fa-times" style="color:var(--tx2)"></i></button>
+            <div class="text-center p-6 rounded-2xl"
+                style="background:linear-gradient(135deg,rgba(6,182,212,.06),rgba(139,92,246,.06));border:2px solid transparent;border-image:linear-gradient(135deg,#06b6d4,#8b5cf6) 1">
+                <div class="mb-4"><i class="fas fa-award text-5xl gt"></i></div>
+                <p class="text-xs uppercase tracking-widest mb-2" style="color:var(--txm)">Certificat de completion</p>
+                <h3 class="font-heading font-bold text-xl mb-2 gt" id="cerCN">Cours</h3>
+                <p class="text-sm mb-3" style="color:var(--tx2)">Decerne a</p>
+                <p class="font-heading font-bold text-lg" id="cerUN">Utilisateur</p>
+                <p class="text-xs mt-4" style="color:var(--txm)">TechNetwork Academy — <span id="cerD"></span></p>
+            </div>
+            <div class="text-center mt-4"><button onclick="clModal('certM')"
+                    class="btn-p text-xs py-2 px-6">Fermer</button></div>
+        </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="relative z-10 border-t" style="border-color:var(--border);background:var(--bg2)">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-9 h-9 rounded-xl gb flex items-center justify-center"><i
+                                class="fas fa-network-wired text-white"></i></div><span
+                            class="font-heading font-bold text-lg gt">TechNetwork</span>
+                    </div>
+                    <p class="text-sm mb-4" style="color:var(--tx2)">La plateforme d'apprentissage informatique de
+                        reference.</p>
+                    <div class="flex gap-3"><a href="#"
+                            class="w-9 h-9 rounded-xl flex items-center justify-center transition-all hover:scale-110"
+                            style="background:var(--card);border:1px solid var(--border)" aria-label="Twitter"><i
+                                class="fab fa-twitter" style="color:var(--cyan)"></i></a><a href="#"
+                            class="w-9 h-9 rounded-xl flex items-center justify-center transition-all hover:scale-110"
+                            style="background:var(--card);border:1px solid var(--border)" aria-label="Discord"><i
+                                class="fab fa-discord" style="color:var(--violet)"></i></a><a href="#"
+                            class="w-9 h-9 rounded-xl flex items-center justify-center transition-all hover:scale-110"
+                            style="background:var(--card);border:1px solid var(--border)" aria-label="GitHub"><i
+                                class="fab fa-github" style="color:var(--tx2)"></i></a><a href="#"
+                            class="w-9 h-9 rounded-xl flex items-center justify-center transition-all hover:scale-110"
+                            style="background:var(--card);border:1px solid var(--border)" aria-label="YouTube"><i
+                                class="fab fa-youtube" style="color:#ef4444"></i></a></div>
+                </div>
+                <div>
+                    <h4 class="font-heading font-bold mb-4 text-sm">Plateforme</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" onclick="nav('courses')" class="text-sm hover:text-cyan-400 transition-colors"
+                                style="color:var(--tx2)">Tous les cours</a></li>
+                        <li><a href="#" onclick="nav('quiz')" class="text-sm hover:text-cyan-400 transition-colors"
+                                style="color:var(--tx2)">Quiz interactifs</a></li>
+                        <li><a href="#" onclick="nav('community')" class="text-sm hover:text-cyan-400 transition-colors"
+                                style="color:var(--tx2)">Communaute</a></li>
+                        <li><a href="#" class="text-sm hover:text-cyan-400 transition-colors"
+                                style="color:var(--tx2)">Certifications</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-heading font-bold mb-4 text-sm">Support</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-sm hover:text-cyan-400 transition-colors"
+                                style="color:var(--tx2)">Centre d'aide</a></li>
+                        <li><a href="#" class="text-sm hover:text-cyan-400 transition-colors"
+                                style="color:var(--tx2)">FAQ</a></li>
+                        <li><a href="#" class="text-sm hover:text-cyan-400 transition-colors"
+                                style="color:var(--tx2)">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-heading font-bold mb-4 text-sm">Legal</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-sm hover:text-cyan-400 transition-colors"
+                                style="color:var(--tx2)">Conditions d'utilisation</a></li>
+                        <li><a href="#" class="text-sm hover:text-cyan-400 transition-colors"
+                                style="color:var(--tx2)">Politique de confidentialite</a></li>
+                        <li><a href="#" class="text-sm hover:text-cyan-400 transition-colors"
+                                style="color:var(--tx2)">Mentions legales</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-10 pt-6 border-t text-center" style="border-color:var(--border)">
+                <p class="text-xs" style="color:var(--txm)">2025 TechNetwork Academy. Tous droits reserves. Fait avec <i
+                        class="fas fa-heart text-red-500"></i> pour la communaute tech.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        /* =========================================
+           DONNÉES
+           ========================================= */
+
+        const CATS = [
+            { id: 'initiation', name: 'Initiation informatique', icon: 'fa-desktop', color: '#06b6d4', img: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=80&h=80&fit=crop' },
+            { id: 'programmation', name: 'Programmation', icon: 'fa-code', color: '#8b5cf6', img: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=80&h=80&fit=crop' },
+            { id: 'web', name: 'HTML / CSS / JS', icon: 'fa-globe', color: '#f97316', img: 'https://images.unsplash.com/photo-1547658719-da2b51169166?w=80&h=80&fit=crop' },
+            { id: 'python', name: 'Python', icon: 'fa-python', color: '#eab308', img: 'https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=80&h=80&fit=crop' },
+            { id: 'cyber', name: 'Cybersecurite', icon: 'fa-shield-halved', color: '#ef4444', img: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=80&h=80&fit=crop' },
+            { id: 'reseau', name: 'Reseau informatique', icon: 'fa-network-wired', color: '#06b6d4', img: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=80&h=80&fit=crop' },
+            { id: 'linux', name: 'Linux', icon: 'fa-linux', color: '#f97316', img: 'https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=80&h=80&fit=crop' },
+            { id: 'ia', name: 'Intelligence artificielle', icon: 'fa-brain', color: '#8b5cf6', img: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=80&h=80&fit=crop' },
+            { id: 'maintenance', name: 'Maintenance informatique', icon: 'fa-screwdriver-wrench', color: '#22c55e', img: 'https://images.unsplash.com/photo-1591799265444-d66432b91588?w=80&h=80&fit=crop' },
+            { id: 'bdd', name: 'Base de donnees', icon: 'fa-database', color: '#06b6d4', img: 'https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=80&h=80&fit=crop' },
+        ];
+
+        const COURSES = [
+            { id: 1, title: 'Fondamentaux de l\'informatique', desc: 'Decouvre les bases : hardware, logiciel, systemes d\'exploitation et plus encore.', cat: 'initiation', level: 'debutant', dur: '8h', inst: 'Dr. Sophie Martin', img: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=250&fit=crop', lessons: 24, stu: 3420, rat: 4.8, prog: 65 },
+            { id: 2, title: 'Introduction a la programmation', desc: 'Apprends les concepts fondamentaux de la programmation avec des exemples concrets.', cat: 'programmation', level: 'debutant', dur: '12h', inst: 'Prof. Marc Durand', img: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=400&h=250&fit=crop', lessons: 36, stu: 5210, rat: 4.9, prog: 30 },
+            { id: 3, title: 'HTML5 et CSS3 modernes', desc: 'Maitrise HTML5 et CSS3 pour creer des sites web modernes, responsives et accessibles.', cat: 'web', level: 'debutant', dur: '10h', inst: 'Lea Fontaine', img: 'https://images.unsplash.com/photo-1547658719-da2b51169166?w=400&h=250&fit=crop', lessons: 30, stu: 4150, rat: 4.7, prog: 0 },
+            { id: 4, title: 'JavaScript ES6+ avance', desc: 'Fonctions avancees, Promises, async/await et modules ES6.', cat: 'web', level: 'intermediaire', dur: '15h', inst: 'Thomas Blanc', img: 'https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=400&h=250&fit=crop', lessons: 42, stu: 3890, rat: 4.8, prog: 0 },
+            { id: 5, title: 'Python pour debutants', desc: 'Le meilleur langage pour commencer. Syntaxe claire, projets pratiques.', cat: 'python', level: 'debutant', dur: '14h', inst: 'Dr. Amina Khelifi', img: 'https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=400&h=250&fit=crop', lessons: 38, stu: 6830, rat: 4.9, prog: 45 },
+            { id: 6, title: 'Cybersecurite : les fondamentaux', desc: 'Proteger les systemes et les donnees. Menaces, chiffrement, pare-feu.', cat: 'cyber', level: 'debutant', dur: '11h', inst: 'Karim Benali', img: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&h=250&fit=crop', lessons: 28, stu: 2970, rat: 4.7, prog: 0 },
+            { id: 7, title: 'Reseaux TCP/IP et routage', desc: 'Architecture des reseaux, protocoles TCP/IP, routage et sous-reseaux.', cat: 'reseau', level: 'intermediaire', dur: '16h', inst: 'Julie Moreau', img: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=400&h=250&fit=crop', lessons: 40, stu: 2340, rat: 4.8, prog: 80 },
+            { id: 8, title: 'Linux : administration systeme', desc: 'Maitrise Linux en ligne de commande. Utilisateurs, permissions, scripts shell.', cat: 'linux', level: 'intermediaire', dur: '18h', inst: 'Pierre Lefevre', img: 'https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=400&h=250&fit=crop', lessons: 45, stu: 1980, rat: 4.6, prog: 0 },
+            { id: 9, title: 'Introduction au Machine Learning', desc: 'Algorithmes de ML : regression, classification, clustering et reseaux de neurones.', cat: 'ia', level: 'avance', dur: '20h', inst: 'Dr. Isabelle Nguyen', img: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=250&fit=crop', lessons: 50, stu: 3120, rat: 4.9, prog: 0 },
+            { id: 10, title: 'Maintenance et depannage PC', desc: 'Diagnostiquer et reparer les problemes hardware et logiciel courants.', cat: 'maintenance', level: 'debutant', dur: '9h', inst: 'Olivier Simon', img: 'https://images.unsplash.com/photo-1591799265444-d66432b91588?w=400&h=250&fit=crop', lessons: 22, stu: 1560, rat: 4.5, prog: 0 },
+            { id: 11, title: 'SQL et bases de donnees', desc: 'Creer, interroger et optimiser des bases de donnees relationnelles.', cat: 'bdd', level: 'intermediaire', dur: '13h', inst: 'Nadia Benmoussa', img: 'https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=400&h=250&fit=crop', lessons: 34, stu: 2890, rat: 4.7, prog: 0 },
+            { id: 12, title: 'Pentesting et hacking ethique', desc: 'Techniques de penetration testing pour securiser les systemes.', cat: 'cyber', level: 'avance', dur: '22h', inst: 'Hugo Renard', img: 'https://images.unsplash.com/photo-1563986768609-322da13575f2?w=400&h=250&fit=crop', lessons: 55, stu: 1760, rat: 4.8, prog: 0 },
+        ];
+
+        const VIDEOS = [
+            { id: 1, cid: 1, title: 'Qu\'est-ce qu\'un ordinateur ?', yt: 'A51fnI1amSo', dur: '12:30' },
+            { id: 2, cid: 1, title: 'Systemes d\'exploitation', yt: '7bQ0WEA6XoM', dur: '18:45' },
+            { id: 3, cid: 5, title: 'Installer Python', yt: 'YU8s7mRxS-0', dur: '10:15' },
+            { id: 4, cid: 5, title: 'Variables et types de donnees', yt: 'cKz5U6x7vXk', dur: '22:00' },
+            { id: 5, cid: 3, title: 'Structure d\'un document HTML', yt: 'qz0aGYrrlhU', dur: '15:20' },
+            { id: 6, cid: 7, title: 'Introduction au modele OSI', yt: 'HEF3BkFWRsA', dur: '20:10' },
+            { id: 7, cid: 8, title: 'Premiers pas avec le terminal Linux', yt: 'gd7BXuUQ91w', dur: '25:30' },
+            { id: 8, cid: 6, title: 'Les types de cyberattaques', yt: 'z5U5-NsBZBo', dur: '17:40' },
+        ];
+
+        const QUIZZES = [
+            {
+                id: 1, title: 'Quiz Informatique generale', cat: 'initiation', diff: 'Facile', icon: 'fa-desktop',
+                qs: [{ q: 'Quel composant est le "cerveau" de l\'ordinateur ?', o: ['RAM', 'CPU', 'GPU', 'SSD'], c: 1 }, { q: 'Que signifie RAM ?', o: ['Read Access Memory', 'Random Access Memory', 'Rapid Access Module', 'Read And Modify'], c: 1 }, { q: 'Quel OS est open source ?', o: ['Windows', 'macOS', 'Linux', 'iOS'], c: 2 }, { q: 'Unite de frequence du processeur ?', o: ['Bits', 'Gigaoctets', 'Gigahertz', 'Pixels'], c: 2 }, { q: 'Peripherique de stockage a long terme ?', o: ['RAM', 'Cache', 'Disque dur', 'Memoire video'], c: 2 }]
+            },
+            {
+                id: 2, title: 'Quiz Python', cat: 'python', diff: 'Moyen', icon: 'fa-python',
+                qs: [{ q: 'Comment afficher "Bonjour" en Python ?', o: ['echo("Bonjour")', 'print("Bonjour")', 'console.log("Bonjour")', 'printf("Bonjour")'], c: 1 }, { q: 'Quel type est immutable ?', o: ['List', 'Dict', 'Set', 'Tuple'], c: 3 }, { q: 'Comment creer une liste vide ?', o: ['list[]', '[]', 'list()', 'B et C'], c: 3 }, { q: 'Mot-cle pour definir une fonction ?', o: ['function', 'func', 'def', 'define'], c: 2 }, { q: 'Que renvoie type(42) ?', o: ["'int'", "'number'", "'float'", "'str'"], c: 0 }]
+            },
+            {
+                id: 3, title: 'Quiz Reseaux', cat: 'reseau', diff: 'Moyen', icon: 'fa-network-wired',
+                qs: [{ q: 'Couches du modele OSI ?', o: ['4', '5', '6', '7'], c: 3 }, { q: 'Protocole du web ?', o: ['FTP', 'SMTP', 'HTTP', 'SSH'], c: 2 }, { q: 'Adresse IP privee ?', o: ['8.8.8.8', '192.168.1.1', '172.200.1.1', '1.1.1.1'], c: 1 }, { q: 'Que signifie DNS ?', o: ['Dynamic Network Service', 'Domain Name System', 'Data Network Standard', 'Digital Naming Service'], c: 1 }, { q: 'Port HTTPS par defaut ?', o: ['80', '21', '443', '8080'], c: 2 }]
+            },
+            {
+                id: 4, title: 'Quiz Cybersecurite', cat: 'cyber', diff: 'Difficile', icon: 'fa-shield-halved',
+                qs: [{ q: 'Qu\'est-ce que le phishing ?', o: ['Attaque par deni de service', 'Technique d\'ingenierie sociale', 'Un virus', 'Un pare-feu'], c: 1 }, { q: 'Chiffrement asymetrique ?', o: ['AES', 'DES', 'RSA', 'Blowfish'], c: 2 }, { q: 'Que signifie VPN ?', o: ['Virtual Private Network', 'Very Protected Node', 'Virtual Protocol Net', 'Verified Private Network'], c: 0 }, { q: 'Scanner de vulnerabilites ?', o: ['Wireshark', 'Nessus', 'Nmap', 'Metasploit'], c: 1 }, { q: 'Qu\'est-ce qu\'un ransomware ?', o: ['Antivirus', 'Logiciel de chiffrement extorsif', 'Pare-feu', 'Navigateur securise'], c: 1 }]
+            },
+            {
+                id: 5, title: 'Quiz HTML/CSS', cat: 'web', diff: 'Facile', icon: 'fa-globe',
+                qs: [{ q: 'Balise du titre principal ?', o: ['<head>', '<title>', '<h1>', '<header>'], c: 2 }, { q: 'Propriete CSS pour la couleur du texte ?', o: ['text-color', 'font-color', 'color', 'foreground'], c: 2 }, { q: 'Inclure un fichier CSS ?', o: ['<style src>', '<link rel="stylesheet">', '<css href>', '@import uniquement'], c: 1 }, { q: 'Propriete pour flexbox ?', o: ['display: block', 'display: flex', 'display: grid', 'display: inline'], c: 1 }, { q: 'Attribut pour l\'accessibilite d\'une image ?', o: ['title', 'src', 'alt', 'name'], c: 2 }]
+            },
+        ];
+
+        const BADGES = [
+            { id: 'first_course', name: 'Premier pas', icon: 'fa-shoe-prints', color: '#06b6d4' },
+            { id: 'quiz_master', name: 'Quiz Master', icon: 'fa-brain', color: '#8b5cf6' },
+            { id: 'streak_7', name: '7 jours', icon: 'fa-fire', color: '#f97316' },
+            { id: 'social', name: 'Social', icon: 'fa-users', color: '#22c55e' },
+            { id: 'pythonista', name: 'Pythonista', icon: 'fa-python', color: '#eab308' },
+            { id: 'hacker', name: 'Hacker ethique', icon: 'fa-shield-halved', color: '#ef4444' },
+            { id: 'certified', name: 'Certifie', icon: 'fa-certificate', color: '#06b6d4' },
+            { id: 'networker', name: 'Networker', icon: 'fa-network-wired', color: '#8b5cf6' },
+            { id: 'contributor', name: 'Contributeur', icon: 'fa-hand-holding-heart', color: '#f97316' },
+        ];
+
+        let posts = [
+            { id: 1, au: 'Marie Dupont', av: 'https://i.pravatar.cc/40?img=5', co: 'Je viens de terminer le cours Python ! Quelle aventure ! Je passe au JavaScript maintenant.', t: 'Il y a 2h', lk: 24, cm: [{ au: 'Ahmed B.', av: 'https://i.pravatar.cc/32?img=12', tx: 'Felicitations Marie !', t: 'Il y a 1h' }] },
+            { id: 2, au: 'Karim Benali', av: 'https://i.pravatar.cc/40?img=12', co: 'Conseil pour les debutants en cybersecuritye : commencez par bien comprendre les reseaux. C\'est la base !', t: 'Il y a 5h', lk: 42, cm: [{ au: 'Sophie L.', av: 'https://i.pravatar.cc/32?img=9', tx: 'Totalement d\'accord !', t: 'Il y a 3h' }] },
+            { id: 3, au: 'Thomas Blanc', av: 'https://i.pravatar.cc/40?img=33', co: 'Nouveau tutoriel : configurer un serveur Linux avec Nginx et Let\'s Encrypt. Disponible dans les ressources du cours Linux.', t: 'Il y a 8h', lk: 31, cm: [] },
+        ];
+
+        let chatMsgs = [
+            { au: 'Lea F.', tx: 'Quelqu\'un a termine le quiz reseaux ?', s: false },
+            { au: 'Marc D.', tx: 'Oui, j\'ai eu 4/5 ! La question DNS m\'a piege.', s: false },
+            { au: 'Julie M.', tx: 'Bravo ! Moi j\'ai 5/5 au quiz Python :)', s: false },
+        ];
+
+        let notifs = [
+            { id: 1, tx: 'Bienvenue sur TechNetwork Academy !', ic: 'fa-hand-sparkles', t: 'Maintenant', r: false },
+            { id: 2, tx: 'Nouveau cours : Pentesting et hacking ethique', ic: 'fa-book-open', t: 'Il y a 2h', r: false },
+            { id: 3, tx: 'Tu as obtenu le badge "Premier pas" !', ic: 'fa-award', t: 'Il y a 5h', r: false },
+        ];
+
+        /* =========================================
+           ÉTAT
+           ========================================= */
+        let CU = null, CP = 'home', cQI = 0, cQS = 0, cQA = [];
+
+        /* =========================================
+           INIT
+           ========================================= */
+        document.addEventListener('DOMContentLoaded', () => {
+            mkPart(); loadU(); rStats(); rCats(); rPopC(); rAllC(); rCF(); rQuiz(); rComm(); rChat(); rNotif(); popAdCat(); initReveal(); initCnt(); navScroll();
+        });
+
+        /* =========================================
+           PARTICULES
+           ========================================= */
+        function mkPart() { const c = document.getElementById('particles'); for (let i = 0; i < 25; i++) { const p = document.createElement('div'); p.className = 'particle'; p.style.cssText = `left:${Math.random() * 100}%;top:${Math.random() * 100}%;animation-duration:${8 + Math.random() * 14}s;animation-delay:${Math.random() * 10}s;width:${2 + Math.random() * 2}px;height:${2 + Math.random() * 2}px;background:${Math.random() > .5 ? 'var(--cyan)' : 'var(--violet)'}`; c.appendChild(p) } }
+
+        /* =========================================
+           NAVIGATION
+           ========================================= */
+        function nav(p) {
+            if (['dashboard', 'admin'].includes(p) && !CU) { toast('Connecte-toi pour acceder a cette page', 'err'); p = 'login' }
+            if (p === 'admin' && CU && !CU.isAdmin) { toast('Acces reserve aux administrateurs', 'err'); return }
+            document.querySelectorAll('.psec').forEach(s => s.classList.remove('active'));
+            const t = document.getElementById('p-' + p); if (t) t.classList.add('active');
+            document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+            const al = document.querySelector(`[data-n="${p}"]`); if (al) al.classList.add('active');
+            CP = p; window.scrollTo({ top: 0, behavior: 'smooth' });
+            if (p === 'dashboard') rDash(); if (p === 'admin') rAdmin();
+        }
+
+        /* =========================================
+           THÈME
+           ========================================= */
+        function togTheme() { const h = document.documentElement, c = h.getAttribute('data-theme'), n = c === 'dark' ? 'light' : 'dark'; h.setAttribute('data-theme', n); document.getElementById('tI').className = n === 'dark' ? 'fas fa-moon' : 'fas fa-sun'; localStorage.setItem('tna_t', n) }
+        (function () { const s = localStorage.getItem('tna_t'); if (s) { document.documentElement.setAttribute('data-theme', s); setTimeout(() => { const i = document.getElementById('tI'); if (i) i.className = s === 'dark' ? 'fas fa-moon' : 'fas fa-sun' }, 0) } })();
+
+        /* =========================================
+           NOTIFICATIONS
+           ========================================= */
+        function togNotif() { const d = document.getElementById('nD'); d.classList.toggle('show'); setTimeout(() => { document.addEventListener('click', function h(e) { if (!document.getElementById('nW').contains(e.target)) { d.classList.remove('show'); document.removeEventListener('click', h) } }), 10 }) }
+        function rNotif() { const l = document.getElementById('nL'); l.innerHTML = notifs.map(n => `<div class="flex items-start gap-3 p-3 rounded-xl transition-all cursor-pointer hover:bg-white/5 ${n.r ? 'opacity-40' : ''}" onclick="nRead(${n.id})"><div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style="background:linear-gradient(135deg,rgba(6,182,212,.12),rgba(139,92,246,.12))"><i class="fas ${n.ic} text-xs" style="color:var(--cyan)"></i></div><div class="flex-1 min-w-0"><p class="text-xs" style="color:var(--tx)">${n.tx}</p><p class="text-[10px] mt-1" style="color:var(--txm)">${n.t}</p></div>${!n.r ? '<div class="w-2 h-2 rounded-full mt-2 flex-shrink-0" style="background:var(--cyan)"></div>' : ''}</div>`).join(''); const u = notifs.filter(n => !n.r).length; const b = document.getElementById('nB'); b.textContent = u; b.style.display = u > 0 ? 'flex' : 'none' }
+        function nRead(id) { const n = notifs.find(x => x.id === id); if (n) n.r = true; rNotif() }
+
+        /* =========================================
+           RECHERCHE
+           ========================================= */
+        function doSearch(q) { const r = document.getElementById('sR'); if (!q || q.length < 2) { r.classList.remove('show'); return } const m = COURSES.filter(c => c.title.toLowerCase().includes(q.toLowerCase()) || c.desc.toLowerCase().includes(q.toLowerCase())).slice(0, 5); r.innerHTML = m.length ? m.map(c => `<div class="flex items-center gap-3 p-3 rounded-xl cursor-pointer transition-all hover:bg-white/5" onclick="openCD(${c.id});document.getElementById('sR').classList.remove('show');document.getElementById('sI').value=''"><img src="${c.img}" class="w-11 h-11 rounded-lg object-cover" alt=""><div><p class="font-medium text-sm" style="color:var(--tx)">${c.title}</p><p class="text-xs" style="color:var(--txm)">${c.level} · ${c.dur}</p></div></div>`).join('') : '<div class="p-4 text-sm" style="color:var(--txm)">Aucun resultat</div>'; r.classList.add('show') }
+        document.addEventListener('click', e => { if (!e.target.closest('.relative')) { const s = document.getElementById('sR'); if (s) s.classList.remove('show') } });
+
+        function togMM() { document.getElementById('mM').classList.toggle('show') }
+        function navScroll() { window.addEventListener('scroll', () => { document.getElementById('mainNav').style.boxShadow = window.scrollY > 50 ? '0 4px 30px rgba(0,0,0,.2)' : 'none' }) }
+
+        /* =========================================
+           SCROLL REVEAL & COMPTEURS
+           ========================================= */
+        function initReveal() { const obs = new IntersectionObserver(es => { es.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis') }) }, { threshold: .1 }); document.querySelectorAll('.reveal').forEach(el => obs.observe(el)) }
+        function initCnt() { const obs = new IntersectionObserver(es => { es.forEach(e => { if (e.isIntersecting) { aCnt(e.target, parseInt(e.target.dataset.target)); obs.unobserve(e.target) } }) }, { threshold: .5 }); document.querySelectorAll('.cnt').forEach(el => obs.observe(el)) }
+        function aCnt(el, t) { let c = 0; const inc = t / 50; const tm = setInterval(() => { c += inc; if (c >= t) { c = t; clearInterval(tm) } el.textContent = Math.floor(c).toLocaleString('fr-FR') }, 30) }
+
+        /* =========================================
+           TOAST
+           ========================================= */
+        function toast(m, t = 'info') { const c = document.getElementById('toastC'), d = document.createElement('div'), ic = { success: 'fa-check-circle', err: 'fa-exclamation-circle', info: 'fa-info-circle' }; d.className = `toast t-${t === 'err' ? 'err' : t === 'success' ? 'ok' : 'info'}`; d.innerHTML = `<i class="fas ${ic[t] || ic.info}"></i><span>${m}</span>`; c.appendChild(d); setTimeout(() => { d.style.opacity = '0'; d.style.transform = 'translateX(100px)'; d.style.transition = 'all .4s'; setTimeout(() => d.remove(), 400) }, 3500) }
+
+        /* =========================================
+           AUTH
+           ========================================= */
+        function loadU() { const s = localStorage.getItem('tna_u'); if (s) { CU = JSON.parse(s); uUI() } }
+        function saveU() { if (CU) localStorage.setItem('tna_u', JSON.stringify(CU)) }
+        function uUI() { document.getElementById('aBtn').classList.add('hidden'); document.getElementById('uProf').classList.remove('hidden'); document.getElementById('uProf').classList.add('flex'); document.getElementById('nU').textContent = CU.fn + ' ' + CU.ln; document.getElementById('nA').src = CU.av || 'https://i.pravatar.cc/40?img=11'; document.getElementById('comA').src = CU.av || 'https://i.pravatar.cc/40?img=11' }
+        function dUI() { document.getElementById('aBtn').classList.remove('hidden'); document.getElementById('uProf').classList.add('hidden'); document.getElementById('uProf').classList.remove('flex') }
+
+        function doRegister(e) {
+            e.preventDefault();
+            const fn = document.getElementById('rFN').value.trim(), ln = document.getElementById('rLN').value.trim(), em = document.getElementById('rE').value.trim(), pw = document.getElementById('rP').value, cpw = document.getElementById('rCP').value;
+            if (pw.length < 8) { toast('Le mot de passe doit contenir au moins 8 caracteres', 'err'); return }
+            if (pw !== cpw) { toast('Les mots de passe ne correspondent pas', 'err'); return }
+            let us = JSON.parse(localStorage.getItem('tna_us') || '[]');
+            if (us.find(u => u.em === em)) { toast('Cette adresse email est deja utilisee', 'err'); return }
+            const nu = { id: Date.now(), fn, ln, em, pw, av: `https://i.pravatar.cc/80?img=${Math.floor(Math.random() * 70)}`, isAdmin: false, enrolled: [1, 2, 5, 7], completed: [], badges: ['first_course', 'streak_7'], certs: [], hrs: 47, jd: new Date().toISOString() };
+            us.push(nu); localStorage.setItem('tna_us', JSON.stringify(us));
+            CU = nu; saveU(); uUI(); toast('Bienvenue sur TechNetwork, ' + fn + ' !', 'success'); nav('dashboard');
+        }
+
+        function doLogin(e) {
+            e.preventDefault();
+            const em = document.getElementById('lE').value.trim(), pw = document.getElementById('lP').value;
+            let us = JSON.parse(localStorage.getItem('tna_us') || '[]');
+            if (!us.find(u => u.em === 'admin@technetwork.ai')) { us.push({ id: 0, fn: 'Admin', ln: 'TechNetwork', em: 'admin@technetwork.ai', pw: 'admin123', av: 'https://i.pravatar.cc/80?img=60', isAdmin: true, enrolled: [], completed: [], badges: BADGES.map(b => b.id), certs: [], hrs: 200, jd: new Date().toISOString() }); localStorage.setItem('tna_us', JSON.stringify(us)) }
+            const u = us.find(u => u.em === em && u.pw === pw);
+            if (!u) { toast('Email ou mot de passe incorrect', 'err'); return }
+            CU = u; saveU(); uUI(); toast('Content de te revoir, ' + u.fn + ' !', 'success'); nav(u.isAdmin ? 'admin' : 'dashboard');
+        }
+
+        function doLogout() { CU = null; localStorage.removeItem('tna_u'); dUI(); toast('Tu as ete deconnecte', 'info'); nav('home') }
+
+        function chkPw(pw) { const bs = document.getElementById('pwS').children, tx = document.getElementById('pwT'); let s = 0; if (pw.length >= 8) s++; if (/[a-z]/.test(pw) && /[A-Z]/.test(pw)) s++; if (/[0-9]/.test(pw)) s++; if (/[^a-zA-Z0-9]/.test(pw)) s++; const cs = ['#ef4444', '#f97316', '#eab308', '#22c55e'], ls = ['Faible', 'Moyen', 'Bon', 'Excellent']; for (let i = 0; i < 4; i++)bs[i].style.background = i < s ? cs[s - 1] : 'var(--border)'; tx.textContent = pw.length > 0 ? ls[s - 1] || '' : ''; tx.style.color = s > 0 ? cs[s - 1] : 'var(--txm)' }
+
+        function togPw(id, btn) { const i = document.getElementById(id), ic = btn.querySelector('i'); if (i.type === 'password') { i.type = 'text'; ic.className = 'fas fa-eye-slash text-xs' } else { i.type = 'password'; ic.className = 'fas fa-eye text-xs' } }
+
+        /* =========================================
+           STATS ACCUEIL
+           ========================================= */
+        function rStats() {
+            document.getElementById('statsRow').innerHTML = [
+                { v: 12500, l: 'Etudiants actifs', i: 'fa-users', c: 'var(--cyan)' },
+                { v: 250, l: 'Cours disponibles', i: 'fa-book-open', c: 'var(--violet)' },
+                { v: 1800, l: 'Heures de video', i: 'fa-play-circle', c: '#f97316' },
+                { v: 98, l: '% de satisfaction', i: 'fa-heart', c: '#22c55e' },
+            ].map(s => `<div class="scard"><i class="fas ${s.i} text-2xl mb-3" style="color:${s.c}"></i><div class="text-3xl sm:text-4xl font-heading font-bold gt cnt" data-target="${s.v}">0</div><p class="text-xs mt-2" style="color:var(--txm)">${s.l}</p></div>`).join('')
+        }
+
+        /* =========================================
+           CATÉGORIES
+           ========================================= */
+        function rCats() { document.getElementById('catGrid').innerHTML = CATS.map(c => `<div class="glass2 rounded-2xl p-4 text-center cursor-pointer transition-all hover:-translate-y-2" onclick="nav('courses');setTimeout(()=>fCrs('${c.id}',document.querySelector('[data-cat=${c.id}]')),100)"><img src="${c.img}" class="w-12 h-12 rounded-xl object-cover mx-auto mb-3" alt="${c.name}"><p class="font-heading font-bold text-xs" style="color:var(--tx)">${c.name}</p><p class="text-[10px] mt-1" style="color:var(--txm)">${COURSES.filter(x => x.cat === c.id).length} cours</p></div>`).join('') }
+
+        /* =========================================
+           CARTES DE COURS
+           ========================================= */
+        function cCard(c) {
+            const lc = { debutant: 'b-green', intermediaire: 'b-ora', avance: 'b-red' }, ll = { debutant: 'Debutant', intermediaire: 'Intermediaire', avance: 'Avance' }, ci = CATS.find(x => x.id === c.cat);
+            return `<div class="course-card"><div class="relative"><img src="${c.img}" class="w-full h-44 object-cover" alt="${c.title}" loading="lazy"><div class="absolute top-3 left-3"><span class="badge ${lc[c.level]}">${ll[c.level]}</span></div><div class="absolute top-3 right-3"><span class="badge b-cyan"><i class="fas fa-clock mr-1"></i>${c.dur}</span></div></div><div class="p-5"><div class="flex items-center gap-2 mb-2"><img src="${ci ? ci.img : ''}" class="w-5 h-5 rounded object-cover" alt=""><span class="text-xs font-medium" style="color:var(--txm)">${ci ? ci.name : c.cat}</span></div><h3 class="font-heading font-bold text-sm mb-2 line-clamp-2" style="color:var(--tx)">${c.title}</h3><p class="text-xs mb-3 line-clamp-2" style="color:var(--tx2)">${c.desc}</p><div class="flex items-center gap-2 mb-3"><i class="fas fa-star text-yellow-400 text-xs"></i><span class="text-sm font-bold">${c.rat}</span><span class="text-xs" style="color:var(--txm)">(${c.stu.toLocaleString('fr-FR')})</span></div><div class="flex items-center justify-between"><span class="text-xs" style="color:var(--txm)"><i class="fas fa-chalkboard-teacher mr-1"></i>${c.inst}</span><button onclick="openCD(${c.id})" class="btn-p text-[11px] py-2 px-4">Commencer</button></div></div></div>`
+        }
+
+        function rPopC() { document.getElementById('popC').innerHTML = COURSES.slice(0, 6).map(c => cCard(c)).join('') }
+        function rAllC(f = null) { document.getElementById('aCG').innerHTML = (f || COURSES).map(c => cCard(c)).join('') }
+
+        function rCF() {
+            const c = document.getElementById('cF');
+            CATS.forEach(cat => { const b = document.createElement('button'); b.className = 'tab-b'; b.textContent = cat.name; b.setAttribute('data-cat', cat.id); b.onclick = function () { fCrs(cat.id, this) }; c.appendChild(b) });
+        }
+        function fCrs(cat, btn) { document.querySelectorAll('#cF .tab-b').forEach(b => b.classList.remove('active')); if (btn) btn.classList.add('active'); rAllC(cat === 'all' ? COURSES : COURSES.filter(c => c.cat === cat)) }
+
+        /* =========================================
+           DÉTAIL COURS
+           ========================================= */
+        function openCD(id) {
+            const c = COURSES.find(x => x.id === id); if (!c) return;
+            const ci = CATS.find(x => x.id === c.cat), cv = VIDEOS.filter(v => v.cid === id);
+            const ll = { debutant: 'Debutant', intermediaire: 'Intermediaire', avance: 'Avance' }, lc = { debutant: 'b-green', intermediaire: 'b-ora', avance: 'b-red' };
+            const en = CU && CU.enrolled && CU.enrolled.includes(id), pg = c.prog || 0;
+            document.getElementById('cdC').innerHTML = `
+        <button onclick="nav('courses')" class="flex items-center gap-2 text-sm mb-6 hover:text-cyan-400 transition-colors" style="color:var(--tx2)"><i class="fas fa-arrow-left"></i> Retour</button>
+        <div class="grid lg:grid-cols-3 gap-8">
+            <div class="lg:col-span-2">
+                <div class="rounded-2xl overflow-hidden mb-6 relative"><img src="${c.img}" class="w-full h-64 sm:h-80 object-cover" alt="${c.title}"><div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6"><div><span class="badge ${lc[c.level]} mb-2">${ll[c.level]}</span><h1 class="font-heading font-bold text-2xl text-white">${c.title}</h1></div></div></div>
+                <div class="glass2 rounded-2xl p-6 mb-6"><h2 class="font-heading font-bold text-lg mb-3">A propos</h2><p class="text-sm" style="color:var(--tx2)">${c.desc}</p>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-6">
+                    <div class="text-center"><i class="fas fa-clock text-lg mb-1" style="color:var(--cyan)"></i><p class="text-sm font-bold">${c.dur}</p><p class="text-xs" style="color:var(--txm)">Duree</p></div>
+                    <div class="text-center"><i class="fas fa-book text-lg mb-1" style="color:var(--violet)"></i><p class="text-sm font-bold">${c.lessons}</p><p class="text-xs" style="color:var(--txm)">Lecons</p></div>
+                    <div class="text-center"><i class="fas fa-users text-lg mb-1" style="color:#f97316"></i><p class="text-sm font-bold">${c.stu.toLocaleString('fr-FR')}</p><p class="text-xs" style="color:var(--txm)">Etudiants</p></div>
+                    <div class="text-center"><i class="fas fa-star text-lg mb-1 text-yellow-400"></i><p class="text-sm font-bold">${c.rat}</p><p class="text-xs" style="color:var(--txm)">Note</p></div>
+                </div></div>
+                ${cv.length ? `<div class="glass2 rounded-2xl p-6 mb-6"><h2 class="font-heading font-bold text-lg mb-4">Contenu du cours</h2><div class="space-y-3">${cv.map((v, i) => `<div class="flex items-center gap-4 p-3 rounded-xl cursor-pointer transition-all hover:bg-white/5" style="border:1px solid var(--border)" onclick="openVid(${v.id})"><div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:linear-gradient(135deg,rgba(6,182,212,.12),rgba(139,92,246,.12))"><i class="fas fa-play text-xs" style="color:var(--cyan)"></i></div><div class="flex-1 min-w-0"><p class="font-medium text-sm" style="color:var(--tx)">${i + 1}. ${v.title}</p></div><span class="text-xs flex-shrink-0" style="color:var(--txm)">${v.dur}</span></div>`).join('')}</div></div>` : ''}
+                <div class="glass2 rounded-2xl p-6"><h2 class="font-heading font-bold text-lg mb-4">Commentaires</h2>
+                <div class="flex items-start gap-3 mb-6"><img src="${CU ? CU.av : 'https://i.pravatar.cc/40?img=11'}" class="w-9 h-9 rounded-full object-cover" alt=""><div class="flex-1"><textarea id="cComm" class="inp text-sm resize-none" rows="2" placeholder="Ajoute un commentaire..."></textarea><button onclick="addComm()" class="btn-p text-xs py-2 px-4 mt-2">Commenter</button></div></div>
+                <div id="cCommL" class="space-y-4">
+                    <div class="citem"><div class="flex items-center gap-3 mb-2"><img src="https://i.pravatar.cc/32?img=15" class="w-7 h-7 rounded-full object-cover" alt=""><div><p class="font-bold text-xs">Pierre L.</p><p class="text-[10px]" style="color:var(--txm)">Il y a 2 jours</p></div></div><p class="text-xs" style="color:var(--tx2)">Excellent cours ! Les explications sont claires et les exercices tres pertinents.</p></div>
+                    <div class="citem"><div class="flex items-center gap-3 mb-2"><img src="https://i.pravatar.cc/32?img=25" class="w-7 h-7 rounded-full object-cover" alt=""><div><p class="font-bold text-xs">Nadia B.</p><p class="text-[10px]" style="color:var(--txm)">Il y a 5 jours</p></div></div><p class="text-xs" style="color:var(--tx2)">Tres bien structure. Je recommande vivement.</p></div>
+                </div></div>
+            </div>
+            <div><div class="glass2 rounded-2xl p-6 sticky top-24">
+                ${en ? `<div class="mb-4"><div class="flex items-center justify-between mb-2"><span class="text-xs font-medium" style="color:var(--tx2)">Progression</span><span class="text-xs font-bold gt">${pg}%</span></div><div class="pbar"><div class="pfill" style="width:${pg}%"></div></div></div><button onclick="contCrs(${id})" class="btn-p w-full py-3 mb-3"><i class="fas fa-play mr-2"></i>Continuer</button>` : `<button onclick="enroll(${id})" class="btn-p w-full py-3 mb-3"><i class="fas fa-graduation-cap mr-2"></i>S'inscrire</button>`}
+                <button onclick="genCert(${id})" class="btn-s w-full py-3 mb-6" ${!en ? 'disabled style="opacity:.5;cursor:not-allowed"' : ''}><i class="fas fa-certificate mr-2"></i>Certificat</button>
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3"><i class="fas fa-chalkboard-teacher" style="color:var(--cyan)"></i><div><p class="text-[10px]" style="color:var(--txm)">Instructeur</p><p class="font-medium text-sm">${c.inst}</p></div></div>
+                    <div class="flex items-center gap-3"><i class="fas fa-layer-group" style="color:var(--violet)"></i><div><p class="text-[10px]" style="color:var(--txm)">Categorie</p><p class="font-medium text-sm">${ci ? ci.name : c.cat}</p></div></div>
+                    <div class="flex items-center gap-3"><i class="fas fa-signal" style="color:#f97316"></i><div><p class="text-[10px]" style="color:var(--txm)">Niveau</p><p class="font-medium text-sm">${ll[c.level]}</p></div></div>
+                    <div class="flex items-center gap-3"><i class="fas fa-file-pdf" style="color:#ef4444"></i><div><p class="text-[10px]" style="color:var(--txm)">Ressources</p><p class="font-medium text-sm">PDF et exercices</p></div></div>
+                </div>
+                <div class="mt-6 pt-6 border-t" style="border-color:var(--border)"><button onclick="dlRes()" class="flex items-center gap-2 text-sm hover:text-cyan-400 transition-colors" style="color:var(--tx2)"><i class="fas fa-download"></i> Telecharger PDF</button></div>
+            </div></div>
+        </div>`;
+            nav('cdetail');
+        }
+
+        function enroll(id) { if (!CU) { toast('Connecte-toi pour t\'inscrire', 'err'); nav('login'); return } if (!CU.enrolled) CU.enrolled = []; if (!CU.enrolled.includes(id)) { CU.enrolled.push(id); saveU(); let us = JSON.parse(localStorage.getItem('tna_us') || '[]'); const i = us.findIndex(u => u.id === CU.id); if (i >= 0) { us[i] = CU; localStorage.setItem('tna_us', JSON.stringify(us)) } toast('Tu es inscrit au cours !', 'success'); openCD(id) } }
+        function contCrs(id) { const cv = VIDEOS.filter(v => v.cid === id); if (cv.length) openVid(cv[0].id); else toast('Les videos arrivent bientot !', 'info') }
+        function addComm() { const i = document.getElementById('cComm'); if (!i.value.trim()) return; const l = document.getElementById('cCommL'), d = document.createElement('div'); d.className = 'citem asu'; d.innerHTML = `<div class="flex items-center gap-3 mb-2"><img src="${CU ? CU.av : 'https://i.pravatar.cc/32?img=11'}" class="w-7 h-7 rounded-full object-cover" alt=""><div><p class="font-bold text-xs">${CU ? CU.fn : 'Invite'}</p><p class="text-[10px]" style="color:var(--txm)">A l'instant</p></div></div><p class="text-xs" style="color:var(--tx2)">${i.value.trim()}</p>`; l.insertBefore(d, l.firstChild); i.value = ''; toast('Commentaire ajoute !', 'success') }
+        function genCert(id) { if (!CU) { toast('Connecte-toi', 'err'); return } const c = COURSES.find(x => x.id === id); document.getElementById('cerCN').textContent = c.title; document.getElementById('cerUN').textContent = CU.fn + ' ' + CU.ln; document.getElementById('cerD').textContent = new Date().toLocaleDateString('fr-FR'); document.getElementById('certM').classList.add('show'); if (!CU.certs) CU.certs = []; if (!CU.certs.includes(id)) { CU.certs.push(id); if (!CU.badges.includes('certified')) CU.badges.push('certified'); saveU() } }
+        function clModal(id) { document.getElementById(id).classList.remove('show') }
+        function dlRes() { toast('Telechargement du PDF en cours...', 'info') }
+
+        /* =========================================
+           LECTEUR VIDÉO
+           ========================================= */
+        function openVid(vid) {
+            const v = VIDEOS.find(x => x.id === vid); if (!v) return;
+            const c = COURSES.find(x => x.id === v.cid), cv = VIDEOS.filter(x => x.cid === v.cid);
+            document.getElementById('vpC').innerHTML = `
+        <button onclick="openCD(${v.cid})" class="flex items-center gap-2 text-sm mb-6 hover:text-cyan-400 transition-colors" style="color:var(--tx2)"><i class="fas fa-arrow-left"></i> Retour au cours</button>
+        <div class="grid lg:grid-cols-3 gap-8">
+            <div class="lg:col-span-2">
+                <div class="rounded-2xl overflow-hidden mb-6" style="background:#000;aspect-ratio:16/9"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/${v.yt}?rel=0" frameborder="0" allowfullscreen allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" style="aspect-ratio:16/9"></iframe></div>
+                <h2 class="font-heading font-bold text-xl mb-2">${v.title}</h2>
+                <p class="text-sm mb-4" style="color:var(--tx2)">Cours : ${c ? c.title : ''} · ${v.dur}</p>
+                <div class="glass2 rounded-2xl p-6">
+                    <h3 class="font-heading font-bold text-base mb-4">Commentaires</h3>
+                    <div class="flex items-start gap-3 mb-4"><img src="${CU ? CU.av : 'https://i.pravatar.cc/40?img=11'}" class="w-8 h-8 rounded-full object-cover" alt=""><div class="flex-1"><input type="text" class="inp text-sm" placeholder="Ajouter un commentaire..." onkeypress="if(event.key==='Enter'&&this.value.trim()){toast('Commentaire ajoute !','success');this.value=''}"></div></div>
+                </div>
+            </div>
+            <div><div class="glass2 rounded-2xl p-4"><h3 class="font-heading font-bold text-sm mb-4">Playlist</h3><div class="space-y-2">${cv.map((x, i) => `<div class="flex items-center gap-3 p-3 rounded-xl cursor-pointer transition-all ${x.id === vid ? 'border-cyan-500/30 bg-cyan-500/5' : ''}" style="border:1px solid var(--border)" onclick="openVid(${x.id})"><div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 ${x.id === vid ? 'gb' : ''}}" style="${x.id !== vid ? 'background:rgba(6,182,212,.1)' : ''}"><i class="fas ${x.id === vid ? 'fa-play' : 'fa-clock'} text-xs ${x.id === vid ? 'text-white' : ''}" style="${x.id !== vid ? 'color:var(--cyan)' : ''}"></i></div><div class="flex-1 min-w-0"><p class="text-xs font-medium ${x.id === vid ? 'text-cyan-400' : ''}" style="${x.id !== vid ? 'color:var(--tx)' : ''}">${i + 1}. ${x.title}</p><p class="text-[10px]" style="color:var(--txm)">${x.dur}</p></div></div>`).join('')}</div></div></div>
+        </div>`;
+            nav('video');
+        }
+
+        /* =========================================
+           QUIZ
+           ========================================= */
+        function rQuiz() { document.getElementById('qSel').innerHTML = QUIZZES.map(q => `<div class="glass2 rounded-2xl p-6 cursor-pointer transition-all hover:-translate-y-2 hover:border-cyan-500/20" onclick="startQuiz(${q.id})"><div class="cicon mb-4" style="background:${CATS.find(c => c.id === q.cat)?.color || 'var(--cyan)'}18"><i class="fas ${q.icon}" style="color:${CATS.find(c => c.id === q.cat)?.color || 'var(--cyan)'}"></i></div><h3 class="font-heading font-bold text-base mb-2">${q.title}</h3><div class="flex items-center gap-3"><span class="badge b-cyan">${q.qs.length} questions</span><span class="badge ${q.diff === 'Facile' ? 'b-green' : q.diff === 'Moyen' ? 'b-ora' : 'b-red'}">${q.diff}</span></div></div>`).join('') }
+
+        function startQuiz(id) {
+            const q = QUIZZES.find(x => x.id === id); if (!q) return;
+            cQI = 0; cQS = 0; cQA = []; const el = document.getElementById('qAct');
+            el.classList.remove('hidden'); document.getElementById('qSel').classList.add('hidden'); document.getElementById('qRes').classList.add('hidden');
+            showQQ(q);
+        }
+
+        function showQQ(q) {
+            const qq = q.qs[cQI], el = document.getElementById('qAct');
+            el.innerHTML = `
+        <div class="glass2 rounded-2xl p-8">
+            <div class="flex items-center justify-between mb-6"><span class="badge b-cyan">Question ${cQI + 1}/${q.qs.length}</span><span class="text-sm font-bold gt">${cQS}/${cQI} correct</span></div>
+            <div class="pbar mb-8"><div class="pfill" style="width:${((cQI) / q.qs.length) * 100}%"></div></div>
+            <h3 class="font-heading font-bold text-xl mb-6">${qq.q}</h3>
+            <div class="space-y-3">${qq.o.map((o, i) => `<div class="qopt flex items-center gap-3" onclick="ansQ(${i},${qq.c},this,${q.id})"><div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 font-bold text-sm" style="background:var(--border);color:var(--tx2)">${String.fromCharCode(65 + i)}</div><span class="text-sm">${o}</span></div>`).join('')}</div>
+        </div>`;
+        }
+
+        function ansQ(sel, cor, el, qid) {
+            document.querySelectorAll('.qopt').forEach(o => { o.style.pointerEvents = 'none' });
+            const opts = document.querySelectorAll('.qopt');
+            opts[cor].classList.add('ok');
+            if (sel === cor) { cQS++; toast('Bonne reponse !', 'success') } else { el.classList.add('no'); toast('Mauvaise reponse', 'err') }
+            cQA.push(sel === cor);
+            setTimeout(() => { cQI++; const q = QUIZZES.find(x => x.id === qid); if (cQI < q.qs.length) showQQ(q); else showQRes(q) }, 1500);
+        }
+
+        function showQRes(q) {
+            const pct = Math.round(cQS / q.qs.length * 100);
+            document.getElementById('qAct').classList.add('hidden');
+            const el = document.getElementById('qRes'); el.classList.remove('hidden');
+            el.innerHTML = `
+        <div class="glass2 rounded-2xl p-8 text-center">
+            <div class="w-24 h-24 rounded-full gb flex items-center justify-center mx-auto mb-6"><span class="text-3xl font-heading font-bold text-white">${pct}%</span></div>
+            <h3 class="font-heading font-bold text-2xl mb-2">${pct >= 80 ? 'Excellent !' : pct >= 60 ? 'Bien joue !' : 'Continue a apprendre !'}</h3>
+            <p class="text-sm mb-6" style="color:var(--tx2)">${cQS} bonnes reponses sur ${q.qs.length}</p>
+            <div class="flex flex-wrap gap-2 justify-center mb-6">${cQA.map((a, i) => `<span class="badge ${a ? 'b-green' : 'b-red'}"><i class="fas ${a ? 'fa-check' : 'fa-times'}"></i> Q${i + 1}</span>`).join('')}</div>
+            ${pct === 100 ? '<div class="badge b-viol text-sm mb-6"><i class="fas fa-trophy mr-1"></i> Badge Quiz Master debloque !</div>' : ''}
+            <div class="flex gap-3 justify-center"><button onclick="startQuiz(${q.id})" class="btn-s text-sm py-2 px-6"><i class="fas fa-redo mr-2"></i>Recommencer</button><button onclick="document.getElementById('qRes').classList.add('hidden');document.getElementById('qSel').classList.remove('hidden')" class="btn-p text-sm py-2 px-6"><i class="fas fa-list mr-2"></i>Tous les quiz</button></div>
+        </div>`;
+            if (pct === 100 && CU) { if (!CU.badges.includes('quiz_master')) { CU.badges.push('quiz_master'); saveU(); toast('Badge Quiz Master obtenu !', 'success') } }
+        }
+
+        /* =========================================
+           COMMUNAUTÉ
+           ========================================= */
+        function rComm() { document.getElementById('pList').innerHTML = posts.map(p => `<div class="glass2 rounded-2xl p-6"><div class="flex items-center gap-3 mb-4"><img src="${p.av}" class="w-10 h-10 rounded-full object-cover" alt=""><div><p class="font-bold text-sm">${p.au}</p><p class="text-xs" style="color:var(--txm)">${p.t}</p></div></div><p class="text-sm mb-4" style="color:var(--tx2)">${p.co}</p><div class="flex items-center gap-6"><button class="flex items-center gap-2 text-xs hover:text-cyan-400 transition-colors" style="color:var(--txm)" onclick="likeP(${p.id},this)"><i class="fas fa-heart"></i> <span>${p.lk}</span></button><button class="flex items-center gap-2 text-xs hover:text-cyan-400 transition-colors" style="color:var(--txm)"><i class="fas fa-comment"></i> ${p.cm.length}</button><button class="flex items-center gap-2 text-xs hover:text-cyan-400 transition-colors" style="color:var(--txm)"><i class="fas fa-share"></i> Partager</button></div>${p.cm.length ? `<div class="mt-4 pt-4 border-t space-y-3" style="border-color:var(--border)">${p.cm.map(c => `<div class="flex items-start gap-3"><img src="${c.av}" class="w-7 h-7 rounded-full object-cover" alt=""><div><p class="font-bold text-xs">${c.au} <span class="font-normal" style="color:var(--txm)">· ${c.t}</span></p><p class="text-xs" style="color:var(--tx2)">${c.tx}</p></div></div>`).join('')}</div>` : ''}</div>`).join('') }
+
+        function addPost() { const i = document.getElementById('postIn'); if (!i.value.trim()) return; if (!CU) { toast('Connecte-toi pour publier', 'err'); nav('login'); return } posts.unshift({ id: Date.now(), au: CU.fn + ' ' + CU.ln, av: CU.av, co: i.value.trim(), t: 'A l\'instant', lk: 0, cm: [] }); i.value = ''; rComm(); toast('Publication ajoutee !', 'success') }
+        function likeP(id, btn) { const p = posts.find(x => x.id === id); if (p) { p.lk++; btn.querySelector('span').textContent = p.lk; btn.style.color = '#ef4444' } }
+
+        /* =========================================
+           CHAT
+           ========================================= */
+        function rChat() { document.getElementById('chatM').innerHTML = chatMsgs.map(m => `<div class="flex ${m.s ? 'justify-end' : 'justify-start'}"><div class="cbub ${m.s ? 'sent' : 'recv'}">${m.s ? '' : `<p class="font-bold text-[10px] mb-1" style="color:var(--cyan)">${m.au}</p>`}${m.tx}</div></div>`).join(''); const c = document.getElementById('chatM'); c.scrollTop = c.scrollHeight }
+
+        function sendChat() { const i = document.getElementById('chatI'); if (!i.value.trim()) return; chatMsgs.push({ au: CU ? CU.fn : 'Invite', tx: i.value.trim(), s: true }); i.value = ''; rChat() }
+
+        /* =========================================
+           TÉMOIGNAGES
+           ========================================= */
+        (function () {
+            const t = [
+                { n: 'Marie Dupont', r: 'Developpeuse Full Stack', av: 'https://i.pravatar.cc/48?img=5', tx: 'Grace a TechNetwork, j\'ai pu me reconvertir en informatique en 6 mois. Les cours sont clairs et la communaute est incroyable.' },
+                { n: 'Ahmed Benali', r: 'Administrateur Reseau', av: 'https://i.pravatar.cc/48?img=12', tx: 'La formation en reseau est exceptionnelle. J\'ai obtenu ma certification Cisco grace aux cours et aux quiz.' },
+                { n: 'Sophie Laurent', r: 'Analyste Cybersecurite', av: 'https://i.pravatar.cc/48?img=9', tx: 'Les exercices pratiques de cybersecuritye sont tres realistes. On se sent dans un environnement professionnel.' },
+            ]; document.getElementById('testimonials').innerHTML = t.map(x => `<div class="glass2 rounded-2xl p-6"><div class="flex items-center gap-3 mb-4"><img src="${x.av}" class="w-11 h-11 rounded-full object-cover" alt="${x.n}"><div><p class="font-bold text-sm">${x.n}</p><p class="text-xs" style="color:var(--txm)">${x.r}</p></div></div><div class="flex gap-1 mb-3">${'<i class="fas fa-star text-yellow-400 text-xs"></i>'.repeat(5)}</div><p class="text-sm" style="color:var(--tx2)">"${x.tx}"</p></div>`).join('')
+        })();
+
+        /* =========================================
+           DASHBOARD
+           ========================================= */
+        function rDash() {
+            if (!CU) return;
+            document.getElementById('dA').src = CU.av || 'https://i.pravatar.cc/80?img=11';
+            document.getElementById('dN').textContent = CU.fn + ' ' + CU.ln;
+            document.getElementById('dE').textContent = CU.em;
+            const en = CU.enrolled || [], co = CU.completed || [], bg = CU.badges || [], ct = CU.certs || [];
+            document.getElementById('dStats').innerHTML = [
+                { v: en.length, l: 'Cours en cours', i: 'fa-book-open', c: 'var(--cyan)' },
+                { v: co.length, l: 'Termines', i: 'fa-trophy', c: '#fbbf24' },
+                { v: CU.hrs || 0, l: 'Heures', i: 'fa-clock', c: 'var(--violet)' },
+                { v: bg.length, l: 'Badges', i: 'fa-award', c: '#f97316' },
+            ].map(s => `<div class="scard"><i class="fas ${s.i} text-xl mb-2" style="color:${s.c}"></i><div class="text-2xl font-heading font-bold">${s.v}</div><p class="text-xs" style="color:var(--txm)">${s.l}</p></div>`).join('');
+
+            // Progression des cours
+            const eCourses = COURSES.filter(c => en.includes(c.id));
+            document.getElementById('dProg').innerHTML = eCourses.length ? eCourses.map(c => `<div class="flex items-center gap-4 p-4 rounded-xl" style="background:var(--bg);border:1px solid var(--border)"><img src="${c.img}" class="w-14 h-14 rounded-xl object-cover" alt=""><div class="flex-1 min-w-0"><p class="font-heading font-bold text-sm">${c.title}</p><div class="pbar mt-2"><div class="pfill" style="width:${c.prog}%"></div></div></div><span class="text-sm font-bold gt">${c.prog}%</span></div>`).join('') : '<p class="text-sm text-center py-8" style="color:var(--txm)">Aucun cours en cours. <a href="#" onclick="nav(\'courses\')" style="color:var(--cyan)">Explorer les cours</a></p>';
+
+            // Badges
+            document.getElementById('dBadg').innerHTML = BADGES.map(b => `<div class="text-center p-2 rounded-xl transition-all ${bg.includes(b.id) ? '' : 'opacity-30'}" style="background:${b.color}10"><i class="fas ${b.icon} text-lg" style="color:${b.color}"></i><p class="text-[9px] mt-1 font-bold">${b.name}</p></div>`).join('');
+
+            // Certificats
+            document.getElementById('dCert').innerHTML = ct.length ? ct.map(id => { const c = COURSES.find(x => x.id === id); return c ? `<div class="flex items-center gap-3 p-3 rounded-xl cursor-pointer transition-all hover:bg-white/5" style="border:1px solid var(--border)" onclick="genCert(${id})"><i class="fas fa-certificate" style="color:var(--cyan)"></i><span class="text-sm font-medium">${c.title}</span></div>` : '' }).join('') : '<p class="text-xs text-center py-4" style="color:var(--txm)">Aucun certificat obtenu</p>';
+        }
+
+        /* =========================================
+           ADMIN
+           ========================================= */
+        function rAdmin() {
+            if (!CU || !CU.isAdmin) return;
+            const us = JSON.parse(localStorage.getItem('tna_us') || '[]');
+            document.getElementById('aStats').innerHTML = [
+                { v: us.length, l: 'Utilisateurs', i: 'fa-users', c: 'var(--cyan)' },
+                { v: COURSES.length, l: 'Cours', i: 'fa-book', c: 'var(--violet)' },
+                { v: VIDEOS.length, l: 'Videos', i: 'fa-video', c: '#f97316' },
+                { v: '94%', l: 'Satisfaction', i: 'fa-chart-line', c: '#22c55e' },
+            ].map(s => `<div class="scard"><i class="fas ${s.i} text-xl mb-2" style="color:${s.c}"></i><div class="text-2xl font-heading font-bold">${s.v}</div><p class="text-xs" style="color:var(--txm)">${s.l}</p></div>`).join('');
+
+            // Table des cours
+            document.getElementById('aCT').innerHTML = `<table class="w-full text-sm"><thead><tr class="text-left" style="color:var(--txm)"><th class="p-3 text-xs uppercase tracking-wider">Cours</th><th class="p-3 text-xs uppercase tracking-wider hidden sm:table-cell">Categorie</th><th class="p-3 text-xs uppercase tracking-wider hidden md:table-cell">Niveau</th><th class="p-3 text-xs uppercase tracking-wider">Actions</th></tr></thead><tbody>${COURSES.map(c => `<tr><td class="p-3 rounded-l-xl" style="background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border)"><div class="flex items-center gap-3"><img src="${c.img}" class="w-10 h-10 rounded-lg object-cover" alt=""><span class="font-medium">${c.title}</span></div></td><td class="p-3 hidden sm:table-cell" style="background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">${CATS.find(x => x.id === c.cat)?.name || c.cat}</td><td class="p-3 hidden md:table-cell" style="background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border)"><span class="badge ${c.level === 'debutant' ? 'b-green' : c.level === 'intermediaire' ? 'b-ora' : 'b-red'}">${c.level}</span></td><td class="p-3 rounded-r-xl" style="background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border)"><button class="text-xs hover:text-cyan-400 mr-3" style="color:var(--tx2)"><i class="fas fa-edit"></i></button><button class="text-xs hover:text-red-400" style="color:var(--tx2)" onclick="aDelC(${c.id})"><i class="fas fa-trash"></i></button></td></tr>`).join('')}</tbody></table>`;
+
+            // Table des utilisateurs
+            document.getElementById('aUT').innerHTML = `<table class="w-full text-sm"><thead><tr class="text-left" style="color:var(--txm)"><th class="p-3 text-xs uppercase tracking-wider">Utilisateur</th><th class="p-3 text-xs uppercase tracking-wider hidden sm:table-cell">Email</th><th class="p-3 text-xs uppercase tracking-wider">Role</th></tr></thead><tbody>${us.map(u => `<tr><td class="p-3 rounded-l-xl" style="background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border)"><div class="flex items-center gap-3"><img src="${u.av}" class="w-8 h-8 rounded-full object-cover" alt=""><span class="font-medium">${u.fn} ${u.ln}</span></div></td><td class="p-3 hidden sm:table-cell" style="background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">${u.em}</td><td class="p-3 rounded-r-xl" style="background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border)"><span class="badge ${u.isAdmin ? 'b-red' : 'b-cyan'}">${u.isAdmin ? 'Admin' : 'Etudiant'}</span></td></tr>`).join('')}</tbody></table>`;
+        }
+
+        function aTab(t, btn) { document.querySelectorAll('.tab-b').forEach(b => b.classList.remove('active')); btn.classList.add('active'); document.getElementById('aCrs').classList.toggle('hidden', t !== 'crs'); document.getElementById('aUsr').classList.toggle('hidden', t !== 'usr'); document.getElementById('aAdd').classList.toggle('hidden', t !== 'add') }
+
+        function popAdCat() { const s = document.getElementById('acCat'); CATS.forEach(c => { const o = document.createElement('option'); o.value = c.id; o.textContent = c.name; s.appendChild(o) }) }
+
+        function aAddC(e) {
+            e.preventDefault();
+            const nc = { id: Date.now(), title: document.getElementById('acT').value, desc: document.getElementById('acD').value, cat: document.getElementById('acCat').value, level: document.getElementById('acL').value, dur: document.getElementById('acDu').value, inst: document.getElementById('acI').value, img: `https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=250&fit=crop`, lessons: Math.floor(Math.random() * 40) + 10, stu: Math.floor(Math.random() * 3000) + 500, rat: 4.5 + Math.random() * .4, prog: 0 };
+            COURSES.push(nc); toast('Cours ajoute avec succes !', 'success'); e.target.reset(); rAdmin();
+        }
+
+        function aDelC(id) { const i = COURSES.findIndex(c => c.id === id); if (i >= 0) { COURSES.splice(i, 1); toast('Cours supprime', 'info'); rAdmin() } }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevCraft — Agence de Développement Web</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- ===== FIREBASE SDK ===== -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script>tailwind.config={theme:{extend:{fontFamily:{sans:['Inter','sans-serif']}}}}</script>
+  <style>
+    *{font-family:'Inter',sans-serif;box-sizing:border-box}
+    body::-webkit-scrollbar{width:6px}body::-webkit-scrollbar-track{background:#0a0a0a}body::-webkit-scrollbar-thumb{background:#333;border-radius:3px}
+    @keyframes fadeInUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+    @keyframes pulse-glow{0%,100%{opacity:.3}50%{opacity:.7}}
+    @keyframes spin-slow{to{transform:rotate(360deg)}}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .anim-fade{animation:fadeInUp .6s ease forwards;opacity:0}
+    .anim-d1{animation-delay:.1s}.anim-d2{animation-delay:.2s}.anim-d3{animation-delay:.3s}.anim-d4{animation-delay:.4s}
+    .gradient-text{background:linear-gradient(135deg,#3b82f6,#8b5cf6,#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .gradient-text-alt{background:linear-gradient(135deg,#06b6d4,#3b82f6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .card-h{transition:all .3s}.card-h:hover{transform:translateY(-5px);border-color:rgba(255,255,255,.15);box-shadow:0 20px 40px -12px rgba(0,0,0,.5)}
+    .project-card .p-over{opacity:0;transition:opacity .4s}.project-card:hover .p-over{opacity:1}.project-card:hover img{transform:scale(1.08)}.project-card img{transition:transform .6s}
+    .nav-l{position:relative}.nav-l::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:2px;background:linear-gradient(90deg,#3b82f6,#8b5cf6);transition:width .3s}.nav-l:hover::after{width:100%}
+    .tech-b{transition:all .25s}.tech-b:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(59,130,246,.25)}
+    .mob-menu{max-height:0;overflow:hidden;transition:max-height .35s,opacity .25s;opacity:0}.mob-menu.open{max-height:400px;opacity:1}
+    .reveal{opacity:0;transform:translateY(18px);transition:all .5s}.reveal.active{opacity:1;transform:translateY(0)}
+    .video-card{transition:all .3s;cursor:pointer}.video-card:hover{transform:translateY(-4px);box-shadow:0 16px 32px -8px rgba(59,130,246,.2)}.video-card:hover .v-play{transform:scale(1.15);background:rgba(59,130,246,.9)}.v-play{transition:all .25s}.v-over{opacity:0;transition:opacity .3s}.video-card:hover .v-over{opacity:1}
+    .modal-bg{opacity:0;pointer-events:none;transition:opacity .3s}.modal-bg.open{opacity:1;pointer-events:auto}
+    .modal-box{transform:scale(.92) translateY(16px);opacity:0;transition:all .3s cubic-bezier(.4,0,.2,1)}.modal-bg.open .modal-box{transform:scale(1) translateY(0);opacity:1}
+    .auth-bg{opacity:0;pointer-events:none;transition:opacity .4s}.auth-bg.open{opacity:1;pointer-events:auto}
+    .auth-box{transform:scale(.95) translateY(10px);opacity:0;transition:all .4s cubic-bezier(.4,0,.2,1)}.auth-bg.open .auth-box{transform:scale(1) translateY(0);opacity:1}
+    .google-btn{transition:all .2s}.google-btn:hover{box-shadow:0 4px 16px rgba(0,0,0,.2);transform:translateY(-1px)}
+    .filter-btn.active{background:#2563eb;color:white}
+    .toast{animation:fadeInUp .35s ease forwards}.toast-out{animation:fadeInUp .25s ease reverse forwards}
+    .spinner{width:18px;height:18px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .6s linear infinite}
+    .user-drop{max-height:0;overflow:hidden;transition:max-height .3s,opacity .2s;opacity:0}.user-drop.open{max-height:300px;opacity:1}
+    .err-msg{color:#f87171;font-size:11px;margin-top:4px;display:none}.err-msg.show{display:block}
+    .input-err{border-color:rgba(239,68,68,.5)!important}
+  </style>
+</head>
+<body class="bg-[#0a0a0a] text-white antialiased overflow-x-hidden">
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- AUTH GATE — Connexion OBLIGATOIRE              -->
+<!-- ═══════════════════════════════════════════════ -->
+<div id="authGate" class="auth-bg open fixed inset-0 z-[200] flex items-center justify-center p-4" style="background:rgba(10,10,10,.98);backdrop-filter:blur(24px)">
+  <div class="auth-box w-full max-w-[420px]">
+    <div class="text-center mb-6">
+      <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mx-auto mb-3"><iconify-icon icon="lucide:code-2" width="24" class="text-white"></iconify-icon></div>
+      <h2 class="text-xl sm:text-2xl font-bold mb-1">Bienvenue sur DevCraft</h2>
+      <p class="text-xs text-neutral-400">Connectez-vous avec votre compte pour accéder à la plateforme</p>
+    </div>
+
+    <!-- ===== GOOGLE ===== -->
+    <button id="googleBtn" onclick="loginGoogle()" class="google-btn w-full flex items-center justify-center gap-3 bg-white text-gray-700 font-semibold py-3 rounded-xl mb-3 text-sm">
+      <svg width="18" height="18" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+      <span id="googleTxt">Se connecter avec Google</span>
+    </button>
+
+    <div class="flex items-center gap-3 my-4"><div class="flex-1 h-px bg-white/10"></div><span class="text-[10px] text-neutral-500 uppercase tracking-wider">ou avec votre email</span><div class="flex-1 h-px bg-white/10"></div></div>
+
+    <!-- Tabs -->
+    <div class="flex gap-1 bg-white/5 rounded-lg p-1 mb-4">
+      <button onclick="switchTab('login')" id="tabLogin" class="flex-1 py-2 text-xs font-semibold rounded-md bg-white/10 text-white transition-all">Connexion</button>
+      <button onclick="switchTab('register')" id="tabReg" class="flex-1 py-2 text-xs font-semibold rounded-md text-neutral-400 transition-all">Créer un compte</button>
+    </div>
+
+    <!-- Error -->
+    <div id="authErr" class="hidden mb-3 p-3 rounded-lg bg-red-600/10 border border-red-500/20 text-xs text-red-400 flex items-start gap-2">
+      <iconify-icon icon="lucide:alert-circle" width="14" class="shrink-0 mt-0.5"></iconify-icon><span id="authErrMsg"></span>
+    </div>
+
+    <!-- Success -->
+    <div id="authOk" class="hidden mb-3 p-3 rounded-lg bg-green-600/10 border border-green-500/20 text-xs text-green-400 flex items-start gap-2">
+      <iconify-icon icon="lucide:check-circle" width="14" class="shrink-0 mt-0.5"></iconify-icon><span id="authOkMsg"></span>
+    </div>
+
+    <!-- LOGIN -->
+    <form id="loginForm" onsubmit="loginEmail(event)" class="space-y-3">
+      <div>
+        <input type="email" id="lEmail" required placeholder="Votre adresse email" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 transition-colors">
+        <div class="err-msg" id="lEmailErr"></div>
+      </div>
+      <div>
+        <input type="password" id="lPass" required placeholder="Votre mot de passe" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 transition-colors">
+        <div class="err-msg" id="lPassErr"></div>
+      </div>
+      <button type="submit" id="lBtn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition-colors text-sm flex items-center justify-center gap-2">
+        <span id="lTxt">Se connecter</span><div id="lSpin" class="spinner hidden"></div>
+      </button>
+      <button type="button" onclick="resetPass()" class="w-full text-xs text-neutral-500 hover:text-blue-400 transition-colors py-1">Mot de passe oublié ?</button>
+    </form>
+
+    <!-- REGISTER -->
+    <form id="regForm" onsubmit="registerEmail(event)" class="space-y-3 hidden">
+      <div>
+        <input type="text" id="rName" required placeholder="Nom complet" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 transition-colors">
+        <div class="err-msg" id="rNameErr"></div>
+      </div>
+      <div>
+        <input type="email" id="rEmail" required placeholder="Votre adresse email" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 transition-colors">
+        <div class="err-msg" id="rEmailErr"></div>
+      </div>
+      <div>
+        <input type="password" id="rPass" required minlength="6" placeholder="Mot de passe (6 caractères min)" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 transition-colors">
+        <div class="err-msg" id="rPassErr"></div>
+      </div>
+      <div>
+        <input type="password" id="rPass2" required placeholder="Confirmer le mot de passe" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 transition-colors">
+        <div class="err-msg" id="rPass2Err"></div>
+      </div>
+      <button type="submit" id="rBtn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition-colors text-sm flex items-center justify-center gap-2">
+        <span id="rTxt">Créer mon compte</span><div id="rSpin" class="spinner hidden"></div>
+      </button>
+    </form>
+
+    <p class="text-center text-[10px] text-neutral-600 mt-4">En continuant, vous acceptez nos <a href="#" class="text-blue-500 hover:underline">CGU</a> et notre <a href="#" class="text-blue-500 hover:underline">politique de confidentialité</a>.</p>
+  </div>
+</div>
+
+<!-- VIDEO MODAL -->
+<div id="videoModal" class="modal-bg fixed inset-0 z-[100] flex items-center justify-center p-3"><div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="closeVid()"></div><div class="modal-box relative w-full max-w-4xl rounded-xl overflow-hidden border border-white/10 shadow-2xl"><button onclick="closeVid()" class="absolute top-3 right-3 z-10 w-8 h-8 rounded-lg bg-black/60 backdrop-blur-sm flex items-center justify-center text-white hover:bg-black/80 transition-colors"><iconify-icon icon="lucide:x" width="16"></iconify-icon></button><div class="aspect-video bg-black"><iframe id="vidFrame" class="w-full h-full" src="" frameborder="0" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen></iframe></div><div class="bg-neutral-900 p-4"><h3 id="vidTitle" class="font-bold text-white text-sm"></h3><p id="vidDesc" class="text-neutral-400 text-xs mt-1"></p></div></div></div>
+
+<!-- TOAST -->
+<div id="toastBox" class="fixed bottom-5 right-5 z-[150] flex flex-col gap-2"></div>
+
+<!-- NAV -->
+<nav id="navbar" class="fixed top-0 w-full z-50 transition-all" style="background:rgba(10,10,10,.8);backdrop-filter:blur(12px)">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-14">
+      <a href="#hero" class="flex items-center gap-2 group"><div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center transition-transform group-hover:rotate-12"><iconify-icon icon="lucide:code-2" width="16" class="text-white"></iconify-icon></div><span class="text-lg font-bold">Dev<span class="text-blue-500">Craft</span></span></a>
+      <div class="hidden md:flex items-center gap-6">
+        <a href="#services" class="nav-l text-[13px] text-neutral-400 hover:text-white transition-colors">Services</a>
+        <a href="#videos" class="nav-l text-[13px] text-neutral-400 hover:text-white transition-colors">Vidéos</a>
+        <a href="#projets" class="nav-l text-[13px] text-neutral-400 hover:text-white transition-colors">Projets</a>
+        <a href="#apropos" class="nav-l text-[13px] text-neutral-400 hover:text-white transition-colors">À propos</a>
+        <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white text-[13px] font-semibold px-4 py-2 rounded-lg transition-colors">Contact</a>
+      </div>
+      <div class="flex items-center gap-2">
+        <!-- USER AVATAR -->
+        <div id="userNav" class="hidden relative">
+          <button onclick="toggleDrop()" class="flex items-center gap-2 hover:bg-white/5 rounded-lg px-2 py-1.5 transition-colors">
+            <img id="userPic" src="" class="w-7 h-7 rounded-full object-cover border border-white/20">
+            <span id="userName" class="text-xs font-medium text-neutral-300 hidden lg:block max-w-[100px] truncate"></span>
+            <iconify-icon icon="lucide:chevron-down" width="12" class="text-neutral-500"></iconify-icon>
+          </button>
+          <div id="userDrop" class="user-drop absolute right-0 top-full mt-1 w-56 bg-neutral-900 border border-white/10 rounded-xl overflow-hidden shadow-xl">
+            <div class="p-3 border-b border-white/5">
+              <div id="dropName" class="text-sm font-semibold text-white"></div>
+              <div id="dropEmail" class="text-[10px] text-neutral-500 truncate mt-0.5"></div>
+              <div id="dropProvider" class="mt-1.5"></div>
+            </div>
+            <button onclick="logout()" class="w-full text-left px-3 py-2.5 text-xs text-red-400 hover:bg-white/5 transition-colors flex items-center gap-2"><iconify-icon icon="lucide:log-out" width="13"></iconify-icon>Se déconnecter</button>
+          </div>
+        </div>
+        <button onclick="toggleMob()" class="md:hidden text-neutral-400 hover:text-white transition-colors p-1"><iconify-icon icon="lucide:menu" width="22" id="mobIco"></iconify-icon></button>
+      </div>
+    </div>
+    <div id="mobMenu" class="mob-menu md:hidden"><div class="py-3 space-y-1 border-t border-white/5"><a href="#services" onclick="closeMob()" class="block text-sm text-neutral-400 hover:text-white py-2">Services</a><a href="#videos" onclick="closeMob()" class="block text-sm text-neutral-400 hover:text-white py-2">Vidéos</a><a href="#projets" onclick="closeMob()" class="block text-sm text-neutral-400 hover:text-white py-2">Projets</a><a href="#apropos" onclick="closeMob()" class="block text-sm text-neutral-400 hover:text-white py-2">À propos</a><a href="#contact" onclick="closeMob()" class="inline-block bg-blue-600 text-white text-sm font-semibold px-4 py-2 rounded-lg mt-2">Contact</a><button onclick="logout()" id="mobLogout" class="hidden text-sm text-red-400 hover:text-red-300 py-2 flex items-center gap-1 mt-1"><iconify-icon icon="lucide:log-out" width="14"></iconify-icon>Déconnexion</button></div></div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero" class="relative flex items-center overflow-hidden pt-14 pb-10 sm:pb-14 lg:min-h-screen">
+  <div class="absolute inset-0 pointer-events-none"><div class="absolute top-1/4 left-1/4 w-72 sm:w-96 h-72 sm:h-96 bg-blue-600/10 rounded-full blur-3xl" style="animation:pulse-glow 3s ease-in-out infinite"></div><div class="absolute bottom-1/4 right-1/4 w-72 sm:w-96 h-72 sm:h-96 bg-purple-600/10 rounded-full blur-3xl" style="animation:pulse-glow 3s ease-in-out 1.5s infinite"></div><div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] border border-white/5 rounded-full" style="animation:spin-slow 20s linear infinite"></div></div>
+  <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-8 sm:py-12 md:py-16 lg:py-20 text-center">
+    <div class="anim-fade inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 mb-5 sm:mb-8"><span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span><span class="text-[10px] sm:text-xs text-neutral-400 font-medium">Disponible pour nouveaux projets</span></div>
+    <h1 class="anim-fade anim-d1 text-[28px] sm:text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] mb-4 sm:mb-6">Créons votre<br><span class="gradient-text">présence digitale</span></h1>
+    <p class="anim-fade anim-d2 text-sm sm:text-base md:text-lg text-neutral-400 max-w-xl mx-auto mb-6 sm:mb-10 leading-relaxed">Sites web et applications sur mesure qui transforment vos idées en expériences numériques exceptionnelles.</p>
+    <div class="anim-fade anim-d3 flex flex-col sm:flex-row items-center justify-center gap-3">
+      <a href="#contact" class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-semibold px-7 py-3 rounded-lg transition-colors flex items-center justify-center gap-2 text-sm">Démarrer <iconify-icon icon="lucide:arrow-right" width="15"></iconify-icon></a>
+      <a href="#videos" class="w-full sm:w-auto bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 text-white font-semibold px-7 py-3 rounded-lg transition-all flex items-center justify-center gap-2 text-sm"><iconify-icon icon="lucide:play-circle" width="15"></iconify-icon> Vidéos</a>
+    </div>
+    <div class="anim-fade anim-d4 mt-10 sm:mt-14 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-8 max-w-2xl mx-auto">
+      <div class="text-center"><div class="text-xl sm:text-3xl font-bold">150+</div><div class="text-[10px] sm:text-xs text-neutral-500">Projets</div></div>
+      <div class="text-center"><div class="text-xl sm:text-3xl font-bold">98%</div><div class="text-[10px] sm:text-xs text-neutral-500">Satisfaction</div></div>
+      <div class="text-center"><div class="text-xl sm:text-3xl font-bold">5 ans</div><div class="text-[10px] sm:text-xs text-neutral-500">Expérience</div></div>
+      <div class="text-center"><div class="text-xl sm:text-3xl font-bold">24/7</div><div class="text-[10px] sm:text-xs text-neutral-500">Support</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="py-10 sm:py-14 md:py-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="text-center mb-10"><span class="text-[10px] font-semibold uppercase tracking-widest text-blue-500 mb-3 block">Nos services</span><h2 class="text-2xl sm:text-3xl font-bold tracking-tight mb-3">Solutions web <span class="gradient-text-alt">sur mesure</span></h2></div>
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+    <div class="card-h bg-neutral-900/30 border border-white/10 rounded-xl p-5 sm:p-6 group reveal"><div class="w-10 h-10 bg-blue-600/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-blue-600/20 transition-colors"><iconify-icon icon="lucide:layout" width="20" class="text-blue-400"></iconify-icon></div><h3 class="text-sm font-bold mb-2">Sites Web</h3><p class="text-xs text-neutral-400 leading-relaxed">Sites vitrines et corporate uniques pour votre identité.</p></div>
+    <div class="card-h bg-neutral-900/30 border border-white/10 rounded-xl p-5 sm:p-6 group reveal"><div class="w-10 h-10 bg-purple-600/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-purple-600/20 transition-colors"><iconify-icon icon="lucide:smartphone" width="20" class="text-purple-400"></iconify-icon></div><h3 class="text-sm font-bold mb-2">Applications Mobiles</h3><p class="text-xs text-neutral-400 leading-relaxed">Applications performantes sur tous les appareils.</p></div>
+    <div class="card-h bg-neutral-900/30 border border-white/10 rounded-xl p-5 sm:p-6 group reveal"><div class="w-10 h-10 bg-cyan-600/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-cyan-600/20 transition-colors"><iconify-icon icon="lucide:server" width="20" class="text-cyan-400"></iconify-icon></div><h3 class="text-sm font-bold mb-2">Backend & API</h3><p class="text-xs text-neutral-400 leading-relaxed">Architectures robustes et API sécurisées.</p></div>
+    <div class="card-h bg-neutral-900/30 border border-white/10 rounded-xl p-5 sm:p-6 group reveal"><div class="w-10 h-10 bg-pink-600/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-pink-600/20 transition-colors"><iconify-icon icon="lucide:shopping-cart" width="20" class="text-pink-400"></iconify-icon></div><h3 class="text-sm font-bold mb-2">E-Commerce</h3><p class="text-xs text-neutral-400 leading-relaxed">Boutiques optimisées pour la conversion.</p></div>
+    <div class="card-h bg-neutral-900/30 border border-white/10 rounded-xl p-5 sm:p-6 group reveal"><div class="w-10 h-10 bg-yellow-600/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-yellow-600/20 transition-colors"><iconify-icon icon="lucide:search" width="20" class="text-yellow-400"></iconify-icon></div><h3 class="text-sm font-bold mb-2">SEO</h3><p class="text-xs text-neutral-400 leading-relaxed">Stratégies pour améliorer votre visibilité.</p></div>
+    <div class="card-h bg-neutral-900/30 border border-white/10 rounded-xl p-5 sm:p-6 group reveal"><div class="w-10 h-10 bg-green-600/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-green-600/20 transition-colors"><iconify-icon icon="lucide:palette" width="20" class="text-green-400"></iconify-icon></div><h3 class="text-sm font-bold mb-2">UI/UX Design</h3><p class="text-xs text-neutral-400 leading-relaxed">Interfaces élégantes centrées utilisateur.</p></div>
+  </div>
+</div></section>
+
+<!-- VIDEOS -->
+<section id="videos" class="py-10 sm:py-14 md:py-16 border-y border-white/5"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="text-center mb-10"><span class="text-[10px] font-semibold uppercase tracking-widest text-blue-500 mb-3 block">Tutoriels</span><h2 class="text-2xl sm:text-3xl font-bold tracking-tight mb-3">Nos <span class="gradient-text">vidéos</span></h2><p class="text-neutral-400 text-xs sm:text-sm">Cliquez pour regarder directement.</p></div>
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4" id="vidGrid"></div>
+</div></section>
+
+<!-- PROJETS -->
+<section id="projets" class="py-10 sm:py-14 md:py-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="text-center mb-10"><span class="text-[10px] font-semibold uppercase tracking-widest text-blue-500 mb-3 block">Portfolio</span><h2 class="text-2xl sm:text-3xl font-bold tracking-tight mb-3">Nos <span class="gradient-text">réalisations</span></h2></div>
+  <div class="flex items-center justify-center gap-2 mb-8 flex-wrap"><button class="filter-btn active text-xs font-medium px-3 py-1.5 rounded-full bg-blue-600 text-white" data-filter="all">Tous</button><button class="filter-btn text-xs font-medium px-3 py-1.5 rounded-full bg-white/5 text-neutral-400 hover:text-white hover:bg-white/10" data-filter="web">Sites Web</button><button class="filter-btn text-xs font-medium px-3 py-1.5 rounded-full bg-white/5 text-neutral-400 hover:text-white hover:bg-white/10" data-filter="app">Apps</button><button class="filter-btn text-xs font-medium px-3 py-1.5 rounded-full bg-white/5 text-neutral-400 hover:text-white hover:bg-white/10" data-filter="ecom">E-Commerce</button></div>
+  <div class="grid sm:grid-cols-2 gap-3 sm:gap-4">
+    <div class="project-card relative rounded-xl overflow-hidden group cursor-pointer reveal" data-category="web"><div class="aspect-video"><img src="https://picsum.photos/seed/ft-d/800/450.jpg" class="w-full h-full object-cover"></div><div class="p-over absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex items-end p-5"><div><span class="text-[9px] uppercase tracking-widest text-blue-400 font-medium">Site Web</span><h3 class="text-base font-bold mt-1">FinTech Dashboard</h3><p class="text-xs text-neutral-300 mt-1">Plateforme financière temps réel.</p></div></div></div>
+    <div class="project-card relative rounded-xl overflow-hidden group cursor-pointer reveal" data-category="ecom"><div class="aspect-video"><img src="https://picsum.photos/seed/lx-s/800/450.jpg" class="w-full h-full object-cover"></div><div class="p-over absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex items-end p-5"><div><span class="text-[9px] uppercase tracking-widest text-pink-400 font-medium">E-Commerce</span><h3 class="text-base font-bold mt-1">LuxeStore</h3><p class="text-xs text-neutral-300 mt-1">Boutique de luxe immersive.</p></div></div></div>
+    <div class="project-card relative rounded-xl overflow-hidden group cursor-pointer reveal" data-category="app"><div class="aspect-video"><img src="https://picsum.photos/seed/hl-a/800/450.jpg" class="w-full h-full object-cover"></div><div class="p-over absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex items-end p-5"><div><span class="text-[9px] uppercase tracking-widest text-green-400 font-medium">Application</span><h3 class="text-base font-bold mt-1">SantéConnect</h3><p class="text-xs text-neutral-300 mt-1">Suivi santé et téléconsultation.</p></div></div></div>
+    <div class="project-card relative rounded-xl overflow-hidden group cursor-pointer reveal" data-category="web"><div class="aspect-video"><img src="https://picsum.photos/seed/cl-f/800/450.jpg" class="w-full h-full object-cover"></div><div class="p-over absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex items-end p-5"><div><span class="text-[9px] uppercase tracking-widest text-purple-400 font-medium">Site Web</span><h3 class="text-base font-bold mt-1">CloudFlow</h3><p class="text-xs text-neutral-300 mt-1">SaaS gestion de projets.</p></div></div></div>
+  </div>
+</div></section>
+
+<!-- À PROPOS -->
+<section id="apropos" class="py-10 sm:py-14 md:py-16 border-y border-white/5"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+    <div class="reveal"><div class="bg-[#0d1117] border border-white/10 rounded-xl overflow-hidden shadow-2xl"><div class="flex items-center gap-2 px-4 py-2.5 border-b border-white/10"><div class="w-2.5 h-2.5 rounded-full bg-red-500"></div><div class="w-2.5 h-2.5 rounded-full bg-yellow-500"></div><div class="w-2.5 h-2.5 rounded-full bg-green-500"></div></div><div class="p-4 sm:p-6 text-xs sm:text-sm font-mono"><div><span class="text-purple-400">const</span> <span class="text-blue-300">devCraft</span> = {</div><div class="pl-6"><span class="text-green-300">mission</span>: <span class="text-amber-300">"Transformer les idées"</span>,</div><div class="pl-6"><span class="text-green-300">passion</span>: <span class="text-cyan-300">Infinity</span></div><div>};</div></div></div></div>
+    <div class="reveal"><span class="text-[10px] font-semibold uppercase tracking-widest text-blue-500 mb-3 block">Processus</span><h2 class="text-2xl sm:text-3xl font-bold mb-4">De l'idée au <span class="gradient-text-alt">déploiement</span></h2><div class="space-y-4"><div class="flex gap-3"><div class="shrink-0 w-9 h-9 bg-blue-600/10 rounded-lg flex items-center justify-center border border-blue-600/20"><span class="text-xs font-bold text-blue-400">01</span></div><div><h4 class="font-semibold text-sm">Découverte</h4><p class="text-xs text-neutral-400">Compréhension de vos besoins.</p></div></div><div class="flex gap-3"><div class="shrink-0 w-9 h-9 bg-purple-600/10 rounded-lg flex items-center justify-center border border-purple-600/20"><span class="text-xs font-bold text-purple-400">02</span></div><div><h4 class="font-semibold text-sm">Design</h4><p class="text-xs text-neutral-400">Maquettes interactives.</p></div></div><div class="flex gap-3"><div class="shrink-0 w-9 h-9 bg-cyan-600/10 rounded-lg flex items-center justify-center border border-cyan-600/20"><span class="text-xs font-bold text-cyan-400">03</span></div><div><h4 class="font-semibold text-sm">Développement</h4><p class="text-xs text-neutral-400">Code propre et itérations.</p></div></div><div class="flex gap-3"><div class="shrink-0 w-9 h-9 bg-green-600/10 rounded-lg flex items-center justify-center border border-green-600/20"><span class="text-xs font-bold text-green-400">04</span></div><div><h4 class="font-semibold text-sm">Lancement</h4><p class="text-xs text-neutral-400">Déploiement et support.</p></div></div></div></div>
+  </div>
+</div></section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-10 sm:py-14 md:py-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="grid lg:grid-cols-2 gap-8 sm:gap-12">
+    <div class="reveal"><span class="text-[10px] font-semibold uppercase tracking-widest text-blue-500 mb-3 block">Contact</span><h2 class="text-2xl sm:text-3xl font-bold mb-4">Parlons de votre <span class="gradient-text">projet</span></h2><p class="text-neutral-400 text-xs sm:text-sm mb-8">Proposition sous 24h.</p><div class="space-y-4"><div class="flex items-center gap-3"><div class="w-9 h-9 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center"><iconify-icon icon="lucide:mail" width="15" class="text-blue-400"></iconify-icon></div><div><div class="text-[10px] text-neutral-500">Email</div><div class="text-xs">aboniayijoseph@gmail.com</div></div></div><div class="flex items-center gap-3"><div class="w-9 h-9 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center"><iconify-icon icon="lucide:phone" width="15" class="text-blue-400"></iconify-icon></div><div><div class="text-[10px] text-neutral-500">Tél</div><div class="text-xs">+228 91 89 30 78</div></div></div></div></div>
+    <form onsubmit="sendMsg(event)" class="bg-neutral-900/30 border border-white/10 rounded-xl p-5 sm:p-6 space-y-4 reveal">
+      <div class="grid sm:grid-cols-2 gap-4"><div><input type="text" required placeholder="Prénom" class="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2.5 text-xs text-white placeholder-neutral-600 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50"></div><div><input type="text" required placeholder="Nom" class="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2.5 text-xs text-white placeholder-neutral-600 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50"></div></div>
+      <input type="email" required placeholder="Email" class="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2.5 text-xs text-white placeholder-neutral-600 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50">
+      <textarea required rows="3" placeholder="Message" class="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2.5 text-xs text-white placeholder-neutral-600 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 resize-none"></textarea>
+      <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition-colors text-xs">Envoyer</button>
+    </form>
+  </div>
+</div></section>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/5 py-8"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex flex-col sm:flex-row items-center justify-between gap-4"><p class="text-[10px] text-neutral-600">© 2025 DevCraft</p></div></div></footer>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- FIREBASE AUTH + APP                            -->
+<!-- ═══════════════════════════════════════════════ -->
+<script>
+// ╔══════════════════════════════════════════════════════════════════╗
+// ║  🔥 FIREBASE — CONFIGURATION CORRIGÉE                          ║
+// ║  ⚠️ OBLIGATOIRE : Remplacez apiKey et appId par vos VRAIES cls║
+// ║  Rendez-vous sur console.firebase.google.com                   ║
+// ╚══════════════════════════════════════════════════════════════════╝
+const firebaseConfig = {
+  apiKey: "AIzaSyCsvWgmPrWzHPPx1gs0IaubxYjIgxXaJ3Q",
+  authDomain: "my-project-39839xvc.firebaseapp.com",
+  projectId: "my-project-39839xvc",
+  storageBucket: "my-project-39839xvc.firebasestorage.app",
+  messagingSenderId: "973829295198",
+  appId: "1:973829295198:web:2d3df0725c9e21477738cf",
+  measurementId: "G-V5WLBS80RV"
+};
+
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL);
+
+// ==========================================
+// AUTH STATE — écoute en temps réel
+// ==========================================
+auth.onAuthStateChanged(user => {
+  if (user) {
+    enter(user);
+  } else {
+    showGate();
+  }
+});
+
+// ==========================================
+// GOOGLE LOGIN
+// ==========================================
+function loginGoogle() {
+  const provider = new firebase.auth.GoogleAuthProvider();
+  provider.addScope('email');
+  provider.addScope('profile');
+  setGoLoading(true);
+  hideErr(); hideOk();
+
+  auth.signInWithPopup(provider)
+    .then(() => setGoLoading(false))
+    .catch(err => {
+      console.error('Firebase Google Login Error:', err); // Debug ajouté
+      setGoLoading(false);
+      showErr(mapErr(err.code));
+    });
+}
+
+function setGoLoading(on) {
+  const b = $('googleBtn'), t = $('googleTxt');
+  if (on) { b.disabled = true; t.innerHTML = '<div class="spinner" style="border-color:rgba(0,0,0,.2);border-top-color:#666"></div> Connexion...'; }
+  else { b.disabled = false; t.textContent = 'Se connecter avec Google'; }
+}
+
+// ==========================================
+// EMAIL LOGIN
+// ==========================================
+function loginEmail(e) {
+  e.preventDefault(); clearFieldErr(); hideErr();
+  const email = $('lEmail').value.trim();
+  const pass  = $('lPass').value;
+
+  if (!validEmail(email)) return fieldErr('lEmail','lEmailErr','Email invalide');
+  if (pass.length < 6) return fieldErr('lPass','lPassErr','6 caractères minimum');
+
+  setBtnLoad('l', true);
+  auth.signInWithEmailAndPassword(email, pass)
+    .then(() => setBtnLoad('l', false))
+    .catch(err => { 
+      console.error('Firebase Email Login Error:', err); // Debug ajouté
+      setBtnLoad('l', false); 
+      showErr(mapErr(err.code)); 
+    });
+}
+
+// ==========================================
+// EMAIL REGISTER
+// ==========================================
+function registerEmail(e) {
+  e.preventDefault(); clearFieldErr(); hideErr(); hideOk();
+  const name  = $('rName').value.trim();
+  const email = $('rEmail').value.trim();
+  const pass  = $('rPass').value;
+  const pass2 = $('rPass2').value;
+
+  if (name.length < 2) return fieldErr('rName','rNameErr','Nom requis');
+  if (!validEmail(email)) return fieldErr('rEmail','rEmailErr','Email invalide');
+  if (pass.length < 6) return fieldErr('rPass','rPassErr','6 caractères minimum');
+  if (pass !== pass2) return fieldErr('rPass2','rPass2Err','Ne correspond pas');
+
+  setBtnLoad('r', true);
+  auth.createUserWithEmailAndPassword(email, pass)
+    .then(cred => cred.user.updateProfile({ displayName: name }))
+    .then(() => {
+      auth.currentUser.sendEmailVerification();
+      showOk('Compte créé ! Vérifiez votre email pour confirmer votre adresse.');
+    })
+    .catch(err => { 
+      console.error('Firebase Register Error:', err); // Debug ajouté
+      setBtnLoad('r', false); 
+      showErr(mapErr(err.code)); 
+    });
+}
+
+// ==========================================
+// PASSWORD RESET
+// ==========================================
+function resetPass() {
+  const email = $('lEmail').value.trim();
+  if (!email || !validEmail(email)) return showErr('Entrez votre email ci-dessus puis cliquez ici.');
+  hideErr();
+  auth.sendPasswordResetEmail(email)
+    .then(() => showOk('Email de réinitialisation envoyé à ' + email))
+    .catch(err => {
+      console.error('Firebase Reset Error:', err); // Debug ajouté
+      showErr(mapErr(err.code));
+    });
+}
+
+// ==========================================
+// LOGOUT
+// ==========================================
+function logout() {
+  auth.signOut();
+  closeDrop();
+  toast('Déconnecté','info');
+}
+
+// ==========================================
+// ENTER APP
+// ==========================================
+function enter(user) {
+  const g = $('authGate');
+  g.classList.remove('open');
+  setTimeout(() => g.style.display = 'none', 400);
+
+  const name  = user.displayName || user.email.split('@')[0];
+  const photo = user.photoURL || 'https://ui-avatars.com/api/?name=' + encodeURIComponent(name) + '&background=2563eb&color=fff&size=128';
+  const email = user.email;
+  const prov  = user.providerData[0]?.providerId || '';
+
+  $('userPic').src = photo;
+  $('userName').textContent = name;
+  $('dropName').textContent = name;
+  $('dropEmail').textContent = email;
+  $('dropProvider').innerHTML = prov.includes('google')
+    ? '<span class="inline-flex items-center gap-1 text-[10px] text-neutral-400"><svg width="12" height="12" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>Compte Google</span>'
+    : '<span class="inline-flex items-center gap-1 text-[10px] text-neutral-400"><iconify-icon icon="lucide:mail" width="11"></iconify-icon>Compte email</span>';
+
+  $('userNav').classList.remove('hidden');
+  $('mobLogout').classList.remove('hidden');
+  $('mobLogout').classList.add('flex');
+}
+
+function showGate() {
+  const g = $('authGate');
+  g.style.display = '';
+  g.classList.add('open');
+  $('userNav').classList.add('hidden');
+  $('mobLogout').classList.add('hidden');
+  $('mobLogout').classList.remove('flex');
+}
+
+// ==========================================
+// ERROR MAPPING (CORRIGÉ)
+// ==========================================
+function mapErr(code) {
+  if (!code) return 'Erreur inconnue. Vérifiez votre configuration Firebase dans le code.';
+  
+  const errors = {
+    'auth/user-not-found':'Aucun compte avec cet email.',
+    'auth/wrong-password':'Mot de passe incorrect.',
+    'auth/invalid-credential':'Identifiants incorrects.',
+    'auth/email-already-in-use':'Cet email est déjà utilisé.',
+    'auth/weak-password':'Mot de passe trop faible (6 car. min).',
+    'auth/invalid-email':'Email invalide.',
+    'auth/too-many-requests':'Trop de tentatives. Réessayez plus tard.',
+    'auth/popup-closed-by-user':'Connexion annulée.',
+    'auth/network-request-failed':'Erreur réseau. Vérifiez votre connexion.',
+    'auth/unverified-domain':'Domaine non autorisé. Ajoutez votre domaine dans Firebase Console > Authentication > Settings > Authorized domains.',
+    'auth/api-key-not-valid':'Clé API Firebase invalide. Vérifiez votre configuration.',
+    'auth/auth-domain-config-required':'Configuration authDomain requise.',
+    'auth/invalid-api-key':'Clé API invalide.',
+    'auth/app-not-authorized':'App non autorisée. Vérifiez l\'appId et la configuration.'
+  };
+  
+  return errors[code] || 'Erreur (' + code + ')';
+}
+
+// ==========================================
+// UI HELPERS
+// ==========================================
+function $(id){return document.getElementById(id)}
+function switchTab(t){
+  const lf=$('loginForm'),rf=$('regForm'),tl=$('tabLogin'),tr=$('tabReg');
+  clearFieldErr();hideErr();hideOk();
+  if(t==='login'){lf.classList.remove('hidden');rf.classList.add('hidden');tl.classList.add('bg-white/10','text-white');tl.classList.remove('text-neutral-400');tr.classList.remove('bg-white/10','text-white');tr.classList.add('text-neutral-400')}
+  else{rf.classList.remove('hidden');lf.classList.add('hidden');tr.classList.add('bg-white/10','text-white');tr.classList.remove('text-neutral-400');tl.classList.remove('bg-white/10','text-white');tl.classList.add('text-neutral-400')}
+}
+function showErr(m){$('authErr').classList.remove('hidden');$('authErrMsg').textContent=m}
+function hideErr(){$('authErr').classList.add('hidden')}
+function showOk(m){$('authOk').classList.remove('hidden');$('authOkMsg').textContent=m}
+function hideOk(){$('authOk').classList.add('hidden')}
+function fieldErr(iid,eid,m){$(iid).classList.add('input-err');$(eid).textContent=m;$(eid).classList.add('show')}
+function clearFieldErr(){document.querySelectorAll('.input-err').forEach(e=>e.classList.remove('input-err'));document.querySelectorAll('.err-msg').forEach(e=>e.classList.remove('show'))}
+function setBtnLoad(p,on){const b=$(p+'Btn'),t=$(p+'Txt'),s=$(p+'Spin');if(on){b.disabled=true;t.classList.add('hidden');s.classList.remove('hidden')}else{b.disabled=false;t.classList.remove('hidden');s.classList.add('hidden')}}
+function validEmail(e){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)}
+
+// Drop
+function toggleDrop(){$('userDrop').classList.toggle('open')}
+function closeDrop(){$('userDrop').classList.remove('open')}
+document.addEventListener('click',e=>{if(!e.target.closest('#userNav'))closeDrop()});
+
+// Videos
+const vids=[
+  {id:'Tl5QdRXYCyg',t:'Intro développement web',d:'HTML, CSS, JS pour débuter.',tag:'Tutoriel',tc:'blue'},
+  {id:'pBy1z6O8g7E',t:'React pour débutants',d:'Première app React.',tag:'Frontend',tc:'purple'},
+  {id:'jS4aFq5-91M',t:'JavaScript ES6+',d:'Fonctionnalités modernes.',tag:'JS',tc:'yellow'},
+  {id:'rZ41y93P6Og',t:'Node.js & Express',d:'API REST complète.',tag:'Backend',tc:'green'},
+  {id:'Oe421EPjeBE',t:'Tailwind CSS',d:'Stylisez vite.',tag:'CSS',tc:'cyan'},
+  {id:'Vyxl8saLQv4',t:'Déployer sur Vercel',d:'En 5 minutes.',tag:'DevOps',tc:'orange'}
+];
+(function(){$('vidGrid').innerHTML=vids.map(v=>`<div class="video-card rounded-xl bg-neutral-900/30 border border-white/10 overflow-hidden reveal" onclick="openVid('${v.id}','${v.t.replace(/'/g,"\\'")}','${v.d.replace(/'/g,"\\'")}')"><div class="relative aspect-video bg-neutral-800 overflow-hidden"><img src="https://img.youtube.com/vi/${v.id}/hqdefault.jpg" class="w-full h-full object-cover" loading="lazy" onerror="this.style.display='none'"><div class="v-over absolute inset-0 bg-black/40 flex items-center justify-center"><div class="v-play w-11 h-11 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center border border-white/30"><iconify-icon icon="lucide:play" width="20" class="text-white ml-0.5"></iconify-icon></div></div><div class="absolute bottom-1.5 right-1.5 bg-black/70 text-white text-[8px] font-mono px-1.5 py-0.5 rounded">▶ YouTube</div></div><div class="p-3"><span class="text-[9px] font-bold tracking-widest uppercase text-${v.tc}-400 bg-${v.tc}-500/10 px-2 py-0.5 rounded">${v.tag}</span><h3 class="font-bold text-white text-xs mt-1.5">${v.t}</h3><p class="text-neutral-500 text-[10px]">${v.d}</p></div></div>`).join('')})();
+function openVid(id,t,d){$('vidTitle').textContent=t;$('vidDesc').textContent=d;$('vidFrame').src='https://www.youtube.com/embed/'+id+'?autoplay=1&rel=0';$('videoModal').classList.add('open');document.body.style.overflow='hidden'}
+function closeVid(){$('vidFrame').src='';$('videoModal').classList.remove('open');document.body.style.overflow=''}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeVid()});
+
+// Mobile menu
+let mOpen=false;
+function toggleMob(){mOpen=!mOpen;$('mobMenu').classList.toggle('open',mOpen);$('mobIco').setAttribute('icon',mOpen?'lucide:x':'lucide:menu')}
+function closeMob(){mOpen=false;$('mobMenu').classList.remove('open');$('mobIco').setAttribute('icon','lucide:menu')}
+
+// Reveal
+const ro=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('active')}),{threshold:.1,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+
+// Filter
+document.querySelectorAll('.filter-btn').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.filter-btn').forEach(x=>{x.classList.remove('active','bg-blue-600','text-white');x.classList.add('bg-white/5','text-neutral-400')});b.classList.add('active','bg-blue-600','text-white');b.classList.remove('bg-white/5','text-neutral-400');const f=b.dataset.filter;document.querySelectorAll('.project-card').forEach(c=>{const cat=c.dataset.category;if(f==='all'||cat===f){c.style.display='';c.style.opacity='0';requestAnimationFrame(()=>{c.style.transition='opacity .4s';c.style.opacity='1'})}else{c.style.opacity='0';setTimeout(()=>c.style.display='none',400)}})}));
+
+// Contact
+function sendMsg(e){e.preventDefault();const b=e.target.querySelector('button');b.textContent='Envoi...';b.disabled=true;setTimeout(()=>{b.textContent='Envoyer';b.disabled=false;e.target.reset();toast('Message envoyé !','success')},1800)}
+
+// Toast
+function toast(m,t='success'){const c=$('toastBox'),el=document.createElement('div'),bg=t==='success'?'bg-green-600/20 border-green-500/30':t==='info'?'bg-blue-600/20 border-blue-500/30':'bg-red-600/20 border-red-500/30',ic=t==='success'?'lucide:check-circle':t==='info'?'lucide:info':'lucide:alert-circle',cl=t==='success'?'text-green-400':t==='info'?'text-blue-400':'text-red-400';el.className=`toast flex items-center gap-2.5 ${bg} border backdrop-blur-sm rounded-lg px-4 py-3 max-w-xs`;el.innerHTML=`<iconify-icon icon="${ic}" width="16" class="${cl} shrink-0"></iconify-icon><p class="text-xs text-white">${m}</p>`;c.appendChild(el);setTimeout(()=>{el.classList.add('toast-out');setTimeout(()=>el.remove(),300)},4500)}
+
+// Nav scroll
+window.addEventListener('scroll',()=>$('navbar').style.borderBottom=window.scrollY>50?'1px solid rgba(255,255,255,.05)':'none');
+</script>
+</body>
+</html>

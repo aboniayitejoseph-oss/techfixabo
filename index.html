@@ -21,6 +21,7 @@
       <li><a href="#tarifs">Tarifs</a></li>
       <li><a href="#gallery">Galerie</a></li>
       <li><a href="#contact" class="btn-urgence">Urgence</a></li>
+      <li><a href="#formation">Formation</a></li>
     </ul>
     <button class="hamburger" id="ham" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -31,44 +32,38 @@
     <a href="#tarifs"   class="mob-link">Tarifs</a>
     <a href="#gallery"  class="mob-link">Galerie</a>
     <a href="#contact"  class="btn-urgence mob-link">Urgence</a>
+    <a href="#formation" class="mob-link">Formation</a>
   </div>
 </nav>
 
 <!-- ── HERO ── -->
 <header class="hero">
-  <div class="hero-glow"></div>
+
+  <!-- 🌑 FILTRE NOIR -->
+  <div class="hero-overlay"></div>
+
+  <!-- ✨ CONTENU -->
   <div class="hero-content">
     <div class="hero-badge">
       <span class="hero-badge-dot"></span>
       Intervention rapide disponible
     </div>
-    <h2>
-      Réparation &amp; Maintenance<br><em>Informatique Pro</em>
+
+    <h2 class="hero-title">
+      Réparation & Maintenance<br>
+      <em>Informatique Pro</em>
     </h2>
-    <p>Nous redonnons vie à vos ordinateurs, sécurisons vos réseaux et protégeons vos données. Intervention sur site ou en atelier.</p>
-    <div class="hero-cta-group" style="display:flex;flex-wrap:wrap;justify-content:center;gap:.8rem;">
-      <a href="#contact" class="hero-cta">
-        <i class="fas fa-file-alt"></i> Devis gratuit
-      </a>
-      <a href="#services" class="hero-cta-secondary">
-        <i class="fas fa-arrow-down"></i> Voir les services
-      </a>
-    </div>
-    <div class="hero-stats">
-      <div class="stat">
-        <div class="stat-value">500<span>+</span></div>
-        <div class="stat-label">Clients satisfaits</div>
-      </div>
-      <div class="stat">
-        <div class="stat-value">48<span>h</span></div>
-        <div class="stat-label">Délai moyen</div>
-      </div>
-      <div class="stat">
-        <div class="stat-value">98<span>%</span></div>
-        <div class="stat-label">Taux de réussite</div>
-      </div>
+
+    <p>
+      Nous redonnons vie à vos ordinateurs, sécurisons vos réseaux et protégeons vos données.
+    </p>
+
+    <div class="hero-cta-group">
+      <a href="#contact" class="hero-cta">Devis gratuit</a>
+      <a href="#services" class="hero-cta-secondary">Voir les services</a>
     </div>
   </div>
+
 </header>
 
 <div class="divider"></div>
@@ -135,7 +130,7 @@
     <div class="gallery-grid reveal">
       <div class="gallery-item"><img src="./images (1).jpg" alt="Carte mere"/></div>
       <div class="gallery-item"><img src="./images (2).jpg" alt="Unite centrale"/></div>
-      <div class="gallery-item"><img src="./images (4).jpg" alt="Piece logique"/></div>
+      <div class="gallery-item"><img src="./images(4).jpg" alt="Piece logique"/></div>
       <div class="gallery-item"><img src="./images (3).jpg" alt="Ouverture logique"/></div>
       <div class="gallery-item"><img src="./images (5).jpg" alt="Carte graphique"/></div>
     </div>
@@ -192,6 +187,49 @@
     </div>
   </div>
 </section>
+<div class="divider"></div>
+
+<section id="formation" class="section">
+  <div class="section-inner">
+    
+    <div class="reveal">
+      <div class="section-label">Apprentissage</div>
+      <h3 class="section-title">Nos Formations</h3>
+      <p class="section-sub">
+        Apprenez à maîtriser votre ordinateur, sécuriser vos données et devenir autonome.
+      </p>
+    </div>
+
+    <div class="services-grid">
+
+      <a href="initiation.html"class="service-card reveal">
+        <div class="service-icon-wrap"><i class="fas fa-laptop"></i></div>
+        <h4>Initiation Informatique</h4>
+        <p>Apprendre à utiliser un ordinateur, Internet et les logiciels de base.</p>
+      </a>
+
+      <a href="securite.html" class="service-card reveal" style="transition-delay:.1s">
+        <div class="service-icon-wrap"><i class="fas fa-shield-alt"></i></div>
+        <h4>Sécurité Informatique</h4>
+        <p>Se protéger contre les virus, arnaques et cyberattaques.</p>
+      </a>
+
+      <a href="reseau.html" class="service-card reveal" style="transition-delay:.2s">
+        <div class="service-icon-wrap"><i class="fas fa-network-wired"></i></div>
+        <h4>Réseaux & Internet</h4>
+        <p>Comprendre et gérer votre Wi-Fi et vos connexions.</p>
+      </a>
+
+      <a href="dev.html" class="service-card reveal" style="transition-delay:.3s">
+        <div class="service-icon-wrap"><i class="fas fa-code"></i></div>
+        <h4>Initiation au Développement</h4>
+        <p>Découvrir les bases du HTML, CSS et création de sites web.</p>
+      </a>
+
+    </div>
+
+  </div>
+</section>
 
 <div class="divider"></div>
 
@@ -224,7 +262,7 @@
           <div class="contact-info-icon"><i class="fas fa-envelope"></i></div>
           <div class="contact-info-text">
             <strong>Email</strong>
-            <span>aboniayijoseph@gmail.com</span>
+            <span>aboniayitejoseph@gmail.com</span>
           </div>
         </div>
         <div class="contact-info-item">
@@ -271,6 +309,14 @@
   </div>
 </section>
 
+<!-- WhatsApp Button Amélioré -->
+<a href="https://wa.me/22891893078" class="whatsapp-float" target="_blank" aria-label="Contact WhatsApp">
+  <div class="whatsapp-bubble">
+    <i class="fab fa-whatsapp"></i>
+    <span class="whatsapp-text">Discuter</span>
+  </div>
+</a>
+
 
 <!-- ── FOOTER ── -->
 <footer>
@@ -284,7 +330,13 @@
   <i class="fas fa-check-circle"></i>
   Message envoye ! Nous vous repondrons sous 2h.
 </div>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
+<script>
+(function(){
+  emailjs.init("TON_PUBLIC_KEY");
+})();
+</script>
 <script>
   // Hamburger
   const ham = document.getElementById('ham');
@@ -314,14 +366,26 @@
   }, { threshold: 0.12 });
   revealEls.forEach(el => observer.observe(el));
 
-  // Form submit
-  document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
+  
+ // Form submit
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  emailjs.send("SERVICE_ID", "TEMPLATE_ID", {
+    from_name: document.getElementById("nom").value,
+    from_email: document.getElementById("email").value,
+    type: document.getElementById("type").value,
+    message: document.getElementById("message").value,
+  })
+  .then(function() {
     const toast = document.getElementById('toast');
     toast.classList.add('show');
-    this.reset();
+    document.getElementById('contactForm').reset();
     setTimeout(() => toast.classList.remove('show'), 4000);
+  }, function(error) {
+    alert("Erreur : " + JSON.stringify(error));
   });
+});
 </script>
 </body>
 </html>
