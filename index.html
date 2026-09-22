@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>TechFix — Réparation Informatique</title>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="style.css">
@@ -18,6 +18,7 @@
     <a href="#" class="logo">Tech<span>Fix</span> <span class="logo-dot"></span></a>
     <ul class="nav-links">
       <li><a href="#services">Services</a></li>
+      <li><a href="#apropos">Equipe</a></li>
       <li><a href="#tarifs">Tarifs</a></li>
       <li><a href="#gallery">Galerie</a></li>
       <li><a href="#contact" class="btn-urgence">Urgence</a></li>
@@ -29,6 +30,7 @@
   </div>
   <div class="mobile-menu" id="mobileMenu">
     <a href="#services" class="mob-link">Services</a>
+    <a href="#apropos"  class="mob-link">Equipe</a>
     <a href="#tarifs"   class="mob-link">Tarifs</a>
     <a href="#gallery"  class="mob-link">Galerie</a>
     <a href="#contact"  class="btn-urgence mob-link">Urgence</a>
@@ -38,6 +40,19 @@
 
 <!-- ── HERO ── -->
 <header class="hero">
+
+  <!-- 🖼️ DIAPORAMA DE FOND (images en fondu, silencieux, en boucle) -->
+  <div class="hero-video-bg">
+    <div class="hero-slide" style="background-image:url('./images (1).jpg')"></div>
+    <div class="hero-slide" style="background-image:url('./images (2).jpg')"></div>
+    <div class="hero-slide" style="background-image:url('./images(4).jpg')"></div>
+    <div class="hero-slide" style="background-image:url('./images (3).jpg')"></div>
+    <div class="hero-slide" style="background-image:url('./images (5).jpg')"></div>
+    <!-- 👉 Ajoute ces 3 photos dans le meme dossier que index.html, avec exactement ces noms -->
+    <div class="hero-slide" style="background-image:url('./outils-informatique.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('./imprimante.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('./reseau-materiel.jpg')"></div>
+  </div>
 
   <!-- 🌑 FILTRE NOIR -->
   <div class="hero-overlay"></div>
@@ -119,6 +134,68 @@
 
 <div class="divider"></div>
 
+<!-- ── QUI SOMMES-NOUS / EQUIPE ── -->
+<section id="apropos" class="section" style="background:var(--navy2)">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">Qui sommes-nous</div>
+      <h3 class="section-title">L'humain derriere la machine</h3>
+      <p class="section-sub">
+        Une petite equipe basee a Lome, passionnee par l'informatique et le service client.
+      </p>
+    </div>
+
+    <div class="about-grid reveal">
+      <div class="about-text">
+        <p>
+          TechFix est nee d'une conviction simple : chaque panne informatique cache une histoire —
+          des photos de famille bloquees sur un disque dur, une entreprise qui ne peut plus emettre
+          ses factures, un reseau Wi-Fi qui lache en plein rendez-vous. Nous intervenons a Lome et
+          dans tout le Togo pour redonner vie aux ordinateurs, securiser les reseaux et former nos
+          clients a etre plus autonomes.
+        </p>
+        <p>
+          Ce qui nous definit, ce n'est pas seulement notre expertise technique, mais notre facon de
+          travailler : a l'ecoute, honnete sur les prix, et toujours disponibles quand un probleme
+          urgent survient. Chaque intervention est expliquee en langage simple, sans jargon inutile.
+        </p>
+        <div class="about-values">
+          <span class="value-pill"><i class="fas fa-bolt"></i> Reactivite</span>
+          <span class="value-pill"><i class="fas fa-handshake"></i> Transparence</span>
+          <span class="value-pill"><i class="fas fa-heart"></i> Passion du metier</span>
+          <span class="value-pill"><i class="fas fa-map-marker-alt"></i> Proximite locale</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="team-grid">
+      <div class="team-card reveal">
+        <div class="team-avatar">JA</div>
+        <h4>Joseph A.</h4>
+        <div class="team-role">Fondateur &amp; Technicien senior</div>
+        <p>Depannage materiel, cartes meres et diagnostics complexes.</p>
+      </div>
+      <div class="team-card reveal" style="transition-delay:.1s">
+        <div class="team-avatar">SR</div>
+        <h4>Specialiste Reseau</h4>
+        <div class="team-role">Installation &amp; securite reseau</div>
+        <p>Wi-Fi, serveurs, NAS et protection contre les cyberattaques.</p>
+      </div>
+      <div class="team-card reveal" style="transition-delay:.2s">
+        <div class="team-avatar">FO</div>
+        <h4>Formateur</h4>
+        <div class="team-role">Initiation &amp; accompagnement</div>
+        <p>Cours particuliers pour devenir autonome sur votre ordinateur.</p>
+      </div>
+    </div>
+    <p style="text-align:center;color:var(--muted);font-size:.8rem;margin-top:1.5rem">
+      <i class="fas fa-info-circle"></i> Remplace ces noms et roles par ceux de ta vraie equipe.
+    </p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
 <!-- ── GALLERY ── -->
 <section id="gallery" class="section">
   <div class="section-inner">
@@ -133,6 +210,9 @@
       <div class="gallery-item"><img src="./images(4).jpg" alt="Piece logique"/></div>
       <div class="gallery-item"><img src="./images (3).jpg" alt="Ouverture logique"/></div>
       <div class="gallery-item"><img src="./images (5).jpg" alt="Carte graphique"/></div>
+      <div class="gallery-item"><img src="./outils-informatique.jpg" alt="Outils informatique"/></div>
+      <div class="gallery-item"><img src="./imprimante.jpg" alt="Imprimante"/></div>
+      <div class="gallery-item"><img src="./reseau-materiel.jpg" alt="Materiel reseau"/></div>
     </div>
   </div>
 </section>
@@ -259,6 +339,13 @@
           </div>
         </div>
         <div class="contact-info-item">
+          <div class="contact-info-icon" style="background:rgba(37,211,102,.15);color:#25d366"><i class="fab fa-whatsapp"></i></div>
+          <div class="contact-info-text">
+            <strong>WhatsApp</strong>
+            <span><a href="https://wa.me/22891893078" target="_blank" rel="noopener" style="color:var(--muted);text-decoration:underline">Discuter directement</a></span>
+          </div>
+        </div>
+        <div class="contact-info-item">
           <div class="contact-info-icon"><i class="fas fa-envelope"></i></div>
           <div class="contact-info-text">
             <strong>Email</strong>
@@ -275,7 +362,7 @@
       </div>
 
       <div class="contact-form-box reveal">
-        <h4 style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.2rem;color:#fff;margin-bottom:1.8rem">Contactez un Technicien</h4>
+        <h4 style="font-family:'Poppins',sans-serif;font-weight:700;font-size:1.2rem;color:#fff;margin-bottom:1.8rem">Contactez un Technicien</h4>
         <form id="contactForm">
           <div class="form-group">
             <label for="nom">Nom complet</label>
@@ -304,6 +391,9 @@
             <i class="fas fa-paper-plane"></i> Envoyer le message
           </button>
         </form>
+        <button type="button" id="downloadPdfBtn" class="btn-tarif btn-tarif-outline" style="display:none;margin-top:1rem">
+          <i class="fas fa-file-pdf"></i> Telecharger ma demande (PDF)
+        </button>
       </div>
     </div>
   </div>
@@ -312,9 +402,46 @@
 
 <!-- ── FOOTER ── -->
 <footer>
-  <div class="footer-logo">Tech<span style="color:var(--blue-lt)">Fix</span></div>
-  <p>&copy; 2026 TechFix Maintenance. Tous droits reserves.</p>
-  <p class="footer-avail">Disponible du Lundi au Samedi, 8h - 18h &mdash; Intervention rapide sur devis</p>
+  <div class="footer-inner">
+    <div class="footer-col footer-brand">
+      <div class="footer-logo">Tech<span style="color:var(--blue-lt)">Fix</span></div>
+      <p class="footer-desc">Reparation, maintenance informatique et securisation de reseaux a Lome. Diagnostic honnete, intervention rapide.</p>
+      <div class="footer-socials">
+        <a href="https://wa.me/22891893078" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="mailto:aboniayitejoseph@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        <a href="tel:+22891893078" aria-label="Telephone"><i class="fas fa-phone"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h5>Navigation</h5>
+      <a href="#services">Services</a>
+      <a href="#apropos">Equipe</a>
+      <a href="#tarifs">Tarifs</a>
+      <a href="#gallery">Galerie</a>
+      <a href="#formation">Formation</a>
+    </div>
+
+    <div class="footer-col">
+      <h5>Horaires</h5>
+      <p><i class="fas fa-clock"></i> Lundi - Vendredi : 8h - 18h</p>
+      <p><i class="fas fa-clock"></i> Samedi : 9h - 15h</p>
+      <p><i class="fas fa-clock"></i> Dimanche : Urgences uniquement</p>
+    </div>
+
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <p><i class="fas fa-map-marker-alt"></i> Lome, Togo &mdash; Zone d'intervention : Lome &amp; Togo</p>
+      <p><i class="fas fa-phone"></i> <a href="tel:+22891893078">+228 91 89 30 78</a></p>
+      <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/22891893078" target="_blank" rel="noopener">Discuter sur WhatsApp</a></p>
+      <p><i class="fas fa-envelope"></i> <a href="mailto:aboniayitejoseph@gmail.com">aboniayitejoseph@gmail.com</a></p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2026 TechFix Maintenance. Tous droits reserves.</p>
+    <p class="footer-avail">Intervention rapide sur devis &mdash; Reponse garantie sous 2h en jours ouvres</p>
+  </div>
 </footer>
 
 <!-- ── TOAST ── -->
@@ -322,13 +449,42 @@
   <i class="fas fa-check-circle"></i>
   Message envoye ! Nous vous repondrons sous 2h.
 </div>
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
-<script>
-(function(){
-  emailjs.init("TON_PUBLIC_KEY");
-})();
-</script>
+<!-- ── BOUTON WHATSAPP FLOTTANT ── -->
+<a href="https://wa.me/22891893078?text=Bonjour%2C%20j%27ai%20besoin%20d%27une%20intervention%20informatique." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Discuter sur WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- ── ASSISTANT IA FLOTTANT ── -->
+<div class="ai-assistant">
+  <button class="ai-toggle" id="aiToggle" aria-label="Ouvrir l'assistant TechFix">
+    <i class="fas fa-robot"></i>
+  </button>
+  <div class="ai-panel" id="aiPanel">
+    <div class="ai-header">
+      <div class="ai-header-title"><i class="fas fa-robot"></i> Assistant TechFix</div>
+      <button class="ai-close" id="aiClose" aria-label="Fermer l'assistant">&times;</button>
+    </div>
+    <div class="ai-messages" id="aiMessages">
+      <div class="ai-msg ai-msg-bot">
+        Bonjour ! Je suis l'assistant TechFix. Je peux vous orienter vers le bon service, vous donner
+        nos tarifs, nos horaires, ou vous aider a remplir votre demande. Posez une question ou choisissez
+        ci-dessous.
+      </div>
+    </div>
+    <div class="ai-quick-replies" id="aiQuickReplies">
+      <button type="button" data-q="service">Quel service me faut-il ?</button>
+      <button type="button" data-q="tarif">Vos tarifs ?</button>
+      <button type="button" data-q="horaire">Vos horaires ?</button>
+      <button type="button" data-q="contact">Parler a un technicien</button>
+    </div>
+    <form class="ai-input-row" id="aiForm">
+      <input type="text" id="aiInput" placeholder="Ecrivez votre question..." autocomplete="off"/>
+      <button type="submit" aria-label="Envoyer"><i class="fas fa-paper-plane"></i></button>
+    </form>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script>
   // Hamburger
   const ham = document.getElementById('ham');
@@ -358,24 +514,167 @@
   }, { threshold: 0.12 });
   revealEls.forEach(el => observer.observe(el));
 
+  // ── ASSISTANT IA (guide par mots-cles, sans compte externe) ──
+  const aiToggle = document.getElementById('aiToggle');
+  const aiPanel = document.getElementById('aiPanel');
+  const aiClose = document.getElementById('aiClose');
+  const aiMessages = document.getElementById('aiMessages');
+  const aiForm = document.getElementById('aiForm');
+  const aiInput = document.getElementById('aiInput');
+
+  function aiOpen() { aiPanel.classList.add('open'); aiInput.focus(); }
+  function aiToggleFn() { aiPanel.classList.toggle('open'); if (aiPanel.classList.contains('open')) aiInput.focus(); }
+  aiToggle.addEventListener('click', aiToggleFn);
+  aiClose.addEventListener('click', () => aiPanel.classList.remove('open'));
+
+  function aiAddMsg(text, from) {
+    const div = document.createElement('div');
+    div.className = 'ai-msg ' + (from === 'user' ? 'ai-msg-user' : 'ai-msg-bot');
+    div.textContent = text;
+    aiMessages.appendChild(div);
+    aiMessages.scrollTop = aiMessages.scrollHeight;
+  }
+
+  const aiReponses = {
+    service: "Dites-m'en un peu plus : ecran casse ou lenteurs -> Depannage PC/Mac. Wi-Fi ou reseau instable -> Installation Reseau. Fichiers perdus/pirates -> Securite & Sauvegarde. Vous pouvez voir le detail dans la section Services ci-dessus.",
+    tarif: "Nos tarifs demarrent a 50 EUR pour un depannage basique, 100 EUR pour une installation reseau et 150 EUR pour une securisation complete. Devis gratuit avant toute intervention — voir la section Tarifs.",
+    horaire: "Nous sommes ouverts du Lundi au Vendredi de 8h a 18h, le Samedi de 9h a 15h, et disponibles pour les urgences le Dimanche via WhatsApp.",
+    contact: "Le plus rapide : cliquez sur le bouton WhatsApp vert en bas a gauche, ou remplissez le formulaire dans la section Contact — un technicien vous repond sous 2h en jours ouvres.",
+    virus: "Cela ressemble a un probleme logiciel (virus, lenteur). Notre Depannage Basique (a partir de 50 EUR) inclut un diagnostic complet et la suppression de virus.",
+    wifi: "Pour un probleme de Wi-Fi ou de reseau, notre service Installation Reseau (a partir de 100 EUR) couvre la configuration complete et la securisation de l'acces.",
+    imprimante: "Nous intervenons aussi sur les imprimantes (bourrage, pilotes, connexion reseau). Decrivez le probleme dans le formulaire de contact pour un diagnostic precis.",
+    formation: "Nous proposons des formations en Initiation Informatique, Securite, Reseaux et Developpement — voir la section Formation ci-dessus.",
+    whatsapp: "Cliquez simplement sur le bouton vert WhatsApp en bas a gauche de l'ecran pour nous ecrire directement."
+  };
+
+  function aiRepondre(question) {
+    const q = question.toLowerCase();
+    if (/tarif|prix|cout|combien|euro/.test(q)) return aiReponses.tarif;
+    if (/horaire|heure|ouvert|ferme/.test(q)) return aiReponses.horaire;
+    if (/whatsapp/.test(q)) return aiReponses.whatsapp;
+    if (/technicien|contact|rdv|rendez|parler|appel/.test(q)) return aiReponses.contact;
+    if (/virus|lent|lenteur|demarr|ecran|casse/.test(q)) return aiReponses.virus;
+    if (/wifi|wi-fi|reseau|internet/.test(q)) return aiReponses.wifi;
+    if (/imprimante/.test(q)) return aiReponses.imprimante;
+    if (/formation|apprendre|cours/.test(q)) return aiReponses.formation;
+    if (/service|besoin|probleme|panne/.test(q)) return aiReponses.service;
+    return "Je ne suis pas certain de bien comprendre. Le plus sur : remplissez le formulaire de contact ou ecrivez-nous sur WhatsApp, un technicien vous repondra rapidement.";
+  }
+
+  document.querySelectorAll('#aiQuickReplies button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      aiAddMsg(btn.textContent, 'user');
+      setTimeout(() => aiAddMsg(aiReponses[btn.dataset.q], 'bot'), 350);
+    });
+  });
+
+  aiForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const val = aiInput.value.trim();
+    if (!val) return;
+    aiAddMsg(val, 'user');
+    aiInput.value = '';
+    setTimeout(() => aiAddMsg(aiRepondre(val), 'bot'), 350);
+  });
+
   
- // Form submit
+ // Form submit — envoi reel vers aboniayitejoseph@gmail.com via FormSubmit
+let lastRequestData = null;
+
+function genererPdfDemande(d) {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+  const dateStr = new Date().toLocaleString('fr-FR');
+
+  doc.setFillColor(10, 22, 40);
+  doc.rect(0, 0, 210, 32, 'F');
+  doc.setTextColor(255, 255, 255);
+  doc.setFontSize(20);
+  doc.text("TechFix", 15, 18);
+  doc.setFontSize(10);
+  doc.setTextColor(200, 210, 230);
+  doc.text("Reparation & Maintenance Informatique", 15, 25);
+
+  doc.setTextColor(20, 20, 20);
+  doc.setFontSize(14);
+  doc.text("Recapitulatif de votre demande", 15, 45);
+  doc.setDrawColor(200, 200, 200);
+  doc.line(15, 49, 195, 49);
+
+  doc.setFontSize(11);
+  let y = 60;
+  const champs = [
+    ["Date de la demande", dateStr],
+    ["Nom complet", d.Nom],
+    ["Email", d.Email],
+    ["Type de panne", d["Type de panne"]],
+  ];
+  champs.forEach(([label, val]) => {
+    doc.setFont(undefined, 'bold');
+    doc.text(label + " :", 15, y);
+    doc.setFont(undefined, 'normal');
+    doc.text(String(val || "-"), 75, y);
+    y += 10;
+  });
+
+  doc.setFont(undefined, 'bold');
+  doc.text("Description du probleme :", 15, y);
+  y += 8;
+  doc.setFont(undefined, 'normal');
+  const lignes = doc.splitTextToSize(d.Message || "-", 180);
+  doc.text(lignes, 15, y);
+
+  doc.setFontSize(9);
+  doc.setTextColor(120, 120, 120);
+  doc.text("TechFix Maintenance — Lome, Togo — +228 91 89 30 78 — aboniayitejoseph@gmail.com", 15, 285);
+
+  doc.save("demande-techfix-" + Date.now() + ".pdf");
+}
+
+document.getElementById('downloadPdfBtn').addEventListener('click', function() {
+  if (lastRequestData) genererPdfDemande(lastRequestData);
+});
+
 document.getElementById('contactForm').addEventListener('submit', function(e) {
   e.preventDefault();
 
-  emailjs.send("SERVICE_ID", "TEMPLATE_ID", {
-    from_name: document.getElementById("nom").value,
-    from_email: document.getElementById("email").value,
-    type: document.getElementById("type").value,
-    message: document.getElementById("message").value,
+  const submitBtn = document.querySelector('.btn-submit');
+  const originalBtnHTML = submitBtn.innerHTML;
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
+
+  const data = {
+    Nom: document.getElementById("nom").value,
+    Email: document.getElementById("email").value,
+    "Type de panne": document.getElementById("type").value,
+    Message: document.getElementById("message").value,
+    _subject: "Nouvelle demande depuis le site TechFix"
+  };
+
+  fetch("https://formsubmit.co/ajax/aboniayitejoseph@gmail.com", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    body: JSON.stringify(data)
   })
+  .then(res => res.json())
   .then(function() {
     const toast = document.getElementById('toast');
     toast.classList.add('show');
+    lastRequestData = data;
+    document.getElementById('downloadPdfBtn').style.display = 'block';
+    genererPdfDemande(data);
     document.getElementById('contactForm').reset();
     setTimeout(() => toast.classList.remove('show'), 4000);
-  }, function(error) {
-    alert("Erreur : " + JSON.stringify(error));
+  })
+  .catch(function(error) {
+    alert("Erreur d'envoi, veuillez reessayer ou nous contacter par WhatsApp/telephone. (" + error + ")");
+  })
+  .finally(function() {
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = originalBtnHTML;
   });
 });
 </script>
