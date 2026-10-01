@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="shell" x1="8" y1="4" x2="55" y2="61" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#08162e"/>
+      <stop offset=".55" stop-color="#050d1a"/>
+      <stop offset="1" stop-color="#020711"/>
+    </linearGradient>
+    <linearGradient id="halo" x1="9" y1="13" x2="56" y2="51" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#46f3ff"/>
+      <stop offset=".48" stop-color="#1677ff"/>
+      <stop offset=".76" stop-color="#ffb627"/>
+      <stop offset="1" stop-color="#ff6a1a"/>
+    </linearGradient>
+    <linearGradient id="monogram" x1="11" y1="17" x2="53" y2="43" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#49f4ff"/>
+      <stop offset=".58" stop-color="#1596ff"/>
+      <stop offset="1" stop-color="#ffbf3c"/>
+    </linearGradient>
+    <linearGradient id="steel" x1="28" y1="18" x2="47" y2="41" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffffff"/>
+      <stop offset=".5" stop-color="#dcecff"/>
+      <stop offset="1" stop-color="#7faeff"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="1.8"/>
+    </filter>
+  </defs>
+  <rect x="2.5" y="2.5" width="59" height="59" rx="18" fill="url(#shell)"/>
+  <circle cx="32" cy="32" r="27" fill="none" stroke="url(#halo)" stroke-width="1.3" opacity=".45" filter="url(#glow)"/>
+  <circle cx="32" cy="32" r="27" fill="none" stroke="url(#halo)" stroke-width="1.7"/>
+  <path d="M32 6.5 35.5 12 32 16l-3.5-4z" fill="url(#halo)"/>
+  <path d="M10 19h4m36 0h4M10 45h4m36 0h4" fill="none" stroke="url(#halo)" stroke-width="1.3" stroke-linecap="round"/>
+  <path d="M14 17h21v5.5h-7.5V42h-6V22.5H14z" fill="url(#monogram)"/>
+  <path d="M36 17h15v5.5h-9v4.7h8v5.5h-8V42h-6z" fill="#f3f7ff"/>
+  <path d="M45.4 16.1a6.1 6.1 0 0 0-6.9 7.7L29 33.3l3.7 3.7 9.5-9.5a6.1 6.1 0 0 0 7.7-6.9l-4.2 3.1-3.1-.8-.8-3.1z" fill="url(#steel)" stroke="#16345b" stroke-width=".9" stroke-linejoin="round"/>
+  <circle cx="32" cy="44" r="7.2" fill="#071222" stroke="#ffb52b" stroke-width="1.8"/>
+  <path d="M32 39.5v4.7m-3.3-1.4a4 4 0 1 0 6.6 0" fill="none" stroke="#ffbd32" stroke-width="1.8" stroke-linecap="round"/>
+</svg>

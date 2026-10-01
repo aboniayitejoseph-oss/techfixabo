@@ -1,679 +1,848 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>TechFix — Réparation Informatique</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechFix Abo — Réparation Informatique</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- ── NAV ── -->
-<nav>
-  <div class="nav-inner">
-    <a href="#" class="logo">Tech<span>Fix</span> <span class="logo-dot"></span></a>
-    <ul class="nav-links">
-      <li><a href="#services">Services</a></li>
-      <li><a href="#apropos">Equipe</a></li>
-      <li><a href="#tarifs">Tarifs</a></li>
-      <li><a href="#gallery">Galerie</a></li>
-      <li><a href="#contact" class="btn-urgence">Urgence</a></li>
-      <li><a href="#formation">Formation</a></li>
-    </ul>
-    <button class="hamburger" id="ham" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#services" class="mob-link">Services</a>
-    <a href="#apropos"  class="mob-link">Equipe</a>
-    <a href="#tarifs"   class="mob-link">Tarifs</a>
-    <a href="#gallery"  class="mob-link">Galerie</a>
-    <a href="#contact"  class="btn-urgence mob-link">Urgence</a>
-    <a href="#formation" class="mob-link">Formation</a>
-  </div>
-</nav>
+  <!-- ── NAV ── -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="logo">Tech<span>Fix</span> <span class="logo-dot"></span></a>
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#apropos">Equipe</a></li>
+        <li><a href="#tarifs">Tarifs</a></li>
+        <li><a href="#gallery">Galerie</a></li>
+        <li><a href="#contact" class="btn-urgence">Urgence</a></li>
+        <li><a href="#formation">Formation</a></li>
+      </ul>
+      <button class="hamburger" id="ham" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#services" class="mob-link">Services</a>
+      <a href="#apropos" class="mob-link">Equipe</a>
+      <a href="#tarifs" class="mob-link">Tarifs</a>
+      <a href="#gallery" class="mob-link">Galerie</a>
+      <a href="#contact" class="btn-urgence mob-link">Urgence</a>
+      <a href="#formation" class="mob-link">Formation</a>
+    </div>
+  </nav>
 
-<!-- ── HERO ── -->
-<header class="hero">
+  <!-- ── HERO ── -->
+  <header class="hero">
 
-  <!-- 🖼️ DIAPORAMA DE FOND (images en fondu, silencieux, en boucle) -->
-  <div class="hero-video-bg">
-    <div class="hero-slide" style="background-image:url('./images (1).jpg')"></div>
-    <div class="hero-slide" style="background-image:url('./images (2).jpg')"></div>
-    <div class="hero-slide" style="background-image:url('./images (4).jpg')"></div>
-    <div class="hero-slide" style="background-image:url('./images (3).jpg')"></div>
-    <div class="hero-slide" style="background-image:url('./images (5).jpg')"></div>
-    <div class="hero-slide" style="background-image:url('./images.jpg')"></div>
-    <div class="hero-slide" style="background-image:url('./images (6).jpg')"></div>
-    <div class="hero-slide" style="background-image:url('./images (7).jpg')"></div>
-    <div class="hero-slide" style="background-image:url('./images (8).jpg')"></div>
-    <div class="hero-slide" style="background-image:url('./images (9).jpg')"></div>
-    <div class="hero-slide" style="background-image:url('./images (10).jpg')"></div>
-    <div class="hero-slide" style="background-image:url('./images (11).jpg')"></div>
-    <div class="hero-slide" style="background-image:url('./images (12).jpg')"></div>
-    <div class="hero-slide" style="background-image:url('./images (13).jpg')"></div>
-    <div class="hero-slide" style="background-image:url('./ChatGPT Image 23 sept. 2026, 08_04_01.png')"></div>
-  </div>
-
-  <!-- 🌑 FILTRE NOIR -->
-  <div class="hero-overlay"></div>
-
-  <!-- ✨ CONTENU -->
-  <div class="hero-content">
-    <div class="hero-badge">
-      <span class="hero-badge-dot"></span>
-      Intervention rapide disponible
+    <!-- 🖼️ DIAPORAMA DE FOND (images en fondu, silencieux, en boucle) -->
+    <div class="hero-video-bg">
+      <div class="hero-slide" style="background-image:url('01_reparation_PC.png')"></div>
+      <div class="hero-slide" style="background-image:url('02_soudure_carte.png')"></div>
+      <div class="hero-slide" style="background-image:url('03_reparation_ecran.png')"></div>
+      <div class="hero-slide" style="background-image:url('04_salle_reseau_switches.png')"></div>
+      <div class="hero-slide" style="background-image:url('05_carte_mere.png')"></div>
+      <div class="hero-slide" style="background-image:url('06_reparation_imprimante.png')"></div>
     </div>
 
-    <h2 class="hero-title">
-      Réparation & Maintenance<br>
-      <em>Informatique Pro</em>
-    </h2>
+    <!-- 🌑 FILTRE NOIR -->
+    <div class="hero-overlay"></div>
 
-    <p>
-      Nous redonnons vie à vos ordinateurs, sécurisons vos réseaux et protégeons vos données.
-    </p>
-
-    <div class="hero-cta-group">
-      <a href="#contact" class="hero-cta">Devis gratuit</a>
-      <a href="#services" class="hero-cta-secondary">Voir les services</a>
-    </div>
-  </div>
-
-</header>
-
-<div class="divider"></div>
-
-<!-- ── SERVICES ── -->
-<section id="services" class="section">
-  <div class="section-inner">
-    <div class="reveal">
-      <div class="section-label">Nos Expertises</div>
-      <h3 class="section-title">Ce que nous faisons</h3>
-      <p class="section-sub">Des solutions adaptées pour particuliers et professionnels, avec garantie sur chaque intervention.</p>
-    </div>
-    <div class="services-grid">
-      <div class="service-card reveal">
-        <div class="service-icon-wrap"><i class="fas fa-laptop-medical"></i></div>
-        <h4>Depannage PC / Mac</h4>
-        <p>Ecran casse, lenteurs, virus, problemes de demarrage. Diagnostic complet offert.</p>
-        <div class="service-arrow"><i class="fas fa-arrow-right"></i></div>
+    <!-- ✨ CONTENU -->
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        Intervention rapide disponible
       </div>
-      <div class="service-card reveal" style="transition-delay:.1s">
-        <div class="service-icon-wrap"><i class="fas fa-network-wired"></i></div>
-        <h4>Installation Reseau</h4>
-        <p>Configuration Wi-Fi, serveurs, NAS et maintenance de parcs informatiques.</p>
-        <div class="service-arrow"><i class="fas fa-arrow-right"></i></div>
-      </div>
-      <div class="service-card reveal" style="transition-delay:.2s">
-        <div class="service-icon-wrap"><i class="fas fa-shield-alt"></i></div>
-        <h4>Securite &amp; Sauvegarde</h4>
-        <p>Protection contre les cyberattaques, cryptage et recuperation de donnees.</p>
-        <div class="service-arrow"><i class="fas fa-arrow-right"></i></div>
-      </div>
-      <div class="service-card reveal" style="transition-delay:.3s">
-        <div class="service-icon-wrap"><i class="fas fa-hdd"></i></div>
-        <h4>Recuperation de Donnees</h4>
-        <p>Disques durs corrompus, fichiers supprimes ou partitions perdues.</p>
-        <div class="service-arrow"><i class="fas fa-arrow-right"></i></div>
-      </div>
-      <div class="service-card reveal" style="transition-delay:.4s">
-        <div class="service-icon-wrap"><i class="fas fa-tools"></i></div>
-        <h4>Mise a Niveau Hardware</h4>
-        <p>Remplacement de composants, upgrade RAM, SSD et refroidissement.</p>
-        <div class="service-arrow"><i class="fas fa-arrow-right"></i></div>
-      </div>
-      <div class="service-card reveal" style="transition-delay:.5s">
-        <div class="service-icon-wrap"><i class="fas fa-headset"></i></div>
-        <h4>Assistance a Distance</h4>
-        <p>Telemaintenance rapide via prise en main a distance securisee.</p>
-        <div class="service-arrow"><i class="fas fa-arrow-right"></i></div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<div class="divider"></div>
+      <h2 class="hero-title">
+        Réparation & Maintenance<br>
+        <em>Informatique Pro</em>
+      </h2>
 
-<!-- ── QUI SOMMES-NOUS / EQUIPE ── -->
-<section id="apropos" class="section" style="background:var(--navy2)">
-  <div class="section-inner">
-    <div class="reveal">
-      <div class="section-label">Qui sommes-nous</div>
-      <h3 class="section-title">L'humain derriere la machine</h3>
-      <p class="section-sub">
-        Une petite equipe basee a Lome, passionnee par l'informatique et le service client.
+      <p>
+        Nous redonnons vie à vos ordinateurs, sécurisons vos réseaux et protégeons vos données.
       </p>
-    </div>
 
-    <div class="about-grid reveal">
-      <div class="about-text">
-        <p>
-          TechFix est nee d'une conviction simple : chaque panne informatique cache une histoire —
-          des photos de famille bloquees sur un disque dur, une entreprise qui ne peut plus emettre
-          ses factures, un reseau Wi-Fi qui lache en plein rendez-vous. Nous intervenons a Lome et
-          dans tout le Togo pour redonner vie aux ordinateurs, securiser les reseaux et former nos
-          clients a etre plus autonomes.
-        </p>
-        <p>
-          Ce qui nous definit, ce n'est pas seulement notre expertise technique, mais notre facon de
-          travailler : a l'ecoute, honnete sur les prix, et toujours disponibles quand un probleme
-          urgent survient. Chaque intervention est expliquee en langage simple, sans jargon inutile.
-        </p>
-        <div class="about-values">
-          <span class="value-pill"><i class="fas fa-bolt"></i> Reactivite</span>
-          <span class="value-pill"><i class="fas fa-handshake"></i> Transparence</span>
-          <span class="value-pill"><i class="fas fa-heart"></i> Passion du metier</span>
-          <span class="value-pill"><i class="fas fa-map-marker-alt"></i> Proximite locale</span>
-        </div>
+      <div class="hero-cta-group">
+        <a href="#contact" class="hero-cta">Devis gratuit</a>
+        <a href="#services" class="hero-cta-secondary">Voir les services</a>
       </div>
     </div>
 
-    <div class="team-grid">
-      <div class="team-card reveal">
-        <div class="team-avatar">JA</div>
-        <h4>Joseph A.</h4>
-        <div class="team-role">Fondateur &amp; Technicien senior</div>
-        <p>Depannage materiel, cartes meres et diagnostics complexes.</p>
-      </div>
-      <div class="team-card reveal" style="transition-delay:.1s">
-        <div class="team-avatar">SR</div>
-        <h4>Specialiste Reseau</h4>
-        <div class="team-role">Installation &amp; securite reseau</div>
-        <p>Wi-Fi, serveurs, NAS et protection contre les cyberattaques.</p>
-      </div>
-      <div class="team-card reveal" style="transition-delay:.2s">
-        <div class="team-avatar">FO</div>
-        <h4>Formateur</h4>
-        <div class="team-role">Initiation &amp; accompagnement</div>
-        <p>Cours particuliers pour devenir autonome sur votre ordinateur.</p>
-      </div>
-    </div>
-    <p style="text-align:center;color:var(--muted);font-size:.8rem;margin-top:1.5rem">
-      <i class="fas fa-info-circle"></i> Remplace ces noms et roles par ceux de ta vraie equipe.
-    </p>
-  </div>
-</section>
+  </header>
 
-<div class="divider"></div>
+  <div class="divider"></div>
 
-<!-- ── GALLERY ── -->
-<section id="gallery" class="section">
-  <div class="section-inner">
-    <div class="reveal">
-      <div class="section-label">Notre Atelier</div>
-      <h3 class="section-title">En images</h3>
-      <p class="section-sub">Un apercu de notre equipement et de nos interventions.</p>
-    </div>
-    <div class="gallery-grid reveal">
-      <div class="gallery-item"><img src="./images (1).jpg" alt="Carte mere" loading="lazy"/></div>
-      <div class="gallery-item"><img src="./images (2).jpg" alt="Unite centrale" loading="lazy"/></div>
-      <div class="gallery-item"><img src="./images (3).jpg" alt="Ouverture logique" loading="lazy"/></div>
-      <div class="gallery-item"><img src="./images (4).jpg" alt="Piece logique" loading="lazy"/></div>
-      <div class="gallery-item"><img src="./images (5).jpg" alt="Carte graphique" loading="lazy"/></div>
-      <div class="gallery-item"><img src="./images.jpg" alt="Materiel informatique" loading="lazy"/></div>
-      <div class="gallery-item"><img src="./images (6).jpg" alt="Materiel informatique 6" loading="lazy"/></div>
-      <div class="gallery-item"><img src="./images (7).jpg" alt="Materiel informatique 7" loading="lazy"/></div>
-      <div class="gallery-item"><img src="./images (8).jpg" alt="Materiel informatique 8" loading="lazy"/></div>
-      <div class="gallery-item"><img src="./images (9).jpg" alt="Materiel informatique 9" loading="lazy"/></div>
-      <div class="gallery-item"><img src="./images (10).jpg" alt="Materiel informatique 10" loading="lazy"/></div>
-      <div class="gallery-item"><img src="./images (11).jpg" alt="Materiel informatique 11" loading="lazy"/></div>
-      <div class="gallery-item"><img src="./images (12).jpg" alt="Materiel informatique 12" loading="lazy"/></div>
-      <div class="gallery-item"><img src="./images (13).jpg" alt="Materiel informatique 13" loading="lazy"/></div>
-      <div class="gallery-item"><img src="./ChatGPT Image 23 sept. 2026, 08_04_01.png" alt="Illustration informatique" loading="lazy"/></div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- ── TARIFS ── -->
-<section id="tarifs" class="section" style="background:var(--navy2)">
-  <div class="section-inner">
-    <div class="reveal" style="text-align:center">
-      <div class="section-label" style="justify-content:center">Transparence</div>
-      <h3 class="section-title">Nos Tarifs</h3>
-      <p class="section-sub" style="margin:0 auto 3.5rem">Sans surprise, sans frais caches. Devis gratuit avant toute intervention.</p>
-    </div>
-    <div class="tarifs-grid">
-      <div class="tarif-card reveal">
-        <div class="tarif-icon"><i class="fas fa-wrench"></i></div>
-        <h4>Depannage Basique</h4>
-        <div class="tarif-price"><span class="from">A partir de</span><sup>EUR</sup>50</div>
-        <ul class="tarif-list">
-          <li><i class="fas fa-check-circle"></i> Diagnostic complet</li>
-          <li><i class="fas fa-check-circle"></i> Suppression virus</li>
-          <li><i class="fas fa-check-circle"></i> Optimisation systeme</li>
-          <li><i class="fas fa-check-circle"></i> Garantie 30 jours</li>
-        </ul>
-        <a href="#contact" class="btn-tarif btn-tarif-outline">Prendre RDV</a>
-      </div>
-      <div class="tarif-card featured reveal" style="transition-delay:.1s">
-        <div class="tarif-icon"><i class="fas fa-network-wired"></i></div>
-        <h4>Installation Reseau</h4>
-        <div class="tarif-price"><span class="from">A partir de</span><sup>EUR</sup>100</div>
-        <ul class="tarif-list">
-          <li><i class="fas fa-check-circle"></i> Etude du site</li>
-          <li><i class="fas fa-check-circle"></i> Configuration complete</li>
-          <li><i class="fas fa-check-circle"></i> Securisation acces</li>
-          <li><i class="fas fa-check-circle"></i> Support 3 mois</li>
-        </ul>
-        <a href="#contact" class="btn-tarif btn-tarif-solid">Prendre RDV</a>
-      </div>
-      <div class="tarif-card reveal" style="transition-delay:.2s">
-        <div class="tarif-icon"><i class="fas fa-shield-alt"></i></div>
-        <h4>Securite Complete</h4>
-        <div class="tarif-price"><span class="from">A partir de</span><sup>EUR</sup>150</div>
-        <ul class="tarif-list">
-          <li><i class="fas fa-check-circle"></i> Audit de securite</li>
-          <li><i class="fas fa-check-circle"></i> Antivirus professionnel</li>
-          <li><i class="fas fa-check-circle"></i> Sauvegarde cloud</li>
-          <li><i class="fas fa-check-circle"></i> Suivi mensuel</li>
-        </ul>
-        <a href="#contact" class="btn-tarif btn-tarif-outline">Prendre RDV</a>
-      </div>
-    </div>
-  </div>
-</section>
-<div class="divider"></div>
-
-<section id="formation" class="section">
-  <div class="section-inner">
-    
-    <div class="reveal">
-      <div class="section-label">Apprentissage</div>
-      <h3 class="section-title">Nos Formations</h3>
-      <p class="section-sub">
-        Apprenez à maîtriser votre ordinateur, sécuriser vos données et devenir autonome.
-      </p>
-    </div>
-
-    <div class="services-grid">
-
-      <a href="initiation.html"class="service-card reveal">
-        <div class="service-icon-wrap"><i class="fas fa-laptop"></i></div>
-        <h4>Initiation Informatique</h4>
-        <p>Apprendre à utiliser un ordinateur, Internet et les logiciels de base.</p>
-      </a>
-
-      
-
-    </div>
-
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- ── CONTACT ── -->
-<section id="contact" class="section">
-  <div class="section-inner">
-    <div class="contact-wrapper">
+  <!-- ── SERVICES ── -->
+  <section id="services" class="section">
+    <div class="section-inner">
       <div class="reveal">
-        <div class="section-label">Contact</div>
-        <h3 class="section-title">Parlons de votre probleme</h3>
-        <p style="color:var(--muted);font-size:.95rem;line-height:1.7;margin-bottom:2.5rem">
-          Remplissez le formulaire ou utilisez nos coordonnees directes. Reponse garantie sous 2h en jours ouvres.
+        <div class="section-label">Nos Expertises</div>
+        <h3 class="section-title">Ce que nous faisons</h3>
+        <p class="section-sub">Des solutions adaptées pour particuliers et professionnels, avec garantie sur chaque
+          intervention.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="service-icon-wrap"><i class="fas fa-laptop-medical"></i></div>
+          <h4>Depannage PC / Mac</h4>
+          <p>Ecran casse, lenteurs, virus, problemes de demarrage. Diagnostic complet offert.</p>
+          <div class="service-arrow"><i class="fas fa-arrow-right"></i></div>
+        </div>
+        <div class="service-card reveal" style="transition-delay:.1s">
+          <div class="service-icon-wrap"><i class="fas fa-network-wired"></i></div>
+          <h4>Installation Reseau</h4>
+          <p>Configuration Wi-Fi, serveurs, NAS et maintenance de parcs informatiques.</p>
+          <div class="service-arrow"><i class="fas fa-arrow-right"></i></div>
+        </div>
+        <div class="service-card reveal" style="transition-delay:.2s">
+          <div class="service-icon-wrap"><i class="fas fa-shield-alt"></i></div>
+          <h4>Securite &amp; Sauvegarde</h4>
+          <p>Protection contre les cyberattaques, cryptage et recuperation de donnees.</p>
+          <div class="service-arrow"><i class="fas fa-arrow-right"></i></div>
+        </div>
+        <div class="service-card reveal" style="transition-delay:.3s">
+          <div class="service-icon-wrap"><i class="fas fa-hdd"></i></div>
+          <h4>Recuperation de Donnees</h4>
+          <p>Disques durs corrompus, fichiers supprimes ou partitions perdues.</p>
+          <div class="service-arrow"><i class="fas fa-arrow-right"></i></div>
+        </div>
+        <div class="service-card reveal" style="transition-delay:.4s">
+          <div class="service-icon-wrap"><i class="fas fa-tools"></i></div>
+          <h4>Mise a Niveau Hardware</h4>
+          <p>Remplacement de composants, upgrade RAM, SSD et refroidissement.</p>
+          <div class="service-arrow"><i class="fas fa-arrow-right"></i></div>
+        </div>
+        <div class="service-card reveal" style="transition-delay:.5s">
+          <div class="service-icon-wrap"><i class="fas fa-headset"></i></div>
+          <h4>Assistance a Distance</h4>
+          <p>Telemaintenance rapide via prise en main a distance securisee.</p>
+          <div class="service-arrow"><i class="fas fa-arrow-right"></i></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ── QUI SOMMES-NOUS / EQUIPE ── -->
+  <section id="apropos" class="section" style="background:var(--navy2)">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-label">Qui sommes-nous</div>
+        <h3 class="section-title">L'humain derriere la machine</h3>
+        <p class="section-sub">
+          Une petite equipe basee a Lome, passionnee par l'informatique et le service client.
         </p>
+      </div>
+      <div class="about-grid reveal">
+        <div class="about-text">
+          <p>
+            TechFix est nee d'une conviction simple : chaque panne informatique cache une histoire —
+            des photos de famille bloquees sur un disque dur, une entreprise qui ne peut plus emettre
+            ses factures, un reseau Wi-Fi qui lache en plein rendez-vous. Nous intervenons a Lome et
+            dans tout le Togo pour redonner vie aux ordinateurs, securiser les reseaux et former nos
+            clients a etre plus autonomes.
+          </p>
+          <p>
+            Ce qui nous definit, ce n'est pas seulement notre expertise technique, mais notre facon de
+            travailler : a l'ecoute, honnete sur les prix, et toujours disponibles quand un probleme
+            urgent survient. Chaque intervention est expliquee en langage simple, sans jargon inutile.
+          </p>
 
-        <div class="contact-info-item">
-          <div class="contact-info-icon"><i class="fas fa-clock"></i></div>
-          <div class="contact-info-text">
-            <strong>Horaires</strong>
-            <span>Lundi - Samedi, 8h - 18h</span>
-          </div>
-        </div>
-        <div class="contact-info-item">
-          <div class="contact-info-icon"><i class="fas fa-phone"></i></div>
-          <div class="contact-info-text">
-            <strong>Telephone</strong>
-            <span>+22891893078</span>
-          </div>
-        </div>
-        <div class="contact-info-item">
-          <div class="contact-info-icon" style="background:rgba(37,211,102,.15);color:#25d366"><i class="fab fa-whatsapp"></i></div>
-          <div class="contact-info-text">
-            <strong>WhatsApp</strong>
-            <span><a href="https://wa.me/22891893078" target="_blank" rel="noopener" style="color:var(--muted);text-decoration:underline">Discuter directement</a></span>
-          </div>
-        </div>
-        <div class="contact-info-item">
-          <div class="contact-info-icon"><i class="fas fa-envelope"></i></div>
-          <div class="contact-info-text">
-            <strong>Email</strong>
-            <span>aboniayitejoseph@gmail.com</span>
-          </div>
-        </div>
-        <div class="contact-info-item">
-          <div class="contact-info-icon"><i class="fas fa-map-marker-alt"></i></div>
-          <div class="contact-info-text">
-            <strong>Zone d'intervention</strong>
-            <span>LOME &amp; TOGO</span>
+          <div class="about-values">
+            <span class="value-pill"><i class="fas fa-bolt"></i> Reactivite</span>
+            <span class="value-pill"><i class="fas fa-handshake"></i> Transparence</span>
+            <span class="value-pill"><i class="fas fa-heart"></i> Passion du metier</span>
+            <span class="value-pill"><i class="fas fa-map-marker-alt"></i> Proximite locale</span>
           </div>
         </div>
       </div>
 
-      <div class="contact-form-box reveal">
-        <h4 style="font-family:'Poppins',sans-serif;font-weight:700;font-size:1.2rem;color:#fff;margin-bottom:1.8rem">Contactez un Technicien</h4>
-        <form id="contactForm">
-          <div class="form-group">
-            <label for="nom">Nom complet</label>
-            <input type="text" id="nom" placeholder="Ex: Jean Dupont" required/>
+      <div class="team-grid">
+        <div class="team-card reveal">
+          <div class="team-avatar">JA</div>
+          <h4>Joseph A.</h4>
+          <div class="team-role">Fondateur &amp; Technicien senior</div>
+          <p>Depannage materiel, cartes meres et diagnostics complexes.</p>
+        </div>
+        <div class="team-card reveal" style="transition-delay:.1s">
+          <div class="team-avatar">SR</div>
+          <h4>Specialiste Reseau</h4>
+          <div class="team-role">Installation &amp; securite reseau</div>
+          <p>Wi-Fi, serveurs, NAS et protection contre les cyberattaques.</p>
+        </div>
+        <div class="team-card reveal" style="transition-delay:.2s">
+          <div class="team-avatar">FO</div>
+          <h4>Formateur</h4>
+          <div class="team-role">Initiation &amp; accompagnement</div>
+          <p>Cours particuliers pour devenir autonome sur votre ordinateur.</p>
+        </div>
+      </div>
+      <p style="text-align:center;color:var(--muted);font-size:.8rem;margin-top:1.5rem">
+        <i class="fas fa-info-circle"></i> Remplace ces noms et roles par ceux de ta vraie equipe.
+      </p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ── GALLERY ── -->
+  <section id="gallery" class="section">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-label">Notre Atelier</div>
+        <h3 class="section-title">En images</h3>
+        <p class="section-sub">Un apercu de notre equipement et de nos interventions.</p>
+      </div>
+      <div class="gallery-grid reveal">
+        <div class="gallery-item" data-caption="Démontage et réparation d'un ordinateur"><img src="images (1).jpg" alt="Technicien démontant un ordinateur pour le réparer" loading="lazy" /></div>
+        <div class="gallery-item" data-caption="Réparation d'un écran d'ordinateur"><img src="images (2).jpg" alt="Intervention sur un écran d'ordinateur" loading="lazy" /></div>
+        <div class="gallery-item" data-caption="Installation et câblage d'un réseau"><img src="images (3).jpg" alt="Installation d'équipements réseau et câblage" loading="lazy" /></div>
+        <div class="gallery-item" data-caption="Maintenance d'une imprimante"><img src="images (4).jpg" alt="Réparation et maintenance d'une imprimante" loading="lazy" /></div>
+        <div class="gallery-item" data-caption="Diagnostic d'une carte mère"><img src="images (5).jpg" alt="Carte mère examinée lors d'un diagnostic" loading="lazy" /></div>
+        <div class="gallery-item" data-caption="Soudure de composants sur une carte mère"><img src="images (6).jpg" alt="Soudure de composants électroniques sur une carte mère" loading="lazy" /></div>
+        <div class="gallery-item" data-caption="Maintenance et réparation informatique"><img src="images (7).jpg" alt="Technicien effectuant une intervention informatique" loading="lazy" /></div>
+        <div class="gallery-item" data-caption="Configuration réseau et paramètres d'adresse IP"><img src="images (8).jpg" alt="Configuration d'un réseau et de paramètres d'adresse IP" loading="lazy" /></div>
+        <div class="gallery-item" data-caption="Installation et maintenance d'un serveur"><img src="images (9).jpg" alt="Maintenance d'un serveur informatique" loading="lazy" /></div>
+        <div class="gallery-item" data-caption="Assistance et dépannage informatique"><img src="images (10).jpg" alt="Assistance technique en informatique" loading="lazy" /></div>
+        <div class="gallery-item" data-caption="Mise à niveau et réparation du matériel"><img src="images (11).jpg" alt="Réparation et mise à niveau de matériel informatique" loading="lazy" /></div>
+        <div class="gallery-item" data-caption="Diagnostic et contrôle du système"><img src="images (12).jpg" alt="Diagnostic d'un système informatique" loading="lazy" /></div>
+        <div class="gallery-item" data-caption="Configuration de switches et réseau local"><img src="images (13).jpg" alt="Configuration de switches et d'un réseau local" loading="lazy" /></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ── TARIFS ── -->
+  <section id="tarifs" class="section" style="background:var(--navy2)">
+    <div class="section-inner">
+      <div class="reveal" style="text-align:center">
+        <div class="section-label" style="justify-content:center">Transparence</div>
+        <h3 class="section-title">Nos Tarifs</h3>
+        <p class="section-sub" style="margin:0 auto 3.5rem">Tarifs indicatifs en francs CFA, arrondis à la centaine. Le devis est gratuit et confirmé avant toute intervention ; le montant final dépend du diagnostic et des pièces nécessaires.</p>
+      </div>
+      <div class="tarifs-grid">
+        <div class="tarif-card reveal">
+          <div class="tarif-icon"><i class="fas fa-wrench"></i></div>
+          <h4>Dépannage PC / Mac</h4>
+          <div class="tarif-price"><span class="from">À partir de</span>32&nbsp;800<sup> F CFA</sup></div>
+          <ul class="tarif-list">
+            <li><i class="fas fa-check-circle"></i> Diagnostic et recherche de panne</li>
+            <li><i class="fas fa-check-circle"></i> Nettoyage et optimisation du système</li>
+            <li><i class="fas fa-check-circle"></i> Suppression des logiciels malveillants</li>
+            <li><i class="fas fa-check-circle"></i> Garantie de 30 jours sur l’intervention</li>
+          </ul>
+          <a href="#contact" class="btn-tarif btn-tarif-outline">Demander un devis</a>
+        </div>
+        <div class="tarif-card featured reveal" style="transition-delay:.1s">
+          <div class="tarif-icon"><i class="fas fa-network-wired"></i></div>
+          <h4>Installation réseau</h4>
+          <div class="tarif-price"><span class="from">À partir de</span>65&nbsp;600<sup> F CFA</sup></div>
+          <ul class="tarif-list">
+            <li><i class="fas fa-check-circle"></i> Étude de votre installation</li>
+            <li><i class="fas fa-check-circle"></i> Configuration du Wi-Fi et du réseau</li>
+            <li><i class="fas fa-check-circle"></i> Sécurisation des accès</li>
+            <li><i class="fas fa-check-circle"></i> Assistance pendant 3 mois</li>
+          </ul>
+          <a href="#contact" class="btn-tarif btn-tarif-solid">Demander un devis</a>
+        </div>
+        <div class="tarif-card reveal" style="transition-delay:.2s">
+          <div class="tarif-icon"><i class="fas fa-shield-alt"></i></div>
+          <h4>Sécurité informatique</h4>
+          <div class="tarif-price"><span class="from">À partir de</span>98&nbsp;400<sup> F CFA</sup></div>
+          <ul class="tarif-list">
+            <li><i class="fas fa-check-circle"></i> Vérification de la sécurité</li>
+            <li><i class="fas fa-check-circle"></i> Configuration d’un antivirus professionnel</li>
+            <li><i class="fas fa-check-circle"></i> Mise en place d’une sauvegarde en ligne</li>
+            <li><i class="fas fa-check-circle"></i> Suivi mensuel</li>
+          </ul>
+          <a href="#contact" class="btn-tarif btn-tarif-outline">Demander un devis</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="divider"></div>
+
+  <section id="formation" class="section">
+    <div class="section-inner">
+
+      <div class="reveal">
+        <div class="section-label">Apprentissage</div>
+        <h3 class="section-title">Nos Formations</h3>
+        <p class="section-sub">
+          Apprenez à maîtriser votre ordinateur, sécuriser vos données et devenir autonome.
+        </p>
+      </div>
+
+      <div class="services-grid">
+
+        <a href="initiation.html" class="service-card reveal card-clickable">
+          <div class="service-icon-wrap"><i class="fas fa-laptop"></i></div>
+          <h4>Initiation Informatique</h4>
+          <p>Apprendre à utiliser un ordinateur, Internet et les logiciels de base.</p>
+          <span class="card-cta">Decouvrir le programme <i class="fas fa-arrow-right"></i></span>
+        </a>
+
+
+
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ── CONTACT ── -->
+  <section id="contact" class="section">
+    <div class="section-inner">
+      <div class="contact-wrapper">
+        <div class="reveal">
+          <div class="section-label">Contact</div>
+          <h3 class="section-title">Parlons de votre probleme</h3>
+          <p style="color:var(--muted);font-size:.95rem;line-height:1.7;margin-bottom:2.5rem">
+            Remplissez le formulaire ou utilisez nos coordonnees directes. Reponse garantie sous 2h en jours ouvres.
+          </p>
+
+          <div class="contact-info-item">
+            <div class="contact-info-icon"><i class="fas fa-clock"></i></div>
+            <div class="contact-info-text">
+              <strong>Horaires</strong>
+              <span>Lundi - Samedi, 8h - 18h</span>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" placeholder="jean@exemple.fr" required/>
+          <div class="contact-info-item">
+            <div class="contact-info-icon"><i class="fas fa-phone"></i></div>
+            <div class="contact-info-text">
+              <strong>Telephone</strong>
+              <span>+22891893078</span>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="type">Type de panne</label>
-            <select id="type" required>
-              <option value="">Selectionnez</option>
-              <option>Logiciel / Virus</option>
-              <option>Materiel / Casse</option>
-              <option>Reseau / Internet</option>
-              <option>Securite / Sauvegarde</option>
-              <option>Autre</option>
-            </select>
+          <div class="contact-info-item">
+            <div class="contact-info-icon" style="background:rgba(37,211,102,.15);color:#25d366"><i
+                class="fab fa-whatsapp"></i></div>
+            <div class="contact-info-text">
+              <strong>WhatsApp</strong>
+              <span><a href="https://wa.me/22891893078" target="_blank" rel="noopener"
+                  style="color:var(--muted);text-decoration:underline">Discuter directement</a></span>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="message">Description</label>
-            <textarea id="message" placeholder="Decrivez votre probleme en detail..." required></textarea>
+          <div class="contact-info-item">
+            <div class="contact-info-icon"><i class="fas fa-envelope"></i></div>
+            <div class="contact-info-text">
+              <strong>Email</strong>
+              <span>aboniayitejoseph@gmail.com</span>
+            </div>
           </div>
-          <button type="submit" class="btn-submit">
-            <i class="fas fa-paper-plane"></i> Envoyer le message
+          <div class="contact-info-item">
+            <div class="contact-info-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div class="contact-info-text">
+              <strong>Zone d'intervention</strong>
+              <span>LOME &amp; TOGO</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-box reveal">
+          <h4 style="font-family:'Poppins',sans-serif;font-weight:700;font-size:1.2rem;color:#fff;margin-bottom:1.8rem">
+            Contactez un Technicien</h4>
+          <form id="contactForm">
+            <div class="form-group">
+              <label for="nom">Nom complet</label>
+              <input type="text" id="nom" placeholder="Ex: Jean Dupont" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" placeholder="jean@exemple.fr" required />
+            </div>
+            <div class="form-group">
+              <label for="type">Type de panne</label>
+              <select id="type" required>
+                <option value="">Selectionnez</option>
+                <option>Logiciel / Virus</option>
+                <option>Materiel / Casse</option>
+                <option>Reseau / Internet</option>
+                <option>Securite / Sauvegarde</option>
+                <option>Autre</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Description</label>
+              <textarea id="message" placeholder="Decrivez votre probleme en detail..." required></textarea>
+            </div>
+            <button type="submit" class="btn-submit">
+              <i class="fas fa-paper-plane"></i> Envoyer le message
+            </button>
+          </form>
+          <button type="button" id="downloadPdfBtn" class="btn-tarif btn-tarif-outline"
+            style="display:none;margin-top:1rem">
+            <i class="fas fa-file-pdf"></i> Telecharger ma demande (PDF)
           </button>
-        </form>
-        <button type="button" id="downloadPdfBtn" class="btn-tarif btn-tarif-outline" style="display:none;margin-top:1rem">
-          <i class="fas fa-file-pdf"></i> Telecharger ma demande (PDF)
-        </button>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
 
-<!-- ── FOOTER ── -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-col footer-brand">
-      <div class="footer-logo">Tech<span style="color:var(--blue-lt)">Fix</span></div>
-      <p class="footer-desc">Reparation, maintenance informatique et securisation de reseaux a Lome. Diagnostic honnete, intervention rapide.</p>
-      <div class="footer-socials">
-        <a href="https://wa.me/22891893078" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-        <a href="mailto:aboniayitejoseph@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-        <a href="tel:+22891893078" aria-label="Telephone"><i class="fas fa-phone"></i></a>
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-col footer-brand">
+        <div class="footer-logo">Tech<span style="color:var(--blue-lt)">Fix</span></div>
+        <p class="footer-desc">Reparation, maintenance informatique et securisation de reseaux a Lome. Diagnostic
+          honnete, intervention rapide.</p>
+        <div class="footer-socials">
+          <a href="https://wa.me/22891893078" target="_blank" rel="noopener" aria-label="WhatsApp"><i
+              class="fab fa-whatsapp"></i></a>
+          <a href="mailto:aboniayitejoseph@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          <a href="tel:+22891893078" aria-label="Telephone"><i class="fas fa-phone"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h5>Navigation</h5>
+        <a href="#services">Services</a>
+        <a href="#apropos">Equipe</a>
+        <a href="#tarifs">Tarifs</a>
+        <a href="#gallery">Galerie</a>
+        <a href="#formation">Formation</a>
+      </div>
+
+      <div class="footer-col">
+        <h5>Horaires</h5>
+        <p><i class="fas fa-clock"></i> Lundi - Vendredi : 8h - 18h</p>
+        <p><i class="fas fa-clock"></i> Samedi : 9h - 15h</p>
+        <p><i class="fas fa-clock"></i> Dimanche : Urgences uniquement</p>
+      </div>
+
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <p><i class="fas fa-map-marker-alt"></i> Lome, Togo &mdash; Zone d'intervention : Lome &amp; Togo</p>
+        <p><i class="fas fa-phone"></i> <a href="tel:+22891893078">+228 91 89 30 78</a></p>
+        <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/22891893078" target="_blank" rel="noopener">Discuter
+            sur WhatsApp</a></p>
+        <p><i class="fas fa-envelope"></i> <a href="mailto:aboniayitejoseph@gmail.com">aboniayitejoseph@gmail.com</a>
+        </p>
       </div>
     </div>
 
-    <div class="footer-col">
-      <h5>Navigation</h5>
-      <a href="#services">Services</a>
-      <a href="#apropos">Equipe</a>
-      <a href="#tarifs">Tarifs</a>
-      <a href="#gallery">Galerie</a>
-      <a href="#formation">Formation</a>
+    <div class="footer-bottom">
+      <p>&copy; 2026 TechFix Maintenance. Tous droits reserves.</p>
+      <p class="footer-avail">Intervention rapide sur devis &mdash; Reponse garantie sous 2h en jours ouvres</p>
     </div>
+  </footer>
 
-    <div class="footer-col">
-      <h5>Horaires</h5>
-      <p><i class="fas fa-clock"></i> Lundi - Vendredi : 8h - 18h</p>
-      <p><i class="fas fa-clock"></i> Samedi : 9h - 15h</p>
-      <p><i class="fas fa-clock"></i> Dimanche : Urgences uniquement</p>
-    </div>
-
-    <div class="footer-col">
-      <h5>Contact</h5>
-      <p><i class="fas fa-map-marker-alt"></i> Lome, Togo &mdash; Zone d'intervention : Lome &amp; Togo</p>
-      <p><i class="fas fa-phone"></i> <a href="tel:+22891893078">+228 91 89 30 78</a></p>
-      <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/22891893078" target="_blank" rel="noopener">Discuter sur WhatsApp</a></p>
-      <p><i class="fas fa-envelope"></i> <a href="mailto:aboniayitejoseph@gmail.com">aboniayitejoseph@gmail.com</a></p>
-    </div>
+  <!-- ── TOAST ── -->
+  <div class="toast" id="toast">
+    <i class="fas fa-check-circle"></i>
+    Message envoye ! Nous vous repondrons sous 2h.
   </div>
 
-  <div class="footer-bottom">
-    <p>&copy; 2026 TechFix Maintenance. Tous droits reserves.</p>
-    <p class="footer-avail">Intervention rapide sur devis &mdash; Reponse garantie sous 2h en jours ouvres</p>
-  </div>
-</footer>
+  <!-- ── BOUTON WHATSAPP FLOTTANT ── -->
+  <a href="https://wa.me/22891893078?text=Bonjour%2C%20j%27ai%20besoin%20d%27une%20intervention%20informatique."
+    class="whatsapp-float" target="_blank" rel="noopener" aria-label="Discuter sur WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
 
-<!-- ── TOAST ── -->
-<div class="toast" id="toast">
-  <i class="fas fa-check-circle"></i>
-  Message envoye ! Nous vous repondrons sous 2h.
-</div>
-
-<!-- ── BOUTON WHATSAPP FLOTTANT ── -->
-<a href="https://wa.me/22891893078?text=Bonjour%2C%20j%27ai%20besoin%20d%27une%20intervention%20informatique." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Discuter sur WhatsApp">
-  <i class="fab fa-whatsapp"></i>
-</a>
-
-<!-- ── ASSISTANT IA FLOTTANT ── -->
-<div class="ai-assistant">
-  <button class="ai-toggle" id="aiToggle" aria-label="Ouvrir l'assistant TechFix">
-    <i class="fas fa-robot"></i>
-  </button>
-  <div class="ai-panel" id="aiPanel">
-    <div class="ai-header">
-      <div class="ai-header-title"><i class="fas fa-robot"></i> Assistant TechFix</div>
-      <button class="ai-close" id="aiClose" aria-label="Fermer l'assistant">&times;</button>
-    </div>
-    <div class="ai-messages" id="aiMessages">
-      <div class="ai-msg ai-msg-bot">
-        Bonjour ! Je suis l'assistant TechFix. Je peux vous orienter vers le bon service, vous donner
-        nos tarifs, nos horaires, ou vous aider a remplir votre demande. Posez une question ou choisissez
-        ci-dessous.
+  <!-- ── ASSISTANT IA FLOTTANT ── -->
+  <div class="ai-assistant">
+    <button class="ai-toggle" id="aiToggle" aria-label="Ouvrir l'assistant TechFix">
+      <i class="fas fa-robot"></i>
+    </button>
+    <div class="ai-panel" id="aiPanel">
+      <div class="ai-header">
+        <div class="ai-header-title"><i class="fas fa-robot"></i> Assistant TechFix</div>
+        <button class="ai-close" id="aiClose" aria-label="Fermer l'assistant">&times;</button>
       </div>
+      <div class="ai-messages" id="aiMessages">
+        <div class="ai-msg ai-msg-bot">
+          Bonjour ! Je suis l'assistant TechFix. Je peux vous orienter vers le bon service, vous donner
+          nos tarifs, nos horaires, ou vous aider a remplir votre demande. Posez une question ou choisissez
+          ci-dessous.
+        </div>
+      </div>
+      <div class="ai-quick-replies" id="aiQuickReplies">
+        <button type="button" data-q="service">Quel service me faut-il ?</button>
+        <button type="button" data-q="tarif">Vos tarifs ?</button>
+        <button type="button" data-q="horaire">Vos horaires ?</button>
+        <button type="button" data-q="contact">Parler a un technicien</button>
+      </div>
+      <form class="ai-input-row" id="aiForm">
+        <input type="text" id="aiInput" placeholder="Ecrivez votre question..." autocomplete="off" />
+        <button type="submit" aria-label="Envoyer"><i class="fas fa-paper-plane"></i></button>
+      </form>
     </div>
-    <div class="ai-quick-replies" id="aiQuickReplies">
-      <button type="button" data-q="service">Quel service me faut-il ?</button>
-      <button type="button" data-q="tarif">Vos tarifs ?</button>
-      <button type="button" data-q="horaire">Vos horaires ?</button>
-      <button type="button" data-q="contact">Parler a un technicien</button>
-    </div>
-    <form class="ai-input-row" id="aiForm">
-      <input type="text" id="aiInput" placeholder="Ecrivez votre question..." autocomplete="off"/>
-      <button type="submit" aria-label="Envoyer"><i class="fas fa-paper-plane"></i></button>
-    </form>
   </div>
-</div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script>
-  // Hamburger
-  const ham = document.getElementById('ham');
-  const menu = document.getElementById('mobileMenu');
-  ham.addEventListener('click', () => {
-    ham.classList.toggle('open');
-    menu.classList.toggle('open');
-  });
-
-  // Close mobile menu on link click
-  document.querySelectorAll('.mob-link').forEach(link => {
-    link.addEventListener('click', () => {
-      ham.classList.remove('open');
-      menu.classList.remove('open');
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script>
+    // Hamburger
+    const ham = document.getElementById('ham');
+    const menu = document.getElementById('mobileMenu');
+    ham.addEventListener('click', () => {
+      ham.classList.toggle('open');
+      menu.classList.toggle('open');
     });
-  });
 
-  // Scroll reveal
-  const revealEls = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        observer.unobserve(e.target);
+    // Close mobile menu on link click
+    document.querySelectorAll('.mob-link').forEach(link => {
+      link.addEventListener('click', () => {
+        ham.classList.remove('open');
+        menu.classList.remove('open');
+      });
+    });
+
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => observer.observe(el));
+
+    // ── ASSISTANT IA (guide par mots-cles, sans compte externe) ──
+    const aiToggle = document.getElementById('aiToggle');
+    const aiPanel = document.getElementById('aiPanel');
+    const aiClose = document.getElementById('aiClose');
+    const aiMessages = document.getElementById('aiMessages');
+    const aiForm = document.getElementById('aiForm');
+    const aiInput = document.getElementById('aiInput');
+
+    function aiToggleFn() { aiPanel.classList.toggle('open'); if (aiPanel.classList.contains('open')) aiInput.focus(); }
+    aiToggle.addEventListener('click', aiToggleFn);
+    aiClose.addEventListener('click', () => aiPanel.classList.remove('open'));
+
+    function aiAddMsg(content, from, isHTML) {
+      const div = document.createElement('div');
+      div.className = 'ai-msg ' + (from === 'user' ? 'ai-msg-user' : 'ai-msg-bot');
+      if (isHTML) div.innerHTML = content; else div.textContent = content;
+      aiMessages.appendChild(div);
+      aiMessages.scrollTop = aiMessages.scrollHeight;
+      return div;
+    }
+
+    function aiShowTyping() {
+      const div = document.createElement('div');
+      div.className = 'ai-msg ai-msg-bot ai-typing';
+      div.innerHTML = '<span></span><span></span><span></span>';
+      aiMessages.appendChild(div);
+      aiMessages.scrollTop = aiMessages.scrollHeight;
+      return div;
+    }
+
+    function aiReply(html) {
+      const typingEl = aiShowTyping();
+      setTimeout(() => {
+        typingEl.remove();
+        aiAddMsg(html, 'bot', true);
+      }, 500 + Math.random() * 350);
+    }
+
+    const aiReponses = {
+      salutation: "Bonjour ! Comment allez-vous ? J'espère que vous allez bien. En quoi puis-je vous aider aujourd'hui ?",
+      bonsoir: "Bonsoir ! Comment allez-vous ? J'espère que vous allez bien. En quoi puis-je vous aider ?",
+      salutationEn: "Hello! How are you? I hope you are doing well. How can I help you today?",
+      maintenance: "La maintenance informatique regroupe les opérations qui maintiennent un ordinateur, un réseau ou une imprimante en bon état : diagnostic, réparation, nettoyage, mises à jour et prévention des pannes.<br><br><strong>Maintenance préventive :</strong> éviter les problèmes (mises à jour, nettoyage, sauvegardes).<br><strong>Maintenance corrective :</strong> réparer un équipement après une panne.",
+      maintenanceEn: "IT maintenance includes the work needed to keep computers, networks and printers working well: diagnosis, repair, cleaning, updates and prevention.<br><br><strong>Preventive maintenance</strong> helps avoid problems. <strong>Corrective maintenance</strong> fixes equipment after a failure.",
+      ip: "Une adresse IP est le numéro qui identifie un appareil sur un réseau. Elle peut être attribuée automatiquement par le routeur (DHCP) ou configurée manuellement. Ne choisissez pas une adresse au hasard : elle doit correspondre au réseau et ne pas être déjà utilisée.",
+      ipEn: "An IP address identifies a device on a network. It can be assigned automatically by the router (DHCP) or set manually. Never choose a random address: it must match the network and must not already be in use.",
+      ipConfig: "Pour configurer une adresse IP sans créer de conflit, il faut d'abord connaître votre système, le réseau du routeur et si l'adresse doit être automatique ou statique. Quel appareil utilisez-vous ? Ne saisissez pas de valeurs au hasard ; je vous guiderai selon votre système.",
+      ipConfigEn: "To configure an IP address safely, we first need your operating system, router network and whether the address should be automatic or static. What device are you using? Don't enter random values; I can guide you for your system.",
+      dns: "Le DNS traduit les noms de sites (comme example.com) en adresses IP compréhensibles par les appareils. Si le DNS fonctionne mal, la connexion peut être active mais les sites restent inaccessibles.",
+      dnsEn: "DNS translates website names into IP addresses that devices can use. If DNS has a problem, your connection may be active while websites remain unreachable.",
+      passerelle: "La passerelle est généralement l'adresse du routeur. Elle permet à votre appareil de joindre les autres réseaux, notamment Internet.",
+      passerelleEn: "The default gateway is usually your router's address. It lets your device reach other networks, including the Internet.",
+      masque: "Le masque de sous-réseau indique quelle partie d'une adresse IP identifie le réseau et quelle partie identifie l'appareil. Sur un réseau domestique, il est souvent attribué automatiquement par le routeur.",
+      masqueEn: "A subnet mask shows which part of an IP address identifies the network and which part identifies the device. Home routers usually assign it automatically.",
+      routeur: "Un routeur relie votre réseau local à d'autres réseaux, notamment Internet. Il distribue souvent les adresses IP et fournit le Wi-Fi.",
+      routeurEn: "A router connects your local network to other networks, including the Internet. It often assigns IP addresses and provides Wi-Fi.",
+      switch: "Un switch (commutateur réseau) relie plusieurs appareils par câble Ethernet au même réseau local. Il ne fournit pas forcément Internet à lui seul : il est généralement relié à un routeur.",
+      switchEn: "A network switch connects multiple devices to the same local network using Ethernet cables. It is usually connected to a router to provide Internet access.",
+      ecranBleu: "Cela ressemble à un écran bleu Windows (BSOD). Le code affiché aide à identifier la cause. Pour commencer sans risque :<br><strong>1.</strong> Photographiez le code exact.<br><strong>2.</strong> Éteignez le PC et débranchez les périphériques USB non indispensables.<br><strong>3.</strong> Rallumez-le une seule fois et dites-moi si Windows démarre.<br><strong>4.</strong> Indiquez aussi depuis quand cela arrive et si une mise à jour ou un nouveau logiciel précède la panne.<br>N'effacez aucun fichier, ne réinitialisez pas le PC et n'ouvrez pas l'appareil. Quel code voyez-vous à l'écran ?",
+      bsodEn: "This may be a Windows blue screen (BSOD). The stop code helps identify the cause. First, safely: take a photo of the exact code, shut the PC down, unplug non-essential USB devices, then start it once. Tell me whether Windows starts, the exact code, and whether this began after an update or new software. Do not reset the PC, delete files or open it.",
+      reseau: "Je vais vous guider étape par étape. Pour commencer :<br>1. Quel appareil et quel système utilisez-vous (Windows, macOS, téléphone) ?<br>2. Êtes-vous connecté en Wi-Fi ou par câble Ethernet ?<br>3. Les autres appareils ont-ils Internet ? Quel message d'erreur voyez-vous ?<br>Ne modifiez pas l'adresse IP pour l'instant et ne communiquez aucun mot de passe.",
+      reseauEn: "Let's check this step by step. What device and operating system are you using? Are you connected by Wi-Fi or Ethernet? Do other devices have Internet access, and what error message do you see? Don't change the IP settings yet, and never share a password.",
+      service: "Dites-m'en un peu plus : écran cassé ou lenteur → dépannage PC/Mac ; Wi-Fi ou réseau instable → installation réseau ; fichiers perdus → diagnostic spécialisé. Consultez la <a href=\"#services\">section Services</a>.",
+      serviceEn: "Tell me a little more: a broken screen or slow computer needs PC repair; unstable Wi-Fi or network needs network support; missing files need a data recovery diagnosis. See our <a href=\"#services\">services</a>.",
+      tarif: "Nos tarifs démarrent à 32 800 F CFA pour un dépannage PC/Mac, 65 600 F CFA pour une installation réseau et 98 400 F CFA pour la sécurité informatique. Le devis est gratuit : voir la <a href=\"#tarifs\">section Tarifs</a>.",
+      horaire: "Nous sommes ouverts du lundi au vendredi de 8 h à 18 h, le samedi de 9 h à 15 h. Pour une urgence, contactez-nous par WhatsApp.",
+      contact: "Vous pouvez contacter un technicien via le <a href=\"#contact\">formulaire de contact</a> ou WhatsApp au +228 91 89 30 78.",
+      virus: "Pour un ordinateur lent ou un message suspect, évitez de cliquer sur les liens et ne communiquez aucun mot de passe. Dites-moi quel message apparaît et depuis quand le problème a commencé. Un technicien pourra vérifier l'appareil si le problème persiste.",
+      imprimante: "Pour commencer, vérifiez que l'imprimante est allumée, qu'il n'y a pas de voyant d'erreur et qu'elle est connectée au même réseau ou au même câble. Quel modèle utilisez-vous et quel message voyez-vous ?",
+      formation: "Nous proposons des formations, dont l'Initiation Informatique. Consultez la <a href=\"#formation\">section Formation</a>.",
+      urgence: "Pour une panne urgente, contactez directement le technicien par WhatsApp au +228 91 89 30 78 ou via le <a href=\"#contact\">formulaire de contact</a>.",
+      devis: "Le diagnostic et le devis sont gratuits et sans engagement. Décrivez votre problème dans le <a href=\"#contact\">formulaire de contact</a>.",
+      tarifEn: "Prices start at 32,800 CFA francs for PC/Mac repair, 65,600 CFA francs for network installation and 98,400 CFA francs for IT security. Quotes are free. See our <a href=\"#tarifs\">pricing section</a>.",
+      horaireEn: "We are open Monday to Friday, 8 am to 6 pm, and Saturday, 9 am to 3 pm. For urgent help, contact us on WhatsApp.",
+      contactEn: "Contact a technician using the <a href=\"#contact\">contact form</a> or WhatsApp at +228 91 89 30 78.",
+      imprimanteEn: "First, check that the printer is powered on, has no error light, and is connected to the same network or cable. What model do you have, and what message do you see?",
+      urgenceEn: "For urgent help, contact a technician on WhatsApp at +228 91 89 30 78 or use the <a href=\"#contact\">contact form</a>.",
+      formationEn: "We offer computer training, including an introductory course. See our <a href=\"#formation\">training section</a>.",
+      devisEn: "Diagnosis and quotes are free with no obligation. Describe the issue in our <a href=\"#contact\">contact form</a>.",
+      garantie: "La garantie applicable dépend de l'intervention. Le technicien vous en précisera les conditions sur le devis avant toute réparation.",
+      garantieEn: "The warranty depends on the service. A technician will explain the applicable terms in the quote before any repair.",
+      fallback: "Je peux vous aider pour un premier diagnostic. Décrivez l'appareil concerné, ce qui se passe et le message d'erreur exact. Ne partagez pas de mot de passe ni d'information confidentielle."
+    };
+
+    let aiDiagnostic = null;
+
+    function aiNormaliser(question) {
+      return question.toLocaleLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
+    }
+
+    function aiEchapperHtml(text) {
+      const element = document.createElement('span');
+      element.textContent = text;
+      return element.innerHTML;
+    }
+
+    function aiRepondre(question) {
+      const q = aiNormaliser(question);
+      const marqueurAnglais = /\b(hello|hi|good morning|good evening|what|how|my|i have|please|computer|screen|network|configure|set up|dns|router|switch|ip address|gateway|subnet|the|code is|do you|does|where|when|which|you|yes|yeah|yep|no|not|other|devices|working|works|cannot|has|have)\b/.test(q);
+      const marqueurFrancais = /\b(bonjour|bonsoir|salut|que|quel|quelle|mon|ma|mes|probleme|panne|depuis|affiche|demarre)\b/.test(q);
+      const anglais = marqueurFrancais ? false : marqueurAnglais ? true : Boolean(aiDiagnostic && aiDiagnostic.lang === 'en');
+      const salutation = q.match(/^(bonjour|bonsoir|salut|hello|hi|good morning|good evening|bon matin|coucou)\b[,.! ]*(.*)$/);
+
+      if (salutation) {
+        const suite = salutation[2].trim();
+        const bonsoir = /^(bonsoir|good evening)$/.test(salutation[1]);
+        const reponseSalut = anglais ? aiReponses.salutationEn : bonsoir ? aiReponses.bonsoir : aiReponses.salutation;
+        if (!suite || /^(comment allez-vous|comment vas-tu|ca va|vous allez bien)[?.! ]*$/.test(suite)) return reponseSalut;
+        return reponseSalut + "<br><br>" + aiRepondre(suite);
       }
+
+      if (/\b(maintenance|preventive maintenance|corrective maintenance)\b/.test(q)) return anglais ? aiReponses.maintenanceEn : aiReponses.maintenance;
+      const demandeDefinition = /\b(que signifie|qu'est-ce que|c'est quoi|definition de|what is|what does|define)\b/.test(q);
+      const demandeTermeSeul = /^(adresse ip|ip address|dhcp|dns|masque de sous-reseau|subnet mask|passerelle|gateway|routeur|router|switch|commutateur)[?.! ]*$/.test(q);
+      if (/\b(configurer|configure|set up|configuration)\b.*\b(ip|dhcp)\b/.test(q)) {
+        aiDiagnostic = { type: 'reseau', details: [question], lang: anglais ? 'en' : 'fr' };
+        return anglais ? aiReponses.ipConfigEn : aiReponses.ipConfig;
+      }
+      if (/\b(adresse ip|ip address|ip statique|ip automatique|static ip|dynamic ip|dhcp)\b/.test(q) && (demandeDefinition || demandeTermeSeul || /^(static|dynamic) ip[?.! ]*$/.test(q))) return anglais ? aiReponses.ipEn : aiReponses.ip;
+      if (/\b(dns)\b/.test(q) && (demandeDefinition || demandeTermeSeul)) return anglais ? aiReponses.dnsEn : aiReponses.dns;
+      if (/\b(masque de sous-reseau|subnet mask)\b/.test(q) && (demandeDefinition || demandeTermeSeul)) return anglais ? aiReponses.masqueEn : aiReponses.masque;
+      if (/\b(passerelle|gateway)\b/.test(q) && (demandeDefinition || demandeTermeSeul)) return anglais ? aiReponses.passerelleEn : aiReponses.passerelle;
+      if (/\b(routeur|router)\b/.test(q) && (demandeDefinition || demandeTermeSeul) && !/\b(pas internet|internet ne fonctionne|no internet)\b/.test(q)) return anglais ? aiReponses.routeurEn : aiReponses.routeur;
+      if (/\b(switch|commutateur)\b/.test(q) && (demandeDefinition || demandeTermeSeul) && !/\b(configurer|configuration|panne|probleme)\b/.test(q)) return anglais ? aiReponses.switchEn : aiReponses.switch;
+
+      if (/\b(resume|resume pour le technicien|summary for the technician)\b/.test(q)) {
+        if (!aiDiagnostic || !aiDiagnostic.details.length) return "Décrivez d'abord le problème et les vérifications déjà effectuées ; je pourrai ensuite en faire un résumé.";
+        return (anglais ? "Summary for the technician:<br>" : "Résumé à transmettre au technicien :<br>") + aiDiagnostic.details.map((detail, index) => (index + 1) + ". " + aiEchapperHtml(detail)).join("<br>");
+      }
+
+      if (/\b(devis|gratuit|tarifs?|prix|cout|combien|euro|paiement|payer|prices?|costs?|quotes?|free|horaire|heure|ouvert|ferme|opening hours|urgence|urgent|emergency|whatsapp|technicien|technician|contact|rendez-vous|rdv|formation|training|apprendre|cours|service|services|garantie|warranty)\b/.test(q)) {
+        aiDiagnostic = null;
+        if (/devis|gratuit|tarif|prix|cout|combien|euro|paiement|payer|price|cost/.test(q)) return anglais ? aiReponses.tarifEn : aiReponses.tarif;
+        if (/horaire|heure|ouvert|ferme|opening hours|when are you open/.test(q)) return anglais ? aiReponses.horaireEn : aiReponses.horaire;
+        if (/urgence|urgent|emergency/.test(q)) return anglais ? aiReponses.urgenceEn : aiReponses.urgence;
+        if (/whatsapp|technicien|contact|rendez-vous|rdv|technician/.test(q)) return anglais ? aiReponses.contactEn : aiReponses.contact;
+        if (/formation|apprendre|cours|training|course/.test(q)) return anglais ? aiReponses.formationEn : aiReponses.formation;
+        if (/garantie|warranty/.test(q)) return anglais ? aiReponses.garantieEn : aiReponses.garantie;
+        if (/service|services/.test(q)) return anglais ? aiReponses.serviceEn : aiReponses.service;
+        return anglais ? aiReponses.devisEn : aiReponses.devis;
+      }
+
+      const demandeEcranBleu = /\b(ecran bleu|blue screen|bsod|code d'arret|code stop|devient bleu|blue screen of death)\b/.test(q);
+      const demandeReseau = /\b(pas internet|plus internet|internet ne fonctionne|connexion internet|wifi|wi-fi|ethernet|reseau|adresse ip|ip conflict|no internet|can't connect)\b/.test(q);
+
+      if (aiDiagnostic && aiDiagnostic.type === 'bsod' && !demandeReseau) {
+        aiDiagnostic.details.push(question);
+        const codesFr = {
+          inaccessible_boot_device: "Ce code indique que Windows n'arrive pas à accéder au disque ou à la partition de démarrage. La cause peut être logicielle ou matérielle ; ne modifiez pas le BIOS ni les partitions. Transmettez le code au technicien.",
+          memory_management: "Ce code est souvent lié à la mémoire ou à un pilote, mais ne suffit pas à confirmer la cause. N'ouvrez pas le PC et ne retirez pas les barrettes mémoire ; transmettez le code au technicien.",
+          critical_process_died: "Ce code indique l'arrêt d'un processus essentiel de Windows. Plusieurs causes sont possibles ; évitez toute réinitialisation et transmettez le code au technicien.",
+          system_thread_exception_not_handled: "Ce code peut être lié à un pilote ou à un composant, sans permettre de confirmer la cause à lui seul. Notez le code complet et transmettez-le au technicien."
+        };
+        const codesEn = {
+          inaccessible_boot_device: "This code means Windows cannot access the boot drive or partition. The cause may be software or hardware; do not change BIOS or partition settings. Share the code with a technician.",
+          memory_management: "This code is often related to memory or a driver, but it does not confirm the cause. Do not open the PC or remove memory modules; share the code with a technician.",
+          critical_process_died: "This code means an essential Windows process stopped. There can be several causes; avoid resetting the PC and share the code with a technician.",
+          system_thread_exception_not_handled: "This code may be related to a driver or component, but it cannot confirm the cause by itself. Note the full code and share it with a technician."
+        };
+        const codes = anglais ? codesEn : codesFr;
+        const code = Object.keys(codes).find(item => q.includes(item));
+        if (code) return codes[code] + (anglais ? " Does Windows reach the sign-in screen?" : " Windows démarre-t-il jusqu'à l'écran de connexion ?");
+        if (/\b(oui|demarre|fonctionne|redemarre normalement|starts|boots)\b/.test(q)) return anglais ? "Thanks. Back up important files if Windows is working, and note whether the error returns. What is the exact stop code, and did this start after an update or new software?" : "Merci. Sauvegardez vos fichiers importants si Windows fonctionne normalement, puis notez si l'erreur revient. Quel est le code exact affiché et une mise à jour ou un nouveau logiciel a-t-il précédé le problème ?";
+        if (/\b(non|bloque|boucle|ne demarre pas|toujours|persiste|still|wont boot)\b/.test(q)) return anglais ? "Thanks for the details. Don't keep restarting or reset the PC. Photograph the code and contact a technician using the <a href=\"#contact\">contact form</a> or WhatsApp at +228 91 89 30 78." : "Merci pour ces précisions. N'insistez pas sur les redémarrages et ne réinitialisez pas le PC. Photographiez le code affiché et contactez un technicien via le <a href=\"#contact\">formulaire</a> ou WhatsApp au +228 91 89 30 78.";
+        return anglais ? "Thanks. What exact stop code is displayed? Does Windows sometimes start, and did this begin after an update or new software?" : "Merci. Pour préciser le diagnostic, quel est le code d'arrêt exact affiché ? Windows démarre-t-il parfois, et avez-vous installé une mise à jour ou un logiciel juste avant la panne ?";
+      }
+
+      if (aiDiagnostic && aiDiagnostic.type === 'reseau' && !demandeEcranBleu) {
+        aiDiagnostic.details.push(question);
+        const en = anglais;
+        if (/\b(aucun appareil|tous les appareils|les autres.*(non|pas)|other devices.*(no|not))\b/.test(q)) return en ? "If no devices have Internet, check the modem/router lights and cables. You may restart it normally, but do not press the Reset button. Do any lights show an error?" : "Si aucun appareil n'a Internet, vérifiez les voyants du modem/routeur et que ses câbles sont bien branchés. Vous pouvez le redémarrer normalement, mais n'appuyez pas sur le bouton Reset. Les voyants indiquent-ils une erreur ?";
+        if (/\b(seul|uniquement|seulement|les autres.*(oui|fonctionnent)|other devices.*(yes|work))\b/.test(q) || /^(oui|yes|yeah|yep)\b/.test(q)) return en ? "The issue seems limited to this device. Check that Airplane mode is off and reconnect to the correct Wi-Fi. On Windows, open Command Prompt and run <strong>ipconfig</strong>; share only the IPv4 Address and Default Gateway lines. Never share a password." : "Le problème semble limité à cet appareil. Vérifiez que le mode avion est désactivé et reconnectez-vous au bon Wi-Fi. Sous Windows, ouvrez l'invite de commandes et tapez <strong>ipconfig</strong> ; indiquez-moi seulement les lignes « Adresse IPv4 » et « Passerelle par défaut ». Ne partagez aucun mot de passe.";
+        if (/\b169\.254\./.test(q)) return en ? "An address starting with 169.254 usually means the device did not receive an address from the router (DHCP). Check Wi-Fi or Ethernet and restart the router normally. Don't choose a random IP address; contact a technician if this continues." : "Une adresse commençant par 169.254 indique généralement que l'appareil n'a pas reçu d'adresse du routeur (DHCP). Vérifiez le Wi-Fi ou le câble et redémarrez normalement le routeur. Ne configurez pas une adresse IP au hasard ; si le problème persiste, transmettez cette information au technicien.";
+        return en ? "Thanks. Do other devices have Internet? Are you using Wi-Fi or Ethernet? If possible, share the IPv4 Address and Default Gateway shown by <strong>ipconfig</strong>. Never share a password." : "Merci. Les autres appareils ont-ils Internet ? Indiquez aussi si vous êtes en Wi-Fi ou Ethernet et, si possible, l'adresse IPv4 et la passerelle affichées par <strong>ipconfig</strong>. Ne partagez pas de mot de passe.";
+      }
+
+      if (demandeEcranBleu) {
+        aiDiagnostic = { type: 'bsod', details: [question], lang: anglais ? 'en' : 'fr' };
+        return anglais ? aiReponses.bsodEn : aiReponses.ecranBleu;
+      }
+
+      if (demandeReseau) {
+        aiDiagnostic = { type: 'reseau', details: [question], lang: anglais ? 'en' : 'fr' };
+        return anglais ? aiReponses.reseauEn : aiReponses.reseau;
+      }
+
+      if (/\b(imprimante|printer|scanner)\b/.test(q)) return anglais ? aiReponses.imprimanteEn : aiReponses.imprimante;
+      if (/\b(virus|lent|lenteur|ralenti|demarrage|demarre|ecran|casse|panne|probleme|error|erreur)\b/.test(q)) {
+        aiDiagnostic = { type: 'autre', details: [question] };
+        return "Je vais vous aider à faire un premier diagnostic. Quel appareil et quel système utilisez-vous ? Quel message ou code exact apparaît, depuis quand, et le problème survient-il à chaque démarrage ? Ne supprimez aucun fichier et n'ouvrez pas l'appareil.";
+      }
+
+      if (/\b(service|besoin)\b/.test(q)) return aiReponses.service;
+      return anglais ? "I can help with a first check. Which device are you using, what happens, and what exact error message do you see? Never share a password or confidential information." : aiReponses.fallback;
+    }
+
+    document.querySelectorAll('#aiQuickReplies button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        aiAddMsg(btn.textContent, 'user');
+        aiReply(aiReponses[btn.dataset.q]);
+      });
     });
-  }, { threshold: 0.12 });
-  revealEls.forEach(el => observer.observe(el));
 
-  // ── ASSISTANT IA (guide par mots-cles, sans compte externe) ──
-  const aiToggle = document.getElementById('aiToggle');
-  const aiPanel = document.getElementById('aiPanel');
-  const aiClose = document.getElementById('aiClose');
-  const aiMessages = document.getElementById('aiMessages');
-  const aiForm = document.getElementById('aiForm');
-  const aiInput = document.getElementById('aiInput');
-
-  function aiOpen() { aiPanel.classList.add('open'); aiInput.focus(); }
-  function aiToggleFn() { aiPanel.classList.toggle('open'); if (aiPanel.classList.contains('open')) aiInput.focus(); }
-  aiToggle.addEventListener('click', aiToggleFn);
-  aiClose.addEventListener('click', () => aiPanel.classList.remove('open'));
-
-  function aiAddMsg(text, from) {
-    const div = document.createElement('div');
-    div.className = 'ai-msg ' + (from === 'user' ? 'ai-msg-user' : 'ai-msg-bot');
-    div.textContent = text;
-    aiMessages.appendChild(div);
-    aiMessages.scrollTop = aiMessages.scrollHeight;
-  }
-
-  const aiReponses = {
-    service: "Dites-m'en un peu plus : ecran casse ou lenteurs -> Depannage PC/Mac. Wi-Fi ou reseau instable -> Installation Reseau. Fichiers perdus/pirates -> Securite & Sauvegarde. Vous pouvez voir le detail dans la section Services ci-dessus.",
-    tarif: "Nos tarifs demarrent a 50 EUR pour un depannage basique, 100 EUR pour une installation reseau et 150 EUR pour une securisation complete. Devis gratuit avant toute intervention — voir la section Tarifs.",
-    horaire: "Nous sommes ouverts du Lundi au Vendredi de 8h a 18h, le Samedi de 9h a 15h, et disponibles pour les urgences le Dimanche via WhatsApp.",
-    contact: "Le plus rapide : cliquez sur le bouton WhatsApp vert en bas a gauche, ou remplissez le formulaire dans la section Contact — un technicien vous repond sous 2h en jours ouvres.",
-    virus: "Cela ressemble a un probleme logiciel (virus, lenteur). Notre Depannage Basique (a partir de 50 EUR) inclut un diagnostic complet et la suppression de virus.",
-    wifi: "Pour un probleme de Wi-Fi ou de reseau, notre service Installation Reseau (a partir de 100 EUR) couvre la configuration complete et la securisation de l'acces.",
-    imprimante: "Nous intervenons aussi sur les imprimantes (bourrage, pilotes, connexion reseau). Decrivez le probleme dans le formulaire de contact pour un diagnostic precis.",
-    formation: "Nous proposons des formations en Initiation Informatique, Securite, Reseaux et Developpement — voir la section Formation ci-dessus.",
-    whatsapp: "Cliquez simplement sur le bouton vert WhatsApp en bas a gauche de l'ecran pour nous ecrire directement."
-  };
-
-  function aiRepondre(question) {
-    const q = question.toLowerCase();
-    if (/tarif|prix|cout|combien|euro/.test(q)) return aiReponses.tarif;
-    if (/horaire|heure|ouvert|ferme/.test(q)) return aiReponses.horaire;
-    if (/whatsapp/.test(q)) return aiReponses.whatsapp;
-    if (/technicien|contact|rdv|rendez|parler|appel/.test(q)) return aiReponses.contact;
-    if (/virus|lent|lenteur|demarr|ecran|casse/.test(q)) return aiReponses.virus;
-    if (/wifi|wi-fi|reseau|internet/.test(q)) return aiReponses.wifi;
-    if (/imprimante/.test(q)) return aiReponses.imprimante;
-    if (/formation|apprendre|cours/.test(q)) return aiReponses.formation;
-    if (/service|besoin|probleme|panne/.test(q)) return aiReponses.service;
-    return "Je ne suis pas certain de bien comprendre. Le plus sur : remplissez le formulaire de contact ou ecrivez-nous sur WhatsApp, un technicien vous repondra rapidement.";
-  }
-
-  document.querySelectorAll('#aiQuickReplies button').forEach(btn => {
-    btn.addEventListener('click', () => {
-      aiAddMsg(btn.textContent, 'user');
-      setTimeout(() => aiAddMsg(aiReponses[btn.dataset.q], 'bot'), 350);
+    aiForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const val = aiInput.value.trim();
+      if (!val) return;
+      aiAddMsg(val, 'user');
+      aiInput.value = '';
+      aiReply(aiRepondre(val));
     });
-  });
 
-  aiForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    const val = aiInput.value.trim();
-    if (!val) return;
-    aiAddMsg(val, 'user');
-    aiInput.value = '';
-    setTimeout(() => aiAddMsg(aiRepondre(val), 'bot'), 350);
-  });
+    aiMessages.addEventListener('click', function (e) {
+      const a = e.target.closest('a[href^="#"]');
+      if (a) aiPanel.classList.remove('open');
+    });
 
-  
- // Form submit — envoi reel vers aboniayitejoseph@gmail.com via FormSubmit
-let lastRequestData = null;
 
-function genererPdfDemande(d) {
-  const { jsPDF } = window.jspdf;
-  const doc = new jsPDF();
-  const dateStr = new Date().toLocaleString('fr-FR');
+    // Form submit — envoi reel vers aboniayitejoseph@gmail.com via FormSubmit
+    let lastRequestData = null;
 
-  doc.setFillColor(10, 22, 40);
-  doc.rect(0, 0, 210, 32, 'F');
-  doc.setTextColor(255, 255, 255);
-  doc.setFontSize(20);
-  doc.text("TechFix", 15, 18);
-  doc.setFontSize(10);
-  doc.setTextColor(200, 210, 230);
-  doc.text("Reparation & Maintenance Informatique", 15, 25);
+    function genererPdfDemande(d) {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+      const dateStr = new Date().toLocaleString('fr-FR');
 
-  doc.setTextColor(20, 20, 20);
-  doc.setFontSize(14);
-  doc.text("Recapitulatif de votre demande", 15, 45);
-  doc.setDrawColor(200, 200, 200);
-  doc.line(15, 49, 195, 49);
+      doc.setFillColor(10, 22, 40);
+      doc.rect(0, 0, 210, 32, 'F');
+      doc.setTextColor(255, 255, 255);
+      doc.setFontSize(20);
+      doc.text("TechFix", 15, 18);
+      doc.setFontSize(10);
+      doc.setTextColor(200, 210, 230);
+      doc.text("Reparation & Maintenance Informatique", 15, 25);
 
-  doc.setFontSize(11);
-  let y = 60;
-  const champs = [
-    ["Date de la demande", dateStr],
-    ["Nom complet", d.Nom],
-    ["Email", d.Email],
-    ["Type de panne", d["Type de panne"]],
-  ];
-  champs.forEach(([label, val]) => {
-    doc.setFont(undefined, 'bold');
-    doc.text(label + " :", 15, y);
-    doc.setFont(undefined, 'normal');
-    doc.text(String(val || "-"), 75, y);
-    y += 10;
-  });
+      doc.setTextColor(20, 20, 20);
+      doc.setFontSize(14);
+      doc.text("Recapitulatif de votre demande", 15, 45);
+      doc.setDrawColor(200, 200, 200);
+      doc.line(15, 49, 195, 49);
 
-  doc.setFont(undefined, 'bold');
-  doc.text("Description du probleme :", 15, y);
-  y += 8;
-  doc.setFont(undefined, 'normal');
-  const lignes = doc.splitTextToSize(d.Message || "-", 180);
-  doc.text(lignes, 15, y);
+      doc.setFontSize(11);
+      let y = 60;
+      const champs = [
+        ["Date de la demande", dateStr],
+        ["Nom complet", d.Nom],
+        ["Email", d.Email],
+        ["Type de panne", d["Type de panne"]],
+      ];
+      champs.forEach(([label, val]) => {
+        doc.setFont(undefined, 'bold');
+        doc.text(label + " :", 15, y);
+        doc.setFont(undefined, 'normal');
+        doc.text(String(val || "-"), 75, y);
+        y += 10;
+      });
 
-  doc.setFontSize(9);
-  doc.setTextColor(120, 120, 120);
-  doc.text("TechFix Maintenance — Lome, Togo — +228 91 89 30 78 — aboniayitejoseph@gmail.com", 15, 285);
+      doc.setFont(undefined, 'bold');
+      doc.text("Description du probleme :", 15, y);
+      y += 8;
+      doc.setFont(undefined, 'normal');
+      const lignes = doc.splitTextToSize(d.Message || "-", 180);
+      doc.text(lignes, 15, y);
 
-  doc.save("demande-techfix-" + Date.now() + ".pdf");
-}
+      doc.setFontSize(9);
+      doc.setTextColor(120, 120, 120);
+      doc.text("TechFix Maintenance — Lome, Togo — +228 91 89 30 78 — aboniayitejoseph@gmail.com", 15, 285);
 
-document.getElementById('downloadPdfBtn').addEventListener('click', function() {
-  if (lastRequestData) genererPdfDemande(lastRequestData);
-});
+      doc.save("demande-techfix-" + Date.now() + ".pdf");
+    }
 
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-  e.preventDefault();
+    document.getElementById('downloadPdfBtn').addEventListener('click', function () {
+      if (lastRequestData) genererPdfDemande(lastRequestData);
+    });
 
-  const submitBtn = document.querySelector('.btn-submit');
-  const originalBtnHTML = submitBtn.innerHTML;
-  submitBtn.disabled = true;
-  submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
+      e.preventDefault();
 
-  const data = {
-    Nom: document.getElementById("nom").value,
-    Email: document.getElementById("email").value,
-    "Type de panne": document.getElementById("type").value,
-    Message: document.getElementById("message").value,
-    _subject: "Nouvelle demande depuis le site TechFix"
-  };
+      const submitBtn = document.querySelector('.btn-submit');
+      const originalBtnHTML = submitBtn.innerHTML;
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
 
-  fetch("https://formsubmit.co/ajax/aboniayitejoseph@gmail.com", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "Accept": "application/json"
-    },
-    body: JSON.stringify(data)
-  })
-  .then(res => res.json())
-  .then(function() {
-    const toast = document.getElementById('toast');
-    toast.classList.add('show');
-    lastRequestData = data;
-    document.getElementById('downloadPdfBtn').style.display = 'block';
-    genererPdfDemande(data);
-    document.getElementById('contactForm').reset();
-    setTimeout(() => toast.classList.remove('show'), 4000);
-  })
-  .catch(function(error) {
-    alert("Erreur d'envoi, veuillez reessayer ou nous contacter par WhatsApp/telephone. (" + error + ")");
-  })
-  .finally(function() {
-    submitBtn.disabled = false;
-    submitBtn.innerHTML = originalBtnHTML;
-  });
-});
-</script>
+      const data = {
+        Nom: document.getElementById("nom").value,
+        Email: document.getElementById("email").value,
+        "Type de panne": document.getElementById("type").value,
+        Message: document.getElementById("message").value,
+        _subject: "Nouvelle demande depuis le site TechFix",
+        _template: "table",
+        _captcha: "false"
+      };
+
+      fetch("https://formsubmit.co/ajax/aboniayitejoseph@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(data)
+      })
+        .then(function (res) {
+          if (!res.ok) throw new Error("Statut HTTP " + res.status);
+          return res.json();
+        })
+        .then(function (result) {
+          console.log("Reponse FormSubmit :", result);
+          const succes = result && (result.success === "true" || result.success === true);
+          if (!succes) throw new Error((result && result.message) || "FormSubmit a refuse la demande.");
+
+          const toast = document.getElementById('toast');
+          toast.classList.add('show');
+          lastRequestData = data;
+          document.getElementById('downloadPdfBtn').style.display = 'block';
+          genererPdfDemande(data);
+          document.getElementById('contactForm').reset();
+          setTimeout(() => toast.classList.remove('show'), 4000);
+        })
+        .catch(function (error) {
+          console.error("Erreur envoi FormSubmit :", error);
+          alert("Erreur d'envoi (" + error.message + "). Verifiez que le formulaire a bien ete active (email de confirmation FormSubmit), ou contactez-nous par WhatsApp/telephone.");
+        })
+        .finally(function () {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnHTML;
+        });
+    });
+  </script>
 </body>
+
 </html>
